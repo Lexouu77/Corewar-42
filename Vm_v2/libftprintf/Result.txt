@@ -1,0 +1,10 @@
+Test avec : %c
+K
+c
+Real printf return value : 1
+Your printf return value : 1
+
+------------------------------------------------------------
+
+Test avec : %10c
+         K
