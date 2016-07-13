@@ -31,3 +31,10 @@
 # Debug files
 *.dSYM/
 *.su
+
+# OS X
+*.DS_Store
+
+# Executable
+./VM_OLD/corewar
+./ASM_OLD/asm
