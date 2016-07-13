@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 08:28:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/06/14 12:43:40 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/13 16:58:45 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,35 +95,40 @@ typedef struct		s_vm_data
 }					t_vm_data;
 
 /*
-** NEXT PROCESS IS NUMBER : n = n-1 + 1 | n0 = 1;
-** WHO WON THE FIGHT ?
-** ARE YOU ALL ABLE TO FIGHT ?
-** Number of checks before decrementing cycles_to_die
-** AM I DECREMENTING ? IF YES DECREMENT THE CYCLE_TO_DIE BY CYCLE_DELTA
-** ^^^^^^^ EACH CYCLE CHECK !
-** CYCLES TO DUMP -> -dump
-** Cycles until death aka check aka WILL YOU DIEEEEE ?
-** cycles to decrement DEATH WILL OCCURS FASTER
-** number of checks atm; starting at 1 for the first check
-** if number of live in the current check > this -> DECREMENTING !
-** number of registers
-** next check at cycle number.
-** number of cycle.
-** number of players.
-** arena mem_zone
-** arena -> contains the memory and its value
-** arena process -> contains the process -> who owns the memory byte ?
-** ^^^^^^^^ ? ->color in the graph display / color display N0NE/P1/P2/P3/P4
-** HERE WILL RESIDE NEW MEMORY (BEST QUALITY !) Displaying with bold Color
-** ^^^^^^^^^^^^ Aka the "i just wrote here" thing.
-** dumping bonus. stop the vm and dump the memory;
-** Color bonus for dump / loop_dump / verbosity;
-** GRAPHIC IS MAGIC.
-** Dump each cycles_to_loop_dump then stops and go on again ..
-** verbosity : 0 - show essentials
-**             1 - show lives
-**             2 - show cycles and cycles to die if decrementing
-**             4 - show deaths. ?? a bit annoying to do tbh :(
+** Next process number
+** Winner
+** Number of players able to play.
+** MAX_CHECKS
+** Am i decrementing ?
+** CYCLE_TO_DUMP
+** CYCLE_TO_DUMP with loop -> -l bonus
+** CYCLE_TO_DIE
+** CYCLE_DELTA
+** Number of check done
+** NBR_LIVE
+** Number of lives done throught the period
+** REG_NUMBER
+** Number of the next cycle check
+** Number of the actual cycle.
+** Number of players
+** MEM_SIZE
+** -f bonus, create a Corewar.log file
+** fd to write
+** -d bonus dump the field then exit
+** to delete
+** -g TODO :
+** -l bonus dump each cycles_to_loop_dump without exiting
+** -v bonus display some usefull information
+** pause -> graphic mode.
+** Array which contains the owner of the tile needed to display the color in
+** ^^^^ graphic mode
+** Array which contains the memory and its value
+** Array which contains the process location
+** Array which contains the location of last cycle written data
+** temp
+** Linked list on the last player since we're starting from the last
+** ^^^ in the instructions execution
+** Linked list with all players, starting from the first
 */
 
 #endif
