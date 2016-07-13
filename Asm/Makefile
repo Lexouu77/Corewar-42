@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/13 16:43:07 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/13 20:19:04 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,12 @@ DEBUGFLAG = -g3 -fsanitize=address
 INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
-SRC =
-HEADER =
+SRC = asm.c\
+	  display_usage.c\
+	  is_only_flags_or_nothing.c\
+	  op.c
+HEADER = asm.h\
+		 op.h
 
 NORMINETTE_TEST := $(shell norminette $(SRC) $(HEADER) | grep -B 1 Error)
 
