@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/13 20:19:04 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/14 19:05:26 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
 SRC = asm.c\
+	  check_args.c\
 	  display_usage.c\
+	  is_a_cor_file.c\
+	  is_a_s_file.c\
 	  is_only_flags_or_nothing.c\
 	  op.c
 HEADER = asm.h\
