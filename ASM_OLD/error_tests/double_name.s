@@ -1,2 +1,0 @@
-.name "cocou"
-.name "cocou"
