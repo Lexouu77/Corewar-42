@@ -6,12 +6,12 @@
 /*   By: sjulliot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 18:52:26 by sjulliot          #+#    #+#             */
-/*   Updated: 2016/07/13 17:10:26 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/15 07:21:04 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-
+/*
 extern t_op g_op_tab[17];
 
 void				check_label_name(char *name, t_asm_data *data)
@@ -133,17 +133,17 @@ void				check_param_format(char *inst, int param_index, char *param, t_asm_data 
 		return ;
 	if (!(given_type & allowed_types))
 	{
-		/*
+*/		/*
 		ft_printf("jolie erreur %s param %s\n", inst, param);
 		ft_printf("param index %d\n", param_index);
 		ft_printf("given_type %d\nallowed %d", given_type, allowed_types);
 		*/
-		data->error = INVALID_INSTRUCTION_FORMAT;
+/*		data->error = INVALID_INSTRUCTION_FORMAT;
 		return ;
 	}
 	if (given_type & T_REG)
 		check_reg_format(param, data);
-}
+}*//*
 
 char				**ft_strsplit_first(char *str, char sep)
 {
@@ -220,10 +220,10 @@ void				check_labeled_line(char *line, t_asm_data *data)
 	check_label_name(splited[0], data);
 	check_instruction(splited[1], data);
 }
-
-int					check_line_error(char *line, t_asm_data *data, int line_number)
+*/
+int					check_line_error(char *line)/*, t_asm_data *data, int line_number)*/
 {
-	if (ft_strchr(line, LABEL_CHAR))
+	/*if (ft_strchr(line, LABEL_CHAR))
 	{
 		check_labeled_line(line, data);
 		if (data->error)
@@ -235,6 +235,6 @@ int					check_line_error(char *line, t_asm_data *data, int line_number)
 	else
 		check_instruction(line, data);
 	if (data->error)
-		data->line_number_of_error = line_number;
+		data->line_number_of_error = line_number;*/
 	return (data->error ? 1 : 0);
 }
