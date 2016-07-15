@@ -14,7 +14,7 @@
 
 void			bufferjoin(t_info *list, char *str, int len)
 {
-	const int	len2 = (len == -1) ? ft_strlen(str) : len;
+	const int	len2 = (len == -1) ? (int)ft_strlen(str) : len;
 
 	if (!list->nb_c_written)
 		list->converted_string = ftprintf_strndup(str, len2);

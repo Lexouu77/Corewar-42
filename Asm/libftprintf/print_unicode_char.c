@@ -19,14 +19,14 @@ void		print_unicode_char(va_list *va, t_flags *flag, t_info *list)
 
 	flag->i = -1;
 	x = va_arg(*va, void*);
-	len = get_unicode_len((int)x);
+	len = get_unicode_len(*(int *)x);
 	if (!flag->is_min_area_size_here)
-		return (bufferujoin(list, (int)x));
+		return (bufferujoin(list, *(int *)x));
 	else
 	{
 		while (!flag->minus && ++flag->i < flag->nb_min_char - len)
 			flag->zero ? bufferujoin(list, 48) : bufferujoin(list, 32);
-		bufferujoin(list, (int)x);
+		bufferujoin(list, *(int *)x);
 		while (flag->minus && ++flag->i < flag->nb_min_char - len)
 			flag->zero ? bufferujoin(list, 48) : bufferujoin(list, 32);
 	}

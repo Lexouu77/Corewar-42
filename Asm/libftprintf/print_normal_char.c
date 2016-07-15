@@ -21,7 +21,7 @@ void		print_normal_char(va_list *va, t_flags *flag, t_info *list)
 		return (print_unicode_char(va, flag, list));
 	flag->i = -1;
 	x = va_arg(*va, void*);
-	transformed_x = (int)x;
+	transformed_x = *(char *)x;
 	if (!flag->is_min_area_size_here)
 		return (bufferjoin(list, &transformed_x, 1));
 	else

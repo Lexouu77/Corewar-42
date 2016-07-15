@@ -11,7 +11,6 @@
 # **************************************************************************** #
 
 NAME = asm
-CC = clang
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra
 OFLAGS = -O3 -march=native
