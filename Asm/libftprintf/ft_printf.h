@@ -27,11 +27,11 @@
 # include <sys/xattr.h>
 # include <pwd.h>
 # include <grp.h>
-# include <uuid/uuid.h>
+//# include <uuid/uuid.h>
 # include <time.h>
 # include <pwd.h>
 # include <errno.h>
-# include <sys/acl.h>
+//# include <sys/acl.h>
 # include <termios.h>
 //# include <term.h>
 # include <curses.h>
