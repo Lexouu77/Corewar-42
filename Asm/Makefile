@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/15 07:01:02 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/15 09:29:37 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
 SRC = asm.c\
+	  assemble.c\
 	  check_args.c\
 	  create_asm_file.c\
 	  create_lst_instruction.c\
@@ -27,9 +28,11 @@ SRC = asm.c\
 	  display_error.c\
 	  display_usage.c\
 	  display_success.c\
+	  free_list.c\
 	  get_asm_body.c\
 	  is_a_cor_file.c\
 	  is_a_s_file.c\
+	  is_file_valid.c\
 	  is_only_flags_or_nothing.c\
 	  op.c\
 	  read_fixed_param_type.c\

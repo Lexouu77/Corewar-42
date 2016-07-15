@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 00:46:31 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 07:07:45 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/15 09:24:09 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int			create_asm_file(char *file, int reading_fd)
 	write_asm_header(writing_fd, header);
 	get_asm_body(reading_fd, &instr, header.prog_size);
 	write_asm_body(writing_fd, instr);
-	//free instr
+	free_list(instr);
 	return (1);
 }

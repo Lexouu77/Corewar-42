@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 04:33:51 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 07:06:50 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/15 09:35:03 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ int		read_format(int fd, t_instruction *instr, int *i)
 {
 	int	j;
 
+	instr->number_of_args = g_op_tab[instr->op_code - 1].arg_number;
 	if (!g_op_tab[instr->op_code - 1].byte_param)
-		return(1);
-	j =-1;
+		return (1);
+	j = -1;
 	if (!read(fd, &instr->format, 1))
 		return (0);
 	*i = *i - 1;
-	instr->number_of_args = g_op_tab[instr->op_code - 1].arg_number;
 	if (!(instr->args_type = (char*)malloc(sizeof(char)
 			* instr->number_of_args)) || !(instr->args_value =
 				(int*)malloc(sizeof(int) * instr->number_of_args)) ||

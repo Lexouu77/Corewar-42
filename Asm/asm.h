@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 07:02:33 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/15 08:57:02 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ typedef struct				s_asm_data
 	int						display_byte_info;
 }							t_asm_data;
 */
+
+void						assemble(char *file, char *bonus);
 t_instruction				*create_lst_instruction(char *line,
 							int line_number);
 void						get_asm_body(int fd, t_instruction **instruction,
@@ -101,6 +103,7 @@ void						check_args(int argc, char **argv);
 void						disassemble(char *file);
 void						get_asm_body(int fd, t_instruction **instruction,
 							unsigned int size);
+void						free_list(t_instruction *list);
 
 /* DISPLAY FUNCTIONS */
 
@@ -112,6 +115,7 @@ void						display_success(char *filename);
 
 int							is_a_cor_file(char *filename);
 int							is_a_s_file(char *filename);
+int							is_file_valid(char *file);
 int							is_only_flags_or_nothing(int argc, char **argv);
 int							was_already_called(char **argv, int index);
 

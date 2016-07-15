@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 04:34:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 06:44:37 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/15 09:33:24 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ int		read_param_value(int fd, t_instruction *instr)
 	}
 	return (1);
 }
-

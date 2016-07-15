@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 01:04:07 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 06:47:35 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/15 09:36:49 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ void	get_asm_body(int fd, t_instruction **instruction, unsigned int size)
 		tmp = instr;
 		instr = instr->next;
 	}
-	if (instr->op_code <  1 || instr->op_code > 16 || instr->number_of_args)
-	{
+	if (instr->op_code < 1 || instr->op_code > 16 || instr->number_of_args)
 		free(instr);
+	if (instr->op_code < 1 || instr->op_code > 16 || instr->number_of_args)
 		tmp->next = NULL;
-	}
 }

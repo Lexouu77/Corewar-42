@@ -6,7 +6,7 @@
 /*   By: sjulliot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/18 18:52:26 by sjulliot          #+#    #+#             */
-/*   Updated: 2016/07/15 07:21:04 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/15 09:12:41 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,7 @@ void				check_labeled_line(char *line, t_asm_data *data)
 */
 int					check_line_error(char *line)/*, t_asm_data *data, int line_number)*/
 {
+	(void)line;
 	/*if (ft_strchr(line, LABEL_CHAR))
 	{
 		check_labeled_line(line, data);
@@ -236,5 +237,6 @@ int					check_line_error(char *line)/*, t_asm_data *data, int line_number)*/
 		check_instruction(line, data);
 	if (data->error)
 		data->line_number_of_error = line_number;*/
-	return (data->error ? 1 : 0);
+//	return (data->error ? 1 : 0);
+	return (0);
 }
