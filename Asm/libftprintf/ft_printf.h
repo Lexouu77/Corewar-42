@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 03:19:22 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/08 03:00:10 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/15 04:07:34 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # include <errno.h>
 # include <sys/acl.h>
 # include <termios.h>
-# include <term.h>
+//# include <term.h>
 # include <curses.h>
 # define BUFF_SIZE 4096
 
