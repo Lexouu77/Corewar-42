@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 00:21:43 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 20:47:14 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/16 21:44:13 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,12 @@ void						disassemble(char *file)
 	const int	len = ft_strlen(file);
 	char		*new_file;
 	char		*tmp;
-	struct stat	stats;
+	struct stat	file_stats;
 
-	if (access(file, F_OK) == -1)
-		return ((void)display_error("File does not exist", file));
-	if (access(file, R_OK) == -1)
-		return ((void)display_error("Missing read rights on this file", file));
+	if (!is_file_valid(file))
+		return ;
 	if ((fd = open(file, O_RDONLY)) == -1)
 		return ((void)display_error("Couldn't open the file", file));
-	if (stat(file, &stats) == -1)
-		ft_error("Stat returned -1.");
-	if (!stats.st_size)
-		return ((void)display_error("Empty file", file));
 	tmp = ft_strndup(file, len - 4);
 	new_file = ft_strjoin(tmp, ".s");
 	free(tmp);

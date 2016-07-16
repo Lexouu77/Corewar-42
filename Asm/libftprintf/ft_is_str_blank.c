@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reset_data_struct.c                                :+:      :+:    :+:   */
+/*   ft_is_str_blank.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/16 20:13:34 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 23:47:11 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/16 23:04:34 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/16 23:04:36 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm.h"
+#include "ft_printf.h"
 
-void		reset_data_struct(t_data *data)
+int		ft_is_str_blank(char *s)
 {
-	if (!data)
-		return ;
-	if (data->name)
-		free(data->name);
-	if (data->comment)
-		free(data->comment);
-	if (data->file_content)
-		free_file_content(data);
-	data->file_content = NULL;
-	data->error_line = 0;
-	data->name = NULL;
-	data->comment = NULL;
-	data->has_name = 0;
-	data->has_comment = 0;
-	data->has_instructions = 0;
-	data->display_byte_info = 0;;
+	int	i;
+
+	i = -1;
+	while (s[++i])
+	{
+		if (!ft_isblank(s[i]))
+			return (0);
+	}
+	return (1);
 }

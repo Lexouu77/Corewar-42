@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reset_data_struct.c                                :+:      :+:    :+:   */
+/*   line_starts_with_comment.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/16 20:13:34 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 23:47:11 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/16 23:08:49 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/16 23:47:05 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-void		reset_data_struct(t_data *data)
+int		line_starts_with_comment(char *s)
 {
-	if (!data)
-		return ;
-	if (data->name)
-		free(data->name);
-	if (data->comment)
-		free(data->comment);
-	if (data->file_content)
-		free_file_content(data);
-	data->file_content = NULL;
-	data->error_line = 0;
-	data->name = NULL;
-	data->comment = NULL;
-	data->has_name = 0;
-	data->has_comment = 0;
-	data->has_instructions = 0;
-	data->display_byte_info = 0;;
+	int	i;
+
+	i = 0;
+	while (s[i] && ft_isspace(s[i]))
+		i++;
+	if (!s[i])
+		return (0);
+	if (s[i] == '#' || s[i] == ';' || (s[i + 1] && s[i] == '/' && s[i] == '/'))
+		return (1);
+	return (0);
 }

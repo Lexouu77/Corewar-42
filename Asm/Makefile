@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/16 20:43:16 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/17 00:29:13 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ DEBUGFLAG = -g3 -fsanitize=address
 INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
-SRC = asm.c\
+SRC = add_file_content_line.c\
+	  asm.c\
 	  assemble.c\
 	  check_args.c\
 	  create_asm_file.c\
@@ -35,13 +36,16 @@ SRC = asm.c\
 	  is_a_s_file.c\
 	  is_file_valid.c\
 	  is_only_flags_or_nothing.c\
+	  line_starts_with_comment.c\
 	  op.c\
 	  read_fixed_param_type.c\
 	  read_format.c\
 	  read_op_code.c\
 	  read_param_type.c\
 	  read_param_value.c\
+	  remove_comment_from_line.c\
 	  reset_data_struct.c\
+	  stock_file_content.c\
 	  was_already_called.c\
 	  write_asm_body.c\
 	  write_asm_header.c\

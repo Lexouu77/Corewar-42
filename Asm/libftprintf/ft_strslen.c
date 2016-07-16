@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reset_data_struct.c                                :+:      :+:    :+:   */
+/*   ft_strslen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/16 20:13:34 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 23:47:11 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/17 00:22:11 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/17 00:22:13 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm.h"
+#include "ft_printf.h"
 
-void		reset_data_struct(t_data *data)
+size_t			ft_strslen(const char *s, char *to_find)
 {
-	if (!data)
-		return ;
-	if (data->name)
-		free(data->name);
-	if (data->comment)
-		free(data->comment);
-	if (data->file_content)
-		free_file_content(data);
-	data->file_content = NULL;
-	data->error_line = 0;
-	data->name = NULL;
-	data->comment = NULL;
-	data->has_name = 0;
-	data->has_comment = 0;
-	data->has_instructions = 0;
-	data->display_byte_info = 0;;
+	size_t	i;
+
+	i = 0;
+	if (s && to_find)
+		while (s[i] && ft_strcmp(s, to_find))
+			++i;
+	return (i);
 }

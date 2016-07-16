@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 20:43:14 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 00:29:15 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct				s_file_line
 typedef struct				s_data
 {
 	struct s_file_line		*file_content;
+	int						error_line;
 	char					*name;
 	char					*comment;
 	char					has_name;
@@ -90,6 +91,7 @@ typedef struct				s_data
 
 /*
 ** Structure with every line of the file.
+** Line number of the error;
 ** File name.
 ** File comment.
 ** Does the file has a name?
@@ -144,7 +146,7 @@ typedef struct				s_asm_data
 }							t_asm_data;
 */
 
-void						assemble(char *file, char *bonus);
+void						assemble(char *file, t_data *data);
 t_instruction				*create_lst_instruction(char *line,
 							int line_number);
 void						get_asm_body(int fd, t_instruction **instruction,
@@ -154,6 +156,7 @@ void						disassemble(char *file);
 void						get_asm_body(int fd, t_instruction **instruction,
 							unsigned int size);
 void						free_list(t_instruction *list);
+char						*remove_comment_from_line(char *line);
 
 /* DISPLAY FUNCTIONS */
 
@@ -167,9 +170,14 @@ int							is_a_cor_file(char *filename);
 int							is_a_s_file(char *filename);
 int							is_file_valid(char *file);
 int							is_only_flags_or_nothing(int argc, char **argv);
+int							line_starts_with_comment(char *s);
+int							line_has_comment(char *s);
 int							was_already_called(char **argv, int index);
 
 /* READING FUNCTIONS */
+
+void						stock_file_content(t_data *data, int fd);
+void						add_file_content_line(t_data *data, char *line);
 
 int							read_fixed_param_types(int fd, t_instruction *instr,
 							int *i);

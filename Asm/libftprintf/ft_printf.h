@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 03:19:22 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 20:15:18 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 00:23:04 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,6 +245,7 @@ void				ft_putendl(char const *s);
 void				ft_malloc_error(void);
 size_t				ft_strxlen(const char *s, char c);
 size_t				ft_stmrxlen(const char *s, char *c);
+size_t				ft_strslen(const char *s, char *to_find);
 
 char				*ftprintf_strjoin(t_info *list, char *s, int s2_len);
 char				*ftprintf_strndup(const char *s, int n);
@@ -314,6 +315,7 @@ void				ft_rec_putnbr(int n);
 
 int					ft_is_str_digit(char *s);
 int					ft_is_str_space(char *s);
+int					ft_is_str_blank(char *s);
 
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
