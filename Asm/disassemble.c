@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 00:21:43 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 09:28:07 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/16 20:47:14 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void						disassemble(char *file)
 	struct stat	stats;
 
 	if (access(file, F_OK) == -1)
-		return ((void)display_error("File not existing", file));
+		return ((void)display_error("File does not exist", file));
 	if (access(file, R_OK) == -1)
 		return ((void)display_error("Missing read rights on this file", file));
 	if ((fd = open(file, O_RDONLY)) == -1)
