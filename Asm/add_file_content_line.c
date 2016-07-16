@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 22:11:48 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 00:29:39 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 00:34:34 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	add_file_content_line(t_data *data, char *line)
 		line_number = tmp->line_number;
 	}
 	tmp->next = new_node;
-	new_node->line_number = line_number + 1;
+	new_node->line_number = tmp->line_number + 1;
 }
