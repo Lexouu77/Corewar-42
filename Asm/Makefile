@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/15 09:29:37 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/16 20:43:16 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = asm.c\
 	  display_error.c\
 	  display_usage.c\
 	  display_success.c\
+	  free_file_content.c\
 	  free_list.c\
 	  get_asm_body.c\
 	  is_a_cor_file.c\
@@ -40,6 +41,7 @@ SRC = asm.c\
 	  read_op_code.c\
 	  read_param_type.c\
 	  read_param_value.c\
+	  reset_data_struct.c\
 	  was_already_called.c\
 	  write_asm_body.c\
 	  write_asm_header.c\

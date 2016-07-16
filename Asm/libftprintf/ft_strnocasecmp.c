@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/08 02:48:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/08 03:00:57 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/16 20:00:21 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	check_case(char a, char b)
 	if (ft_isalpha(b) && ft_isalpha(a))
 	{
 		if ((a < 97 && (a + 32) == b) || (a > 90 && (a - 32) == b))
-				return (1);
+			return (1);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 08:57:02 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/16 20:43:14 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ typedef struct				s_instruction
 	char					**label_called;
 	struct s_instruction	*next;
 }							t_instruction;
+
+/* INSTRUCTION STRUCTURE */
+
+/* Contains information about the Instruction itself */
+
 /*
 ** Instruction string.
 ** Number of the line.
@@ -45,6 +50,51 @@ typedef struct				s_instruction
 ** Number of label called in the instruction.
 ** Name of called label.
 ** Next pointer.
+*/
+
+typedef struct				s_file_line
+{
+	char					*line;
+	int						line_number;
+	char					is_name;
+	char					is_comment;
+	struct s_file_line		*next;
+}							t_file_line;
+
+/* FILE STRUCTURE */
+
+/* Contains each line of the file. */
+
+/*
+** File string line by line.
+** Number of the line.
+** Is the line a name definition?
+** Is the line a comment definition?
+** Next pointer.
+*/
+
+typedef struct				s_data
+{
+	struct s_file_line		*file_content;
+	char					*name;
+	char					*comment;
+	char					has_name;
+	char					has_comment;
+	char					has_instructions;
+	char					display_byte_info;
+}							t_data;
+
+/* DATA STRUCTURE */
+
+/* Contains data about everything. */
+
+/*
+** Structure with every line of the file.
+** File name.
+** File comment.
+** Does the file has a name?
+** Does the file has a comment?
+** Does the file has instructions?
 */
 
 /*
@@ -134,5 +184,10 @@ int							create_asm_file(char *file, int reading_fd);
 void						write_asm_body(int fd, t_instruction *instr);
 void						write_asm_header(int fd, t_header header);
 void						write_asm_param(int fd, t_instruction *instr);
+
+/* FREE FUNCTIONS */
+
+void						reset_data_struct(t_data *data);
+void						free_file_content(t_data *data);
 
 #endif

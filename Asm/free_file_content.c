@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asm.c                                              :+:      :+:    :+:   */
+/*   free_file_content.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/13 16:43:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 20:43:13 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/16 20:24:27 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/16 20:29:39 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		main(int argc, char **argv)
+void	free_file_content(t_data *data)
 {
-	if (argc == 1 || is_only_flags_or_nothing(argc, argv))
-		display_usage();
-	else
-		check_args(argc, argv);
-	return (0);
+	t_file_line		*tmp;
+	t_file_line		*actual_line;
+
+	actual_line = data->file_content;
+	while (actual_line)
+	{
+		tmp = actual_line;
+		actual_line = actual_line->next;
+		free(tmp);
+	}
 }
