@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 20:13:34 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 23:47:11 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 00:38:56 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void		reset_data_struct(t_data *data)
 	data->has_name = 0;
 	data->has_comment = 0;
 	data->has_instructions = 0;
-	data->display_byte_info = 0;;
+	data->display_byte_info = 0;
 }
