@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 19:07:19 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 22:09:18 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,9 @@ typedef struct				s_asm_data
 }							t_asm_data;
 */
 
+int							stock_comment(t_file_line *node, t_data *data,
+							int i);
+int							stock_name(t_file_line *node, t_data *data, int i);
 void						assemble(char *file, t_data *data);
 t_instruction				*create_lst_instruction(char *line,
 							int line_number);
@@ -161,7 +164,7 @@ char						*remove_comment_from_line(char *line);
 
 int							display_error(char *message, char *file);
 int							display_error_line(char *message, char *file,
-							int line);
+							int line, int c);
 void						display_comment_definition_error(char *file,
 							t_data *data);
 void						display_name_definition_error(char *file,
@@ -207,9 +210,15 @@ void						reset_data_struct(t_data *data);
 void						free_file_content(t_data *data);
 void						free_list(t_instruction *list);
 
-/* */
+/* DELETE FUNCTIONS */
 
 void						remove_comment_from_file_content(t_data *data);
 void						remove_name_from_file_content(t_data *data);
+
+/* PARSING FUNCTIONS */
+
+int							cut_name_and_check_syntax(char *file, t_data *data);
+int							cut_comment_and_check_syntax(char *file,
+							t_data *data);
 
 #endif

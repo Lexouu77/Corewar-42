@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 17:44:43 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 17:45:51 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 22:05:12 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	remove_name_from_file_content(t_data *data)
 	if (node->is_name)
 	{
 		data->file_content = data->file_content->next;
-		data->name = node->line;
 		return (free(node));
 	}
 	while (node && node->next)
@@ -29,14 +28,12 @@ void	remove_name_from_file_content(t_data *data)
 		if (node->next->is_name)
 		{
 			to_delete = node->next;
-			data->name = node->line;
 			node->next = node->next->next;
 			return (free(to_delete));
 		}
 		to_delete = node;
 		node = node->next;
 	}
-	data->name = node->line;
 	to_delete->next = NULL;
 	free(node);
 }

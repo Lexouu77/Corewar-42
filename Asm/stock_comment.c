@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strslen.c                                       :+:      :+:    :+:   */
+/*   stock_comment.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/17 00:22:11 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 22:09:04 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/17 21:56:23 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/17 22:08:47 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "asm.h"
 
-size_t			ft_strslen(const char *s, char *to_find)
+int		stock_comment(t_file_line *node, t_data *data, int i)
 {
-	size_t	i;
-
-	i = 0;
-	if (s && to_find)
-		while (s[i] && ft_strncmp(s + i, to_find, ft_strlen(to_find)))
-			++i;
-	return (i);
+	data->comment = ft_strndup(node->line + i, ft_strxlen(node->line + i, '"'));
+	free(node->line);
+	return (1);
 }
