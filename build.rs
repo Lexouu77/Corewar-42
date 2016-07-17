@@ -139,4 +139,26 @@ fn main() {
                 .file("Asm/libftprintf/apply_bg.c")
                 .include("Asm/libftprintf/")
                 .compile("libftprintf.a");
+
+    gcc::Config::new()
+                .flag("-Wall")
+                .flag("-Wextra")
+                .flag("-Werror")
+                .file("Asm/is_only_flags_or_nothing.c")
+                .file("Asm/is_file_valid.c")
+                .file("Asm/is_a_s_file.c")
+                .file("Asm/is_a_cor_file.c")
+                .file("Asm/get_asm_body.c")
+                .file("Asm/free_list.c")
+                .file("Asm/display_usage.c")
+                .file("Asm/display_success.c")
+                .file("Asm/display_error.c")
+                .file("Asm/disassemble.c")
+                .file("Asm/create_lst_instruction.c")
+                .file("Asm/create_asm_file.c")
+                .file("Asm/check_args.c")
+                .file("Asm/assemble.c")
+                .include("Asm/")
+                .include("Asm/libftprintf/")
+                .compile("libasm.a");
 }
