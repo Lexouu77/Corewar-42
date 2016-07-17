@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 07:50:46 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 22:07:23 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 23:20:45 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,7 @@ void		assemble(char *file, t_data *data)
 	if (!cut_comment_and_check_syntax(file, data))
 		return ;
 	remove_comment_from_file_content(data);
+	if (!check_instructions(file, data)) // check error
+		return ;
+	
 }

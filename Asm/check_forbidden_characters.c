@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_name.c                                       :+:      :+:    :+:   */
+/*   check_forbidden_characters.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/17 15:01:57 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 23:38:39 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/17 23:30:22 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/17 23:56:27 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-void	check_name(t_data *data)
+int		check_forbidden_characters(char *s, int *i)
 {
-	t_file_line		*node;
+	int		j;
+	int		k;
+	int		error;
 
-	node = data->file_content;
-	while (node)
+	j = -1;
+	while (s[++j])
 	{
-		if (!ft_strncmp(node->line, NAME_CMD_STRING,
-					ft_strlen(NAME_CMD_STRING)))
+		error = 0;
+		k = -1;
+		while (LABEL_CHARS[++k])
+			if (s[j] == LABEL_CHARS[k])
+				error = 1;
+		if (s[j] == LABEL_CHAR || s[j] == DIRECT_CHAR || s[j] == SEPARATOR_CHAR
+				|| ft_isblank(s[j]))
+			error = 1;
+		if (!error)
 		{
-			node->is_name = 1;
-			data->has_name++;
+			*i = j;
+			return (0);
 		}
-		node = node->next;
 	}
+	return (1);
 }
+

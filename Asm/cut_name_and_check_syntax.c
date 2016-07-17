@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 18:00:43 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 22:06:34 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 23:40:28 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		cut_name_and_check_syntax(char *file, t_data *data)
 	t_file_line	*node;
 	int			i;
 
-	i = 5;
+	i = ft_strlen(NAME_CMD_STRING);
 	node = data->file_content;
 	while (node && !node->is_name)
 		node = node->next;

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 22:07:37 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 22:11:19 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 23:40:07 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		cut_comment_and_check_syntax(char *file, t_data *data)
 	t_file_line	*node;
 	int			i;
 
-	i = 8;
+	i = ft_strlen(COMMENT_CMD_STRING);
 	node = data->file_content;
 	while (node && !node->is_comment)
 		node = node->next;
