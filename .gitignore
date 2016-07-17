@@ -35,6 +35,10 @@
 # OS X
 *.DS_Store
 
+# Rust
+Cargo.lock
+target/*
+
 # Executable
 ./VM_OLD/corewar
 ./ASM_OLD/asm
