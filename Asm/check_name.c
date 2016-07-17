@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asm.c                                              :+:      :+:    :+:   */
+/*   check_name.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/13 16:43:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 15:10:21 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/17 15:01:57 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/17 16:12:44 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		main(int argc, char **argv)
+void	check_name(t_data *data)
 {
-	if (argc == 1 || is_only_flags_or_nothing(argc, argv))
-		display_usage();
-	else
-		check_args(argc, argv);
-	return (0);
+	t_file_line		*node;
+
+	node = data->file_content;
+	while (node)
+	{
+		if (!ft_strncmp(node->line, ".name", 5))
+		{
+			node->is_name = 1;
+			data->has_name++;
+		}
+		node = node->next;
+	}
 }

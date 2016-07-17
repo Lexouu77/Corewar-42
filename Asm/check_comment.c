@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asm.c                                              :+:      :+:    :+:   */
+/*   check_comment.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/13 16:43:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 15:10:21 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/17 15:02:02 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/17 15:36:46 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		main(int argc, char **argv)
+void	check_comment(t_data *data)
 {
-	if (argc == 1 || is_only_flags_or_nothing(argc, argv))
-		display_usage();
-	else
-		check_args(argc, argv);
-	return (0);
+	t_file_line		*node;
+
+	node = data->file_content;
+	while (node)
+	{
+		if (!ft_strncmp(node->line, ".comment", 8))
+		{
+			node->is_comment = 1;
+			data->has_comment++;
+		}
+		node = node->next;
+	}
 }

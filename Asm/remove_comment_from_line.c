@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 23:56:12 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 00:29:16 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 14:56:49 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*remove_comment_from_line(char *line)
 {
 	char	*tmp;
 	char	*dest;
-	int		len;
+	size_t	len;
 
 	len = ft_strslen(line, "//");
 	if (len > ft_strslen(line, "#"))

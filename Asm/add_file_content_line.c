@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 22:11:48 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 00:36:56 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 16:10:59 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	add_file_content_line(t_data *data, char *line)
 	while (tmp && tmp->next)
 		tmp = tmp->next;
 	tmp->next = new_node;
+	new_node->line = line;
 	new_node->line_number = tmp->line_number + 1;
 }

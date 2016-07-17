@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/13 23:41:39 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 20:43:11 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 14:55:54 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_args(int argc, char **argv)
 		if (is_a_cor_file(argv[i]))
 			disassemble(argv[i]);
 		else if (is_a_s_file(argv[i]))
-			assemble(argv[i], argv[i - 1]);
+			assemble(argv[i], data);
 		else
 			display_error("Invalid filename", argv[i]);
 		reset_data_struct(data);

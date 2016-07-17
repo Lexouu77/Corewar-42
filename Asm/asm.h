@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 00:29:15 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 17:45:44 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,10 +161,17 @@ char						*remove_comment_from_line(char *line);
 /* DISPLAY FUNCTIONS */
 
 int							display_error(char *message, char *file);
+void						display_comment_definition_error(char *file,
+							t_data *data);
+void						display_name_definition_error(char *file,
+							t_data *data);
 void						display_usage(void);
 void						display_success(char *filename);
 
 /* TEST FUNCTIONS */
+
+void						check_name(t_data *data);
+void						check_comment(t_data *data);
 
 int							is_a_cor_file(char *filename);
 int							is_a_s_file(char *filename);
@@ -197,5 +204,7 @@ void						write_asm_param(int fd, t_instruction *instr);
 
 void						reset_data_struct(t_data *data);
 void						free_file_content(t_data *data);
+void						remove_comment_from_file_content(t_data *data);
+void						remove_name_from_file_content(t_data *data);
 
 #endif

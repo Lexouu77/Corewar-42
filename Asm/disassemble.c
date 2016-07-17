@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 00:21:43 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 21:44:13 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 14:56:12 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void						disassemble(char *file)
 	const int	len = ft_strlen(file);
 	char		*new_file;
 	char		*tmp;
-	struct stat	file_stats;
 
 	if (!is_file_valid(file))
 		return ;

@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/17 00:29:13 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/17 17:45:13 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,14 @@ SRC = add_file_content_line.c\
 	  asm.c\
 	  assemble.c\
 	  check_args.c\
+	  check_name.c\
+	  check_comment.c\
 	  create_asm_file.c\
 	  create_lst_instruction.c\
 	  disassemble.c\
+	  display_comment_definition_error.c\
 	  display_error.c\
+	  display_name_definition_error.c\
 	  display_usage.c\
 	  display_success.c\
 	  free_file_content.c\
@@ -36,6 +40,7 @@ SRC = add_file_content_line.c\
 	  is_a_s_file.c\
 	  is_file_valid.c\
 	  is_only_flags_or_nothing.c\
+	  line_has_comment.c\
 	  line_starts_with_comment.c\
 	  op.c\
 	  read_fixed_param_type.c\
@@ -43,7 +48,9 @@ SRC = add_file_content_line.c\
 	  read_op_code.c\
 	  read_param_type.c\
 	  read_param_value.c\
+	  remove_comment_from_content_file.c\
 	  remove_comment_from_line.c\
+	  remove_name_from_file_content.c\
 	  reset_data_struct.c\
 	  stock_file_content.c\
 	  was_already_called.c\
@@ -53,9 +60,9 @@ SRC = add_file_content_line.c\
 HEADER = asm.h\
 		 op.h
 
-NORMINETTE_TEST := $(shell norminette $(SRC) $(HEADER) | grep -B 1 Error)
+#NORMINETTE_TEST := $(shell norminette $(SRC) $(HEADER) | grep -B 1 Error)
 
-.SILENT: norme
+#.SILENT: norme
 
 all : $(NAME)
 
@@ -78,12 +85,12 @@ fclean: clean
 
 re: fclean all
 
-norme:
-ifeq ($(NORMINETTE_TEST), )
-	@echo "Everything ok!"
-else
-	@norminette $(SRC) $(HEADER) | grep -B 1 Error
-endif
+#norme:
+#ifeq ($(NORMINETTE_TEST), )
+#	@echo "Everything ok!"
+#else
+#	@norminette $(SRC) $(HEADER) | grep -B 1 Error
+#endif
 
 watch:
 	watch "make norme" "20"
