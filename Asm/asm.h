@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 17:45:44 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 19:07:19 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,12 +155,13 @@ void						check_args(int argc, char **argv);
 void						disassemble(char *file);
 void						get_asm_body(int fd, t_instruction **instruction,
 							unsigned int size);
-void						free_list(t_instruction *list);
 char						*remove_comment_from_line(char *line);
 
 /* DISPLAY FUNCTIONS */
 
 int							display_error(char *message, char *file);
+int							display_error_line(char *message, char *file,
+							int line);
 void						display_comment_definition_error(char *file,
 							t_data *data);
 void						display_name_definition_error(char *file,
@@ -204,6 +205,10 @@ void						write_asm_param(int fd, t_instruction *instr);
 
 void						reset_data_struct(t_data *data);
 void						free_file_content(t_data *data);
+void						free_list(t_instruction *list);
+
+/* */
+
 void						remove_comment_from_file_content(t_data *data);
 void						remove_name_from_file_content(t_data *data);
 

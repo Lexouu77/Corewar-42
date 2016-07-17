@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 03:19:22 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 00:23:04 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 18:12:19 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,6 +246,8 @@ void				ft_malloc_error(void);
 size_t				ft_strxlen(const char *s, char c);
 size_t				ft_stmrxlen(const char *s, char *c);
 size_t				ft_strslen(const char *s, char *to_find);
+
+int					get_nb_c(char *s, char c);
 
 char				*ftprintf_strjoin(t_info *list, char *s, int s2_len);
 char				*ftprintf_strndup(const char *s, int n);

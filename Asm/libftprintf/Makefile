@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:30 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/17 00:29:47 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/17 18:12:58 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -141,6 +141,7 @@ SRC = ft_printf.c\
 	  ft_strxdup.c\
 	  ft_tolower.c\
 	  ft_toupper.c\
+	  get_nb_c.c\
 	  get_next_line.c\
 	  ftprintf_strjoin.c\
 	  ftprintf_strncpy_cat.c\
