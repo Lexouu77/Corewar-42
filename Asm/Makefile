@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/17 23:51:24 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/18 21:41:18 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC = add_file_content_line.c\
 	  is_a_cor_file.c\
 	  is_a_s_file.c\
 	  is_file_valid.c\
+	  is_instruction_label.c\
 	  is_only_flags_or_nothing.c\
 	  line_has_comment.c\
 	  line_starts_with_comment.c\

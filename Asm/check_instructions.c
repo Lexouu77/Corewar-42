@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 23:16:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 23:56:28 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/18 21:41:10 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@ int	check_instructions(char *file, t_data *data)
 	{
 		if (!check_forbidden_characters(node->line, &i))
 			return (display_error_line("Invalid character", file, NL, i));
+		if (is_instruction_label(node->line))
+		{
+			if (check_instruction_label(file, data, node))
+				return (0);
+		}
+		else
+		{
+			if (check_instruction_line(file, data, node))
+				return (0);
+		}
 		node = node->next;
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 23:56:21 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/18 21:41:17 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct				s_file_line
 	int						line_number;
 	char					is_name;
 	char					is_comment;
+	char					is_label;
+	char					is_instruction;
 	struct s_file_line		*next;
 }							t_file_line;
 
@@ -70,6 +72,8 @@ typedef struct				s_file_line
 ** Number of the line.
 ** Is the line a name definition?
 ** Is the line a comment definition?
+** Is the line a label? // usefull to create label_linked_list
+** Is the line an instruction?
 ** Next pointer.
 */
 
@@ -97,6 +101,7 @@ typedef struct				s_data
 ** Does the file has a name?
 ** Does the file has a comment?
 ** Does the file has instructions?
+** Display byte decomposition during assemble.
 */
 
 /*
@@ -181,6 +186,7 @@ void						check_name(t_data *data);
 int							is_a_cor_file(char *filename);
 int							is_a_s_file(char *filename);
 int							is_file_valid(char *file);
+int							is_instruction_label(char *s);
 int							is_only_flags_or_nothing(int argc, char **argv);
 int							line_starts_with_comment(char *s);
 int							line_has_comment(char *s);

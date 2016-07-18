@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reset_data_struct.c                                :+:      :+:    :+:   */
+/*   is_instruction_label.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/16 20:13:34 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/18 21:41:16 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/18 17:28:18 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/18 18:37:03 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-void		reset_data_struct(t_data *data)
+int		is_instruction_label(char *s)
 {
-	if (!data)
-		return ;
-	if (data->name)
-		free(data->name);
-	if (data->comment)
-		free(data->comment);
-	if (data->file_content)
-		free_file_content(data);
-	data->file_content = NULL;
-	data->error_line = 0;
-	data->name = NULL;
-	data->comment = NULL;
-	data->has_name = 0;
-	data->has_comment = 0;
-	data->has_instructions = 0;
-	data->display_byte_info = 0;
-}
+	int	i;
 
-// bzero ?
+	i = 0;
+	if (s[0] && s[0] == LABEL_CHAR)
+		return (1);
+	while (s[++i])
+		if (s[i] == LABEL_CHAR && s[i - 1] != DIRECT_CHAR)
+			return (1);
+	return (0);
+}
