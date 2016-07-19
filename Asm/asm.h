@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/18 21:41:17 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/19 23:30:46 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct				s_data
 {
 	struct s_file_line		*file_content;
 	int						error_line;
+	int						total_file_size;
 	char					*name;
 	char					*comment;
 	char					has_name;
@@ -96,6 +97,7 @@ typedef struct				s_data
 /*
 ** Structure with every line of the file.
 ** Line number of the error;
+** Size (Bytes) of the file.
 ** File name.
 ** File comment.
 ** Does the file has a name?
@@ -207,9 +209,11 @@ int							read_param_value(int fd, t_instruction *instr);
 /* WRITING FUNCTIONS */
 
 int							create_asm_file(char *file, int reading_fd);
+void						create_cor_file(char *file, t_data *data);
 void						write_asm_body(int fd, t_instruction *instr);
 void						write_asm_header(int fd, t_header header);
 void						write_asm_param(int fd, t_instruction *instr);
+void						write_cor_header(int fd, t_data *data);
 
 /* FREE FUNCTIONS */
 

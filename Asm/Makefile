@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/18 21:41:18 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/19 21:53:52 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = add_file_content_line.c\
 	  check_instructions.c\
 	  check_name.c\
 	  create_asm_file.c\
+	  create_cor_file.c\
 	  create_lst_instruction.c\
 	  cut_comment_and_check_syntax.c\
 	  cut_name_and_check_syntax.c\
@@ -64,7 +65,8 @@ SRC = add_file_content_line.c\
 	  was_already_called.c\
 	  write_asm_body.c\
 	  write_asm_header.c\
-	  write_asm_param.c
+	  write_asm_param.c\
+	  write_cor_header.c
 HEADER = asm.h\
 		 op.h
 
