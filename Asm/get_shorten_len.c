@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 17:42:46 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/20 17:44:58 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/20 20:22:49 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,20 @@
 
 int		get_shorten_len(char *s)
 {
-	const int	space_len = ft_strxlen(s, 32);
-	const int	separator_len = ft_strxlen(s, SEPARATOR_CHAR);
+	int		i;
+	int		len;
+	int		tmp;
 
-	return (space_len < separator_len ? space_len : separator_len);
+	i = 9;
+	len = ft_strxlen(s, i);
+	while (++i < 14)
+	{
+		tmp = ft_strxlen(s, i);
+		if (tmp < len)
+			len = tmp;
+	}
+	tmp = ft_strxlen(s, 32);
+	if (tmp < len)
+		len = tmp;
+	return (len);
 }

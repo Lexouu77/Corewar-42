@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 17:47:06 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/20 17:50:04 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/20 19:48:45 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			display_instruction_error(int line, char *file, int c,
 		ft_printf("~[%[[FG_CYA,SP_RST]d]", c + 1);
 	if (file)
 		ft_printf("%[[FG_MAG,SP_RST]s ", file);
-	ft_printf(": unknown instruction [%[[FG_MAG,SP_RST]s].\n", instruction);
+	ft_printf(": Unknown instruction [%[[FG_MAG,SP_RST]s].\n", instruction);
 	if (instruction)
 		free(instruction);
 	return (0);

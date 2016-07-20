@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   does_instruction_exist.c                           :+:      :+:    :+:   */
+/*   get_number_of_arg.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/20 17:54:23 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/20 19:49:31 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/20 19:38:38 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/20 19:45:29 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		does_instruction_exist(char *s)
+int		get_number_of_arg(char *s)
 {
 	int	i;
+	int	n;
 
-	i = -1;
-	while (g_op_tab[++i].op_code)
-		if (!ft_strcmp(s, g_op_tab[i].name))
-			return (i);
-	return (-1);
+	n = 0;
+	i = 0;
+	while (s[i] && (s[i] == 32 || s[i] == SEPARATOR_CHAR))
+		i++;
+	while (s[i])
+	{
+		if (s[i] && (s[i] != 32 && s[i] != SEPARATOR_CHAR))
+			n++;
+		while (s[i] && (s[i] != 32 && s[i] != SEPARATOR_CHAR))
+			i++;
+		while (s[i] && (s[i] == 32 || s[i] == SEPARATOR_CHAR))
+			i++;
+	}
+	return (n);
 }

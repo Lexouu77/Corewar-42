@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/20 17:57:50 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/20 19:45:27 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRC = add_file_content_line.c\
 	  free_file_content.c\
 	  free_list.c\
 	  get_asm_body.c\
+	  get_number_of_arg.c\
 	  get_shorten_len.c\
 	  is_a_cor_file.c\
 	  is_a_s_file.c\

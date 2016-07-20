@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 23:56:12 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 22:08:58 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/20 20:12:26 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*remove_comment_from_line(char *line)
 		len = ft_strslen(line, ";");
 	tmp = ft_strndup(line, len);
 	free(line);
-	if (ft_isblank(tmp[0]) || ft_isblank(tmp[ft_strlen(tmp)])) // may segv ? Need to test, not sure.
+	if (ft_isspace(tmp[0]) || ft_isspace(tmp[ft_strlen(tmp)])) // may segv ? Need to test, not sure.
 	{
 		dest = ft_strtrim(tmp);
 		free(tmp);

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/20 18:04:13 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/20 19:45:18 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,7 @@ t_instruction				*create_lst_instruction(char *line,
 							int line_number);
 void						get_asm_body(int fd, t_instruction **instruction,
 							unsigned int size);
+int							get_number_of_arg(char *s);
 void						check_args(int argc, char **argv);
 void						disassemble(char *file);
 void						get_asm_body(int fd, t_instruction **instruction,
