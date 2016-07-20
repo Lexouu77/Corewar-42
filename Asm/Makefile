@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/19 21:53:52 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/20 17:57:50 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,33 +20,42 @@ INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
 SRC = add_file_content_line.c\
+	  add_label_to_list.c\
 	  asm.c\
 	  assemble.c\
 	  check_args.c\
 	  check_comment.c\
 	  check_forbidden_characters.c\
 	  check_instructions.c\
+	  check_instruction_label.c\
+	  check_instruction_line.c\
 	  check_name.c\
 	  create_asm_file.c\
 	  create_cor_file.c\
 	  create_lst_instruction.c\
 	  cut_comment_and_check_syntax.c\
 	  cut_name_and_check_syntax.c\
+	  delete_label_list.c\
 	  disassemble.c\
 	  display_comment_definition_error.c\
 	  display_error.c\
 	  display_error_line.c\
+	  display_instruction_error.c\
+	  display_label_error.c\
 	  display_name_definition_error.c\
 	  display_usage.c\
 	  display_success.c\
+	  does_instruction_exist.c\
 	  free_file_content.c\
 	  free_list.c\
 	  get_asm_body.c\
+	  get_shorten_len.c\
 	  is_a_cor_file.c\
 	  is_a_s_file.c\
 	  is_file_valid.c\
 	  is_instruction_label.c\
 	  is_only_flags_or_nothing.c\
+	  label_already_exist.c\
 	  line_has_comment.c\
 	  line_starts_with_comment.c\
 	  op.c\

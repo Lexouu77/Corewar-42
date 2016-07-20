@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 20:13:34 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/18 21:41:16 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/20 16:28:55 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ void		reset_data_struct(t_data *data)
 		free(data->comment);
 	if (data->file_content)
 		free_file_content(data);
+	if (data->label_list)
+		delete_label_list(data->label_list);
+	data->label_list = NULL;
 	data->file_content = NULL;
 	data->error_line = 0;
 	data->name = NULL;

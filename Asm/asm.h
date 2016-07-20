@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/19 23:30:46 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/20 18:04:13 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 # include "op.h"
 
 extern t_op g_op_tab[];
+
+typedef struct				s_label_list
+{
+	char					*label_name;
+	int						line_number;
+	struct s_label_list		*next;
+}							t_label_list;
 
 typedef struct				s_instruction
 {
@@ -80,6 +87,7 @@ typedef struct				s_file_line
 typedef struct				s_data
 {
 	struct s_file_line		*file_content;
+	struct s_label_list		*label_list;
 	int						error_line;
 	int						total_file_size;
 	char					*name;
@@ -153,6 +161,8 @@ typedef struct				s_asm_data
 }							t_asm_data;
 */
 
+void						add_label_to_list(char	*name, t_data *data,
+							int line_number);
 int							stock_comment(t_file_line *node, t_data *data,
 							int i);
 int							stock_name(t_file_line *node, t_data *data, int i);
@@ -172,6 +182,10 @@ char						*remove_comment_from_line(char *line);
 int							display_error(char *message, char *file);
 int							display_error_line(char *message, char *file,
 							int line, int c);
+int							display_instruction_error(int line, char *file,
+							int c, char *instruction);
+int							display_label_error(int line, char *label,
+							char *file, int er_line);
 void						display_comment_definition_error(char *file,
 							t_data *data);
 void						display_name_definition_error(char *file,
@@ -183,13 +197,15 @@ void						display_success(char *filename);
 
 void						check_comment(t_data *data);
 int							check_forbidden_characters(char *s, int *i);
-int							check_instructions(char *file, t_data *data);
 void						check_name(t_data *data);
+int							does_instruction_exist(char *s);
+int							get_shorten_len(char *s);
 int							is_a_cor_file(char *filename);
 int							is_a_s_file(char *filename);
 int							is_file_valid(char *file);
 int							is_instruction_label(char *s);
 int							is_only_flags_or_nothing(int argc, char **argv);
+int							label_already_exist(t_data *data, char *label_name);
 int							line_starts_with_comment(char *s);
 int							line_has_comment(char *s);
 int							was_already_called(char **argv, int index);
@@ -223,11 +239,17 @@ void						free_list(t_instruction *list);
 
 /* DELETE FUNCTIONS */
 
+void						delete_label_list(t_label_list *list);
 void						remove_comment_from_file_content(t_data *data);
 void						remove_name_from_file_content(t_data *data);
 
 /* PARSING FUNCTIONS */
 
+int							check_instructions(char *file, t_data *data);
+int							check_instruction_label(char *file, t_data *data,
+							t_file_line *node);
+int							check_instruction_line(char *file, t_data *data,
+							t_file_line *node, int index);
 int							cut_name_and_check_syntax(char *file, t_data *data);
 int							cut_comment_and_check_syntax(char *file,
 							t_data *data);

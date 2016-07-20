@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_error.c                                    :+:      :+:    :+:   */
+/*   does_instruction_exist.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/15 00:25:02 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/20 17:48:08 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/20 17:54:23 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/20 18:04:14 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int			display_error_line(char *message, char *file, int line, int c)
+int		does_instruction_exist(char *s)
 {
-	ft_printf("%[[FG_RED,SP_BOL,SP_RST]s ", "ERROR");
-	ft_printf("%[[FG_YEL,SP_BOL,SP_RST]s ", "->");
-	ft_printf("[%[[FG_GRE,SP_RST]d]", line);
-	if (c + 1 > 0)
-		ft_printf("~[%[[FG_CYA,SP_RST]d]", c + 1);
-	if (file)
-		ft_printf("%[[FG_MAG,SP_RST]s ", file);
-	if (message)
-		ft_printf(": %s.\n", message);
+	int	i;
+
+	i = -1;
+	while (g_op_tab[++i].op_code)
+		if (!ft_strcmp(s, g_op_tab[i].name))
+			return (1);
 	return (0);
 }

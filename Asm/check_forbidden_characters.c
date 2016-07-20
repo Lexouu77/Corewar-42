@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 23:30:22 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 23:56:27 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/20 16:49:06 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ int		check_forbidden_characters(char *s, int *i)
 	}
 	return (1);
 }
-

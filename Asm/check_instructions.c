@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 23:16:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/19 22:00:26 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/20 17:41:50 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	check_instructions(char *file, t_data *data)
 {
 	t_file_line	*node;
-	int		i;
+	int			i;
 
 	if (!data->file_content)
 		return (display_error("No instructions in the file", file));
@@ -28,12 +28,12 @@ int	check_instructions(char *file, t_data *data)
 			return (display_error_line("Invalid character", file, NL, i));
 		if (is_instruction_label(node->line))
 		{
-			if (check_instruction_label(file, data, node))
+			if (!check_instruction_label(file, data, node))
 				return (0);
 		}
 		else
 		{
-			if (check_instruction_line(file, data, node))
+			if (!check_instruction_line(file, data, node, 0))
 				return (0);
 		}
 		node = node->next;
