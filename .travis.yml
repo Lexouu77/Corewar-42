@@ -19,6 +19,9 @@ matrix:
     - rust: nightly
     - rust: beta
 
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; brew install valgrind; fi
+
 script:
   - cargo build
   - RUST_BACKTRACE=1 cargo test
