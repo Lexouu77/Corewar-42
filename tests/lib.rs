@@ -6,6 +6,6 @@
 // except according to those terms.
 
 extern crate asm_test;
+extern crate libc;
 
-fn main () {
-}
+mod is_a_s_file;

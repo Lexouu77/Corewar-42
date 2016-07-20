@@ -1,10 +1,10 @@
-
 ---
 sudo: false
-language: c
-compiler:
-  - clang
-  - gcc
+language: rust
+rust:
+  - stable
+  - nightly
+  - beta
 
 os:
   - linux
@@ -14,10 +14,17 @@ env:
   - ARCH=x86_64
   - ARCH=i686
 
+matrix:
+  allow_failures:
+    - rust: nightly
+    - rust: beta
+
 script:
-  - make -C Asm
+  - cargo build
+  - cargo test
 
 addons:
   apt:
     packages:
       - gcc-multilib
+

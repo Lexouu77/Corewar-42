@@ -5,7 +5,6 @@
 // This file may not be copied, modified, or distributed
 // except according to those terms.
 
-extern crate asm_test;
+extern crate libc;
 
-fn main () {
-}
+pub mod ffi;

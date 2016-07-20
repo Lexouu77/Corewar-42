@@ -5,7 +5,8 @@
 // This file may not be copied, modified, or distributed
 // except according to those terms.
 
-extern crate asm_test;
+use super::libc::{c_char, c_int};
 
-fn main () {
+extern {
+    pub fn is_a_s_file(filename: *const c_char) -> c_int;
 }
