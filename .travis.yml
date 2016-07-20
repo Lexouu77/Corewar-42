@@ -22,7 +22,7 @@ matrix:
 script:
   - cargo build
   - RUST_BACKTRACE=1 cargo test
-  - valgrind --leak-check=full --log-file="valgrind.log" ./target/debug/test-simple
+  - valgrind --leak-check=full --log-file="valgrind.log" ./target/debug/asm_test
   - cat valgrind.log
   # NB: OSX has a lot of ObjC allocated memory still reachable, but that's not our bussiness.
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then cat valgrind.log | grep "no leaks are possible"; fi
