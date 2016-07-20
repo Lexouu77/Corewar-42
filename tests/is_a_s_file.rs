@@ -11,7 +11,6 @@ extern crate libc;
 use self::asm_test::ffi::is_a_s_file;
 use self::libc::c_char;
 
-
 #[test]
 fn test_is_a_s_file () {
    assert_eq!(1, unsafe {

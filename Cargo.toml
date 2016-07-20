@@ -2,10 +2,21 @@
 name = "asm_test"
 version = "0.1.0"
 authors = ["adjivas <adjivas@users.noreply.github.com>"]
+description = "tests for corewar"
+repository = "https://github.com/Lexouu77/Corewar-42.git"
 build = "build.rs"
+readme = "README.md"
+keywords = ["corewar", "test"]
 
-[dependencies]
-libc = "0.1"
+[[bin]]
+name = "asm_test"
+doc = false
 
-[build-dependencies]
-gcc = "0.3"
+[features]
+unstable = [] # for travis-cargo
+
+[dependencies.libc]
+version = "0.1"
+
+[build-dependencies.gcc]
+version = "0.3"
