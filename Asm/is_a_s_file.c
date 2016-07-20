@@ -15,7 +15,9 @@
 int			is_a_s_file(char *filename)
 {
 	const int	len = ft_strlen(filename);
-
+	
+	char *ss = malloc(42);
+	(void)ss;
 	if (len > 2 && !ft_strcmp(filename + (len - 2), ".s"))
 		return (1);
 	return (0);
