@@ -16,7 +16,7 @@ int			is_a_s_file(char *filename)
 {
 	const int	len = ft_strlen(filename);
 	
-	if (len >= 2 && !ft_strcmp(filename + (len - 2), ".s"))
+	if (len > 1 && !ft_strcmp(filename + (len - 2), ".s"))
 		return (1);
 	return (0);
 }

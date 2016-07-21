@@ -16,7 +16,7 @@ int			is_a_cor_file(char *filename)
 {
 	const int	len = ft_strlen(filename);
 
-	if (len > 4 && !ft_strcmp(filename + (len - 4), ".cor"))
+	if (len > 3 && !ft_strcmp(filename + (len - 4), ".cor"))
 		return (1);
 	return (0);
 }

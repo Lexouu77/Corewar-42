@@ -9,4 +9,5 @@ use super::libc::{c_char, c_int};
 
 extern {
     pub fn is_a_s_file(filename: *const c_char) -> c_int;
+    pub fn is_a_cor_file(filename: *const c_char) -> c_int;
 }

@@ -9,3 +9,4 @@ extern crate asm_test;
 extern crate libc;
 
 mod is_a_s_file;
+mod is_a_cor_file;
