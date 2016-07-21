@@ -1,7 +1,7 @@
 .name "COUCOU"
 .comment "coucou"
 lala:      
-live				 
+live %1
 TEST
 :
 test :

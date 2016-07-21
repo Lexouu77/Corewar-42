@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 21:58:48 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/21 15:24:31 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/21 20:42:42 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int		check_instruction_label(char *file, t_data *data, t_file_line *node)
 	if (ft_strlen(NL_L + len + 1) > 1 && ft_is_str_space(NL_L + len + 1))
 		return (1);
 	else
-		return (check_instruction_line(file, data, node, len + 1));
+		return (check_instruction_line(file, node, len + 1));
 	return (1);
 }

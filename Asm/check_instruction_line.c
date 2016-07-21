@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 17:23:44 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/21 18:44:56 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/21 21:15:41 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 #define N_A number_of_args
 #define D_ERR(arg) display_error_line(arg, file, NL, -1)
 
-int			check_instruction_line(char *file, t_data *data, t_file_line *node,
-		int index)
+int			check_instruction_line(char *file, t_file_line *node, int index)
 {
 	char			*instruction;
 	int				number_of_args;
@@ -37,5 +36,5 @@ int			check_instruction_line(char *file, t_data *data, t_file_line *node,
 	number_of_args = get_number_of_arg(NSTRING + len);
 	if (number_of_args != g_op_tab[i].arg_number)
 		return (!N_A ? D_ERR(NO_ARG) : D_ERR(N_ARG));
-	return (check_instruction_parameters(file, node->line, index + len, NL));
+	return (check_instruction_parameters(file, node, index + len, i));
 }

@@ -6,14 +6,14 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/21 15:07:31 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/21 22:12:43 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = asm
 CC = clang
 RM = rm -f
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 OFLAGS = -O3 -march=native
 DEBUGFLAG = -g3 -fsanitize=address
 INCLUDES = ./
@@ -50,8 +50,10 @@ SRC = add_file_content_line.c\
 	  free_file_content.c\
 	  free_list.c\
 	  get_asm_body.c\
+	  get_parameter_define_type.c\
 	  get_number_of_arg.c\
 	  get_shorten_len.c\
+	  go_to_next_param.c\
 	  is_a_cor_file.c\
 	  is_a_s_file.c\
 	  is_file_valid.c\

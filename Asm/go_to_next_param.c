@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_parameter_define_type.c                        :+:      :+:    :+:   */
+/*   go_to_next_param.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/21 17:38:11 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/21 22:46:23 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/21 21:00:58 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/21 22:47:52 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		get_parameter_define_type(char *line, int index)
+int		go_to_next_param(char *s, int index)
 {
-	ft_printf("%[[BG_BLU,SP_RST]s\n", line + index);
-	if (!line[index])
+	if (!s[index])
 		return (-1);
-	if (line[index] == 'r')
-		return (T_REG);
-	if (ft_isdigit(line[index]))
-		return (T_IND);
-	if (line[index] == DIRECT_CHAR || (line[index] == DIRECT_CHAR &&
-				line[index + 1] && line[index + 1] == LABEL_CHAR))
-		return (T_DIR);
-	return (-1);
+	if (ft_isspace(s[index]))
+	{
+		while (s[index] && ft_isspace(s[index]))
+			index++;
+	}
+	else
+	{
+		while (s[index] && !ft_isspace(s[index]))
+			index++;
+		while (s[index] && ft_isspace(s[index]))
+			index++;
+	}
+	if (!s[index])
+		return (-1);
+	return (index);
 }

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/21 15:26:26 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/21 22:12:35 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,9 @@ t_instruction				*create_lst_instruction(char *line,
 							int line_number);
 void						get_asm_body(int fd, t_instruction **instruction,
 							unsigned int size);
+int							get_parameter_define_type(char *line, int index);
 int							get_number_of_arg(char *s);
+int							go_to_next_param(char *s, int index);
 void						check_args(int argc, char **argv);
 void						disassemble(char *file);
 void						get_asm_body(int fd, t_instruction **instruction,
@@ -248,10 +250,10 @@ void						remove_name_from_file_content(t_data *data);
 int							check_instructions(char *file, t_data *data);
 int							check_instruction_label(char *file, t_data *data,
 							t_file_line *node);
-int							check_instruction_line(char *file, t_data *data,
+int							check_instruction_line(char *file,
 							t_file_line *node, int index);
-int							check_instruction_parameters(char *file, char *line,
-							int index, int line_number);
+int							check_instruction_parameters(char *file,
+							t_file_line *node, int index, int opc);
 int							cut_name_and_check_syntax(char *file, t_data *data);
 int							cut_comment_and_check_syntax(char *file,
 							t_data *data);
