@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 21:51:29 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 21:07:43 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/20 20:11:03 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	stock_file_content(t_data *data, int fd)
 
 	while ((read_return = get_next_line(fd, &line)) > 0)
 	{
-		if (ft_is_str_blank(line) || line_starts_with_comment(line))
+		if (ft_is_str_space(line) || line_starts_with_comment(line))
 		{
 			free(line);
 			line = NULL;
 			continue ;
 		}
-		if (ft_isblank(line[0]) || ft_isblank(line[ft_strlen(line)]))
+		if (ft_isspace(line[0]) || ft_isspace(line[ft_strlen(line)]))
 		{
 			tmp = ft_strtrim(line);
 			free(line);

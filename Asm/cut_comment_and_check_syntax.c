@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 22:07:37 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 23:40:07 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/20 20:11:50 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		cut_comment_and_check_syntax(char *file, t_data *data)
 		return (display_error_line(EM1, file, node->line_number, -1));
 	if (get_nb_c(node->line, '"') > 2)
 		return (display_error_line(EM4, file, node->line_number, -1));
-	while (node->line[i] && ft_isblank(node->line[i]))
+	while (node->line[i] && ft_isspace(node->line[i]))
 		i++;
 	if (!node->line[i])
 		return (display_error_line(EM2, file, node->line_number, -1));

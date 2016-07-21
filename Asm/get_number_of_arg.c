@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_error.c                                    :+:      :+:    :+:   */
+/*   get_number_of_arg.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/15 00:25:02 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/20 17:48:08 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/20 19:38:38 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/20 19:45:29 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int			display_error_line(char *message, char *file, int line, int c)
+int		get_number_of_arg(char *s)
 {
-	ft_printf("%[[FG_RED,SP_BOL,SP_RST]s ", "ERROR");
-	ft_printf("%[[FG_YEL,SP_BOL,SP_RST]s ", "->");
-	ft_printf("[%[[FG_GRE,SP_RST]d]", line);
-	if (c + 1 > 0)
-		ft_printf("~[%[[FG_CYA,SP_RST]d]", c + 1);
-	if (file)
-		ft_printf("%[[FG_MAG,SP_RST]s ", file);
-	if (message)
-		ft_printf(": %s.\n", message);
-	return (0);
+	int	i;
+	int	n;
+
+	n = 0;
+	i = 0;
+	while (s[i] && (ft_isspace(s[i]) || s[i] == SEPARATOR_CHAR))
+		i++;
+	while (s[i])
+	{
+		if (s[i] && (!ft_isspace(s[i]) && s[i] != SEPARATOR_CHAR))
+			n++;
+		while (s[i] && (!ft_isspace(s[i]) && s[i] != SEPARATOR_CHAR))
+			i++;
+		while (s[i] && (ft_isspace(s[i]) || s[i] == SEPARATOR_CHAR))
+			i++;
+	}
+	return (n);
 }
