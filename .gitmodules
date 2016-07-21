@@ -1,0 +1,4 @@
+[submodule "libftprintf"]
+	path = libftprintf
+	url = git@github.com:Lexouu77/Corewar-42.git
+	branch = printf
