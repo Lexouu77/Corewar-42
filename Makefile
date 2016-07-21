@@ -10,8 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = corewar
-CC = clang
+NAME = libvm.a
 RM = rm -f
 CFLAGS = -g -Wall -Werror -Wextra
 OFLAGS = -O3 -march=native
@@ -56,54 +55,32 @@ SRC = add.c\
 	  store.c\
 	  store_index.c\
 	  sub.c\
-	  vm.c\
 	  xor.c\
-	  ncurses_vm.c\
 	  zjump.c
 
 HEADER = vm.h\
 		 vm_struct.h\
 		 op.h
-LIB = ./libftprintf/libftprintf.a
 
-NORMINETTE_TEST := $(shell norminette $(SRC) $(HEADER) | grep -B 1 Error)
+all: $(NAME)
 
-#.SILENT:
-
-all : $(NAME)
-
-$(NAME) : $(OBJ) $(HEADER) $(LIB)
-	#make -C ./libftprintf
-	$(CC) -o $(NAME) $(SRC) $(CFLAGS) -I $(INCLUDES) -L ./libftprintf/ -lftprintf -lncurses
-	#make -C ./libftprintf fclean
-
-$(LIB) :
-	make -C ./libftprintf/
+$(NAME): $(OBJ) $(HEADER)
+		ar rc $(NAME) $(OBJ)
+		ranlib $(NAME)
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS) -I $(INCLUDES)
 
 clean:
 	$(RM) $(OBJ)
-	make -C ./libftprintf/ clean
 
 fclean: clean
 	$(RM) $(NAME)
-	make -C ./libftprintf/ fclean
 
 re: fclean all
-
-norme:
-ifeq ($(NORMINETTE_TEST), )
-	@echo "Everything ok!"
-else
-	@norminette $(SRC) $(HEADER) | grep -B 1 Error
-endif
-
-watch:
-	watch "make norme" "20"
 
 function:
 	nm -u $(NAME)
 
-.PHONY: re fclean clean all norme watch function
+.PHONY: re fclean clean all watch function
+
