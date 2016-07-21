@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/20 19:45:18 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/21 15:26:26 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef struct				s_data
 {
 	struct s_file_line		*file_content;
 	struct s_label_list		*label_list;
-	int						error_line;
+	int						fd;
 	int						total_file_size;
 	char					*name;
 	char					*comment;
@@ -104,7 +104,6 @@ typedef struct				s_data
 
 /*
 ** Structure with every line of the file.
-** Line number of the error;
 ** Size (Bytes) of the file.
 ** File name.
 ** File comment.
@@ -251,6 +250,8 @@ int							check_instruction_label(char *file, t_data *data,
 							t_file_line *node);
 int							check_instruction_line(char *file, t_data *data,
 							t_file_line *node, int index);
+int							check_instruction_parameters(char *file, char *line,
+							int index, int line_number);
 int							cut_name_and_check_syntax(char *file, t_data *data);
 int							cut_comment_and_check_syntax(char *file,
 							t_data *data);

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 07:50:46 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/21 14:32:44 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/21 18:44:55 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 void		assemble(char *file, t_data *data)
 {
-	int	fd;
-
 	if (!is_file_valid(file))
 		return ;
-	if ((fd = open(file, O_RDONLY)) == -1)
+	if ((data->fd = open(file, O_RDONLY)) == -1)
 		return ((void)display_error("Couldn't open the file", file));
-	stock_file_content(data, fd);
-	close(fd);
+	stock_file_content(data, data->fd);
+	close(data->fd);
 	check_name(data);
 	if (data->has_name != 1)
 		return (display_name_definition_error(file, data));
@@ -36,6 +34,8 @@ void		assemble(char *file, t_data *data)
 	remove_comment_from_file_content(data);
 	if (!check_instructions(file, data))
 		return ;
-//	stock_instructions(data);
+	if (!check_label_called(file, data)) // check les label called dans la label_list
+		return ;
+//	stock_instructions(data); // free les instructions
 	create_cor_file(file, data);
 }

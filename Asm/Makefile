@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/20 19:45:27 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/21 15:07:31 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC = add_file_content_line.c\
 	  check_instructions.c\
 	  check_instruction_label.c\
 	  check_instruction_line.c\
+	  check_instruction_parameters.c\
 	  check_name.c\
 	  create_asm_file.c\
 	  create_cor_file.c\

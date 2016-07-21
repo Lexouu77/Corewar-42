@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 05:11:46 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/18 21:41:14 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/21 15:01:07 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define DIR_CODE 2
 # define IND_CODE 3
 
-# define MAX_ARGS_NUMBER 4
+# define MAX_ARGS_NUMBER 4 // check les defines | check MAX_ARGS_NUMBER avec arg_number de g_op_tab
 # define MAX_PLAYERS 4
 # define MEM_SIZE (4*1024)
 # define IDX_MOD (MEM_SIZE / 8)
