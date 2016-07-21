@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_shorten_len.c                                  :+:      :+:    :+:   */
+/*   has_a_label_call.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/22 00:47:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/22 00:47:44 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/22 00:29:17 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/22 00:36:12 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		get_shorten_len(char *s)
+int		has_a_label_call(char *s)
 {
-	int		i;
-	int		len;
-	int		tmp;
+	int	i;
 
-	i = 9;
-	len = ft_strxlen(s, i);
-	while (++i < 14)
+	i = -1;
+	while (s[++i])
 	{
-		tmp = ft_strxlen(s, i);
-		if (tmp < len)
-			len = tmp;
+		if (s[i] == DIRECT_CHAR && s[i + 1] && s[i + 1] == LABEL_CHAR)
+			return (i + 2);
 	}
-	tmp = ft_strxlen(s, 32);
-	if (tmp < len)
-		len = tmp;
-	return (len);
+	return (-1);
 }

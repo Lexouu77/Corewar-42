@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/21 22:12:35 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/22 00:59:10 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,7 @@ void						get_asm_body(int fd, t_instruction **instruction,
 							unsigned int size);
 int							get_parameter_define_type(char *line, int index);
 int							get_number_of_arg(char *s);
+int							go_to_next_label_call(char *s);
 int							go_to_next_param(char *s, int index);
 void						check_args(int argc, char **argv);
 void						disassemble(char *file);
@@ -184,8 +185,11 @@ char						*remove_comment_from_line(char *line);
 int							display_error(char *message, char *file);
 int							display_error_line(char *message, char *file,
 							int line, int c);
+
 int							display_instruction_error(int line, char *file,
 							int c, char *instruction);
+int							display_label_call_error(int line, char *label,
+							char *file);
 int							display_label_error(int line, char *label,
 							char *file, int er_line);
 void						display_comment_definition_error(char *file,
@@ -199,13 +203,17 @@ void						display_success(char *filename);
 
 void						check_comment(t_data *data);
 int							check_forbidden_characters(char *s, int *i);
+int							check_label_called(char *file, t_data *data);
 void						check_name(t_data *data);
+int							check_sign_error(char *s, int *i);
 int							does_instruction_exist(char *s);
 int							get_shorten_len(char *s);
+int							has_a_label_call(char *s);
 int							is_a_cor_file(char *filename);
 int							is_a_s_file(char *filename);
 int							is_file_valid(char *file);
 int							is_instruction_label(char *s);
+int							is_label_called(char *s, t_data *data);
 int							is_only_flags_or_nothing(int argc, char **argv);
 int							label_already_exist(t_data *data, char *label_name);
 int							line_starts_with_comment(char *s);
@@ -250,7 +258,7 @@ void						remove_name_from_file_content(t_data *data);
 int							check_instructions(char *file, t_data *data);
 int							check_instruction_label(char *file, t_data *data,
 							t_file_line *node);
-int							check_instruction_line(char *file,
+int							check_instruction_line(char *file, t_data *data,
 							t_file_line *node, int index);
 int							check_instruction_parameters(char *file,
 							t_file_line *node, int index, int opc);

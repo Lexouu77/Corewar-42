@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_shorten_len.c                                  :+:      :+:    :+:   */
+/*   check_sign_error.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/22 00:47:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/22 00:47:44 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/22 00:08:54 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/22 00:15:06 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		get_shorten_len(char *s)
+int		check_sign_error(char *s, int *i)
 {
-	int		i;
-	int		len;
-	int		tmp;
+	int		j;
+	int		error;
 
-	i = 9;
-	len = ft_strxlen(s, i);
-	while (++i < 14)
+	j = -1;
+	while (s[++j])
 	{
-		tmp = ft_strxlen(s, i);
-		if (tmp < len)
-			len = tmp;
+		error = 0;
+		if ((s[j] == '-' || s[j] == '+') && s[j + 1] && !ft_isdigit(s[j + 1]))
+		{
+			error = 1;
+			j++;
+		}
+		if (error)
+		{
+			*i = j;
+			return (0);
+		}
 	}
-	tmp = ft_strxlen(s, 32);
-	if (tmp < len)
-		len = tmp;
-	return (len);
+	return (1);
 }

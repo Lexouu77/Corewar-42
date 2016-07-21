@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 07:50:46 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/21 20:41:20 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/22 00:59:25 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void		assemble(char *file, t_data *data)
 	remove_comment_from_file_content(data);
 	if (!check_instructions(file, data))
 		return ;
-//	if (!check_label_called(file, data)) // check les label called dans la label_list
-//		return ;
+	if (!check_label_called(file, data)) // check les label called dans la label_list
+		return ;
 //	stock_instructions(data); // free les instructions
 	create_cor_file(file, data);
 }

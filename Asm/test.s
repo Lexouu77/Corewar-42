@@ -1,8 +1,5 @@
 .name "COUCOU"
 .comment "coucou"
-lala:      
-live %1
-TEST
-:
-test :
-test :
+lala:
+blabla:
+and %:blabla %:lala r1

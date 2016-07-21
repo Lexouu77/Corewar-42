@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/21 22:49:58 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/22 00:59:09 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,9 @@ SRC = add_file_content_line.c\
 	  check_instruction_label.c\
 	  check_instruction_line.c\
 	  check_instruction_parameters.c\
+	  check_label_called.c\
 	  check_name.c\
+	  check_sign_error.c\
 	  create_asm_file.c\
 	  create_cor_file.c\
 	  create_lst_instruction.c\
@@ -42,6 +44,7 @@ SRC = add_file_content_line.c\
 	  display_error.c\
 	  display_error_line.c\
 	  display_instruction_error.c\
+	  display_label_call_error.c\
 	  display_label_error.c\
 	  display_name_definition_error.c\
 	  display_usage.c\
@@ -53,11 +56,14 @@ SRC = add_file_content_line.c\
 	  get_parameter_define_type.c\
 	  get_number_of_arg.c\
 	  get_shorten_len.c\
+	  go_to_next_label_call.c\
 	  go_to_next_param.c\
+	  has_a_label_call.c\
 	  is_a_cor_file.c\
 	  is_a_s_file.c\
 	  is_file_valid.c\
 	  is_instruction_label.c\
+	  is_label_called.c\
 	  is_only_flags_or_nothing.c\
 	  label_already_exist.c\
 	  line_has_comment.c\

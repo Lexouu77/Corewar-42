@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_shorten_len.c                                  :+:      :+:    :+:   */
+/*   is_label_called.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/22 00:47:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/22 00:47:44 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/22 00:29:30 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/22 01:00:35 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		get_shorten_len(char *s)
+int	is_label_called(char *s, t_data *data)
 {
-	int		i;
-	int		len;
-	int		tmp;
+	char			*tmp = ft_strndup(s, get_shorten_len(s));
+	t_label_list	*list;
 
-	i = 9;
-	len = ft_strxlen(s, i);
-	while (++i < 14)
+	list = data->label_list;
+	while (list)
 	{
-		tmp = ft_strxlen(s, i);
-		if (tmp < len)
-			len = tmp;
+		if (!ft_strcmp(list->label_name, tmp))
+		{
+			free(tmp);
+			return (1);
+		}
+		list = list->next;
 	}
-	tmp = ft_strxlen(s, 32);
-	if (tmp < len)
-		len = tmp;
-	return (len);
+	free(tmp);
+	return (0);
 }
