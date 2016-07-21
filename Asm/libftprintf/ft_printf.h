@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 03:19:22 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 04:07:34 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/17 18:12:19 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 # include <errno.h>
 //# include <sys/acl.h>
 # include <termios.h>
-//# include <term.h>
 # include <curses.h>
 # define BUFF_SIZE 4096
 
@@ -246,6 +245,9 @@ void				ft_putendl(char const *s);
 void				ft_malloc_error(void);
 size_t				ft_strxlen(const char *s, char c);
 size_t				ft_stmrxlen(const char *s, char *c);
+size_t				ft_strslen(const char *s, char *to_find);
+
+int					get_nb_c(char *s, char c);
 
 char				*ftprintf_strjoin(t_info *list, char *s, int s2_len);
 char				*ftprintf_strndup(const char *s, int n);
@@ -315,6 +317,7 @@ void				ft_rec_putnbr(int n);
 
 int					ft_is_str_digit(char *s);
 int					ft_is_str_space(char *s);
+int					ft_is_str_blank(char *s);
 
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
@@ -352,5 +355,7 @@ typedef struct		s_gnl
 	int				end;
 	struct s_gnl	*next;
 }					t_gnl;
+
+typedef int			t_bool;
 
 #endif

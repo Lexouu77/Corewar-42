@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asm.c                                              :+:      :+:    :+:   */
+/*   check_forbidden_characters.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/13 16:43:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 15:10:21 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/17 23:30:22 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/17 23:56:27 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		main(int argc, char **argv)
+int		check_forbidden_characters(char *s, int *i)
 {
-	if (argc == 1 || is_only_flags_or_nothing(argc, argv))
-		display_usage();
-	else
-		check_args(argc, argv);
-	return (0);
+	int		j;
+	int		k;
+	int		error;
+
+	j = -1;
+	while (s[++j])
+	{
+		error = 0;
+		k = -1;
+		while (LABEL_CHARS[++k])
+			if (s[j] == LABEL_CHARS[k])
+				error = 1;
+		if (s[j] == LABEL_CHAR || s[j] == DIRECT_CHAR || s[j] == SEPARATOR_CHAR
+				|| ft_isblank(s[j]))
+			error = 1;
+		if (!error)
+		{
+			*i = j;
+			return (0);
+		}
+	}
+	return (1);
 }
+

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 08:57:02 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/19 23:30:46 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ typedef struct				s_instruction
 	char					**label_called;
 	struct s_instruction	*next;
 }							t_instruction;
+
+/* INSTRUCTION STRUCTURE */
+
+/* Contains information about the Instruction itself */
+
 /*
 ** Instruction string.
 ** Number of the line.
@@ -45,6 +50,60 @@ typedef struct				s_instruction
 ** Number of label called in the instruction.
 ** Name of called label.
 ** Next pointer.
+*/
+
+typedef struct				s_file_line
+{
+	char					*line;
+	int						line_number;
+	char					is_name;
+	char					is_comment;
+	char					is_label;
+	char					is_instruction;
+	struct s_file_line		*next;
+}							t_file_line;
+
+/* FILE STRUCTURE */
+
+/* Contains each line of the file. */
+
+/*
+** File string line by line.
+** Number of the line.
+** Is the line a name definition?
+** Is the line a comment definition?
+** Is the line a label? // usefull to create label_linked_list
+** Is the line an instruction?
+** Next pointer.
+*/
+
+typedef struct				s_data
+{
+	struct s_file_line		*file_content;
+	int						error_line;
+	int						total_file_size;
+	char					*name;
+	char					*comment;
+	char					has_name;
+	char					has_comment;
+	char					has_instructions;
+	char					display_byte_info;
+}							t_data;
+
+/* DATA STRUCTURE */
+
+/* Contains data about everything. */
+
+/*
+** Structure with every line of the file.
+** Line number of the error;
+** Size (Bytes) of the file.
+** File name.
+** File comment.
+** Does the file has a name?
+** Does the file has a comment?
+** Does the file has instructions?
+** Display byte decomposition during assemble.
 */
 
 /*
@@ -94,7 +153,10 @@ typedef struct				s_asm_data
 }							t_asm_data;
 */
 
-void						assemble(char *file, char *bonus);
+int							stock_comment(t_file_line *node, t_data *data,
+							int i);
+int							stock_name(t_file_line *node, t_data *data, int i);
+void						assemble(char *file, t_data *data);
 t_instruction				*create_lst_instruction(char *line,
 							int line_number);
 void						get_asm_body(int fd, t_instruction **instruction,
@@ -103,23 +165,39 @@ void						check_args(int argc, char **argv);
 void						disassemble(char *file);
 void						get_asm_body(int fd, t_instruction **instruction,
 							unsigned int size);
-void						free_list(t_instruction *list);
+char						*remove_comment_from_line(char *line);
 
 /* DISPLAY FUNCTIONS */
 
 int							display_error(char *message, char *file);
+int							display_error_line(char *message, char *file,
+							int line, int c);
+void						display_comment_definition_error(char *file,
+							t_data *data);
+void						display_name_definition_error(char *file,
+							t_data *data);
 void						display_usage(void);
 void						display_success(char *filename);
 
 /* TEST FUNCTIONS */
 
+void						check_comment(t_data *data);
+int							check_forbidden_characters(char *s, int *i);
+int							check_instructions(char *file, t_data *data);
+void						check_name(t_data *data);
 int							is_a_cor_file(char *filename);
 int							is_a_s_file(char *filename);
 int							is_file_valid(char *file);
+int							is_instruction_label(char *s);
 int							is_only_flags_or_nothing(int argc, char **argv);
+int							line_starts_with_comment(char *s);
+int							line_has_comment(char *s);
 int							was_already_called(char **argv, int index);
 
 /* READING FUNCTIONS */
+
+void						stock_file_content(t_data *data, int fd);
+void						add_file_content_line(t_data *data, char *line);
 
 int							read_fixed_param_types(int fd, t_instruction *instr,
 							int *i);
@@ -131,8 +209,27 @@ int							read_param_value(int fd, t_instruction *instr);
 /* WRITING FUNCTIONS */
 
 int							create_asm_file(char *file, int reading_fd);
+void						create_cor_file(char *file, t_data *data);
 void						write_asm_body(int fd, t_instruction *instr);
 void						write_asm_header(int fd, t_header header);
 void						write_asm_param(int fd, t_instruction *instr);
+void						write_cor_header(int fd, t_data *data);
+
+/* FREE FUNCTIONS */
+
+void						reset_data_struct(t_data *data);
+void						free_file_content(t_data *data);
+void						free_list(t_instruction *list);
+
+/* DELETE FUNCTIONS */
+
+void						remove_comment_from_file_content(t_data *data);
+void						remove_name_from_file_content(t_data *data);
+
+/* PARSING FUNCTIONS */
+
+int							cut_name_and_check_syntax(char *file, t_data *data);
+int							cut_comment_and_check_syntax(char *file,
+							t_data *data);
 
 #endif

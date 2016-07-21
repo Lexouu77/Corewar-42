@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnocasecmp.c                                  :+:      :+:    :+:   */
+/*   ft_strslen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 02:48:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 20:00:21 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/17 00:22:11 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/17 22:09:04 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	check_case(char a, char b)
+size_t			ft_strslen(const char *s, char *to_find)
 {
-	if (ft_isalpha(b) && ft_isalpha(a))
-	{
-		if ((a < 97 && (a + 32) == b) || (a > 90 && (a - 32) == b))
-			return (1);
-	}
-	return (0);
-}
+	size_t	i;
 
-int			ft_strnocasecmp(const char *s1, const char *s2)
-{
-	if (!s1 && !s2)
-		return (0);
-	while (*s1)
-	{
-		if (*s1 != *s2 && !check_case(*s1, *s2))
-			return (((unsigned char)*s1 - (unsigned char)*s2));
-		++s1;
-		++s2;
-	}
-	return ((*s1 - *s2));
+	i = 0;
+	if (s && to_find)
+		while (s[i] && ft_strncmp(s + i, to_find, ft_strlen(to_find)))
+			++i;
+	return (i);
 }

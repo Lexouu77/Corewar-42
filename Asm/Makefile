@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/15 09:29:37 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/19 21:53:52 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,31 +18,54 @@ DEBUGFLAG = -g3 -fsanitize=address
 INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
-SRC = asm.c\
+SRC = add_file_content_line.c\
+	  asm.c\
 	  assemble.c\
 	  check_args.c\
+	  check_comment.c\
+	  check_forbidden_characters.c\
+	  check_instructions.c\
+	  check_name.c\
 	  create_asm_file.c\
+	  create_cor_file.c\
 	  create_lst_instruction.c\
+	  cut_comment_and_check_syntax.c\
+	  cut_name_and_check_syntax.c\
 	  disassemble.c\
+	  display_comment_definition_error.c\
 	  display_error.c\
+	  display_error_line.c\
+	  display_name_definition_error.c\
 	  display_usage.c\
 	  display_success.c\
+	  free_file_content.c\
 	  free_list.c\
 	  get_asm_body.c\
 	  is_a_cor_file.c\
 	  is_a_s_file.c\
 	  is_file_valid.c\
+	  is_instruction_label.c\
 	  is_only_flags_or_nothing.c\
+	  line_has_comment.c\
+	  line_starts_with_comment.c\
 	  op.c\
 	  read_fixed_param_type.c\
 	  read_format.c\
 	  read_op_code.c\
 	  read_param_type.c\
 	  read_param_value.c\
+	  remove_comment_from_file_content.c\
+	  remove_comment_from_line.c\
+	  remove_name_from_file_content.c\
+	  reset_data_struct.c\
+	  stock_comment.c\
+	  stock_file_content.c\
+	  stock_name.c\
 	  was_already_called.c\
 	  write_asm_body.c\
 	  write_asm_header.c\
-	  write_asm_param.c
+	  write_asm_param.c\
+	  write_cor_header.c
 HEADER = asm.h\
 		 op.h
 

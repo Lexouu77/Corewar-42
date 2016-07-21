@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnocasecmp.c                                  :+:      :+:    :+:   */
+/*   ft_is_str_blank.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 02:48:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 20:00:21 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/16 23:04:34 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/16 23:04:36 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	check_case(char a, char b)
+int		ft_is_str_blank(char *s)
 {
-	if (ft_isalpha(b) && ft_isalpha(a))
-	{
-		if ((a < 97 && (a + 32) == b) || (a > 90 && (a - 32) == b))
-			return (1);
-	}
-	return (0);
-}
+	int	i;
 
-int			ft_strnocasecmp(const char *s1, const char *s2)
-{
-	if (!s1 && !s2)
-		return (0);
-	while (*s1)
+	i = -1;
+	while (s[++i])
 	{
-		if (*s1 != *s2 && !check_case(*s1, *s2))
-			return (((unsigned char)*s1 - (unsigned char)*s2));
-		++s1;
-		++s2;
+		if (!ft_isblank(s[i]))
+			return (0);
 	}
-	return ((*s1 - *s2));
+	return (1);
 }

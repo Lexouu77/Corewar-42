@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asm.c                                              :+:      :+:    :+:   */
+/*   reset_data_struct.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/13 16:43:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 15:10:21 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/16 20:13:34 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/18 21:41:16 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		main(int argc, char **argv)
+void		reset_data_struct(t_data *data)
 {
-	if (argc == 1 || is_only_flags_or_nothing(argc, argv))
-		display_usage();
-	else
-		check_args(argc, argv);
-	return (0);
+	if (!data)
+		return ;
+	if (data->name)
+		free(data->name);
+	if (data->comment)
+		free(data->comment);
+	if (data->file_content)
+		free_file_content(data);
+	data->file_content = NULL;
+	data->error_line = 0;
+	data->name = NULL;
+	data->comment = NULL;
+	data->has_name = 0;
+	data->has_comment = 0;
+	data->has_instructions = 0;
+	data->display_byte_info = 0;
 }
+
+// bzero ?

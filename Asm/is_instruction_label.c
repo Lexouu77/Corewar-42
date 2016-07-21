@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnocasecmp.c                                  :+:      :+:    :+:   */
+/*   is_instruction_label.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 02:48:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 20:00:21 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/18 17:28:18 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/18 18:37:03 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "asm.h"
 
-static int	check_case(char a, char b)
+int		is_instruction_label(char *s)
 {
-	if (ft_isalpha(b) && ft_isalpha(a))
-	{
-		if ((a < 97 && (a + 32) == b) || (a > 90 && (a - 32) == b))
+	int	i;
+
+	i = 0;
+	if (s[0] && s[0] == LABEL_CHAR)
+		return (1);
+	while (s[++i])
+		if (s[i] == LABEL_CHAR && s[i - 1] != DIRECT_CHAR)
 			return (1);
-	}
 	return (0);
-}
-
-int			ft_strnocasecmp(const char *s1, const char *s2)
-{
-	if (!s1 && !s2)
-		return (0);
-	while (*s1)
-	{
-		if (*s1 != *s2 && !check_case(*s1, *s2))
-			return (((unsigned char)*s1 - (unsigned char)*s2));
-		++s1;
-		++s2;
-	}
-	return ((*s1 - *s2));
 }

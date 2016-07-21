@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnocasecmp.c                                  :+:      :+:    :+:   */
+/*   line_starts_with_comment.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/08 02:48:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 20:00:21 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/16 23:08:49 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/16 23:47:05 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "asm.h"
 
-static int	check_case(char a, char b)
+int		line_starts_with_comment(char *s)
 {
-	if (ft_isalpha(b) && ft_isalpha(a))
-	{
-		if ((a < 97 && (a + 32) == b) || (a > 90 && (a - 32) == b))
-			return (1);
-	}
-	return (0);
-}
+	int	i;
 
-int			ft_strnocasecmp(const char *s1, const char *s2)
-{
-	if (!s1 && !s2)
+	i = 0;
+	while (s[i] && ft_isspace(s[i]))
+		i++;
+	if (!s[i])
 		return (0);
-	while (*s1)
-	{
-		if (*s1 != *s2 && !check_case(*s1, *s2))
-			return (((unsigned char)*s1 - (unsigned char)*s2));
-		++s1;
-		++s2;
-	}
-	return ((*s1 - *s2));
+	if (s[i] == '#' || s[i] == ';' || (s[i + 1] && s[i] == '/' && s[i] == '/'))
+		return (1);
+	return (0);
 }

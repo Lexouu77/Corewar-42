@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disassemble.c                                      :+:      :+:    :+:   */
+/*   add_file_content_line.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/15 00:21:43 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 14:56:12 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/16 22:11:48 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/17 16:10:59 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-void						disassemble(char *file)
+void	add_file_content_line(t_data *data, char *line)
 {
-	int			fd;
-	const int	len = ft_strlen(file);
-	char		*new_file;
-	char		*tmp;
+	t_file_line		*new_node;
+	t_file_line		*tmp;
 
-	if (!is_file_valid(file))
+	new_node = ft_memalloc(sizeof(t_file_line));
+	if (!data->file_content)
+	{
+		new_node->line = line;
+		new_node->line_number = 1;
+		data->file_content = new_node;
 		return ;
-	if ((fd = open(file, O_RDONLY)) == -1)
-		return ((void)display_error("Couldn't open the file", file));
-	tmp = ft_strndup(file, len - 4);
-	new_file = ft_strjoin(tmp, ".s");
-	free(tmp);
-	if (create_asm_file(new_file, fd))
-		display_success(new_file);
-	free(new_file);
+	}
+	tmp = data->file_content;
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	tmp->next = new_node;
+	new_node->line = line;
+	new_node->line_number = tmp->line_number + 1;
 }

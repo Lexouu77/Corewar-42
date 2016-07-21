@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:30 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/13 15:09:59 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/17 18:12:58 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ SRC = ft_printf.c\
 	  ft_bzero.c\
 	  ft_error.c\
 	  ft_fctrl.c\
+	  ft_is_str_blank.c\
 	  ft_is_str_digit.c\
 	  ft_is_str_space.c\
 	  ft_isalnum.c\
@@ -130,6 +131,7 @@ SRC = ft_printf.c\
 	  ft_strrev.c\
 	  ft_strsplit.c\
 	  ft_strnstr.c\
+	  ft_strslen.c\
 	  ft_strstr.c\
 	  ft_strsub.c\
 	  ft_strtrim.c\
@@ -138,6 +140,7 @@ SRC = ft_printf.c\
 	  ft_strxdup.c\
 	  ft_tolower.c\
 	  ft_toupper.c\
+	  get_nb_c.c\
 	  get_next_line.c\
 	  ftprintf_strjoin.c\
 	  ftprintf_strncpy_cat.c\
