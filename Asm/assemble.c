@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 07:50:46 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/20 14:22:15 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/21 14:32:44 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		assemble(char *file, t_data *data)
 	if (!cut_comment_and_check_syntax(file, data))
 		return ;
 	remove_comment_from_file_content(data);
-	if (!check_instructions(file, data)) // faire le stockage t_label t_instruction la dedans
+	if (!check_instructions(file, data))
 		return ;
 //	stock_instructions(data);
 	create_cor_file(file, data);
