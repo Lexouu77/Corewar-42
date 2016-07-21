@@ -19,15 +19,15 @@ int		get_number_of_arg(char *s)
 
 	n = 0;
 	i = 0;
-	while (s[i] && (s[i] == 32 || s[i] == SEPARATOR_CHAR))
+	while (s[i] && (ft_isspace(s[i]) || s[i] == SEPARATOR_CHAR))
 		i++;
 	while (s[i])
 	{
-		if (s[i] && (s[i] != 32 && s[i] != SEPARATOR_CHAR))
+		if (s[i] && (!ft_isspace(s[i]) && s[i] != SEPARATOR_CHAR))
 			n++;
-		while (s[i] && (s[i] != 32 && s[i] != SEPARATOR_CHAR))
+		while (s[i] && (!ft_isspace(s[i]) && s[i] != SEPARATOR_CHAR))
 			i++;
-		while (s[i] && (s[i] == 32 || s[i] == SEPARATOR_CHAR))
+		while (s[i] && (ft_isspace(s[i]) || s[i] == SEPARATOR_CHAR))
 			i++;
 	}
 	return (n);
