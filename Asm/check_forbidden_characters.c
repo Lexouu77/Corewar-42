@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/17 23:30:22 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/20 20:11:14 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/21 23:03:26 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int		check_forbidden_characters(char *s, int *i)
 				error = 1;
 		if (s[j] == LABEL_CHAR || s[j] == DIRECT_CHAR || s[j] == SEPARATOR_CHAR
 				|| ft_isspace(s[j]))
+			error = 1;
+		if ((s[j] == '-' || s[j] == '+') && s[j + 1] && ft_isdigit(s[j + 1]))
 			error = 1;
 		if (!error)
 		{
