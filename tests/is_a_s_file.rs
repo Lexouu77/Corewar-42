@@ -14,9 +14,43 @@ use self::libc::c_char;
 #[test]
 fn test_is_a_s_file () {
    assert_eq!(1, unsafe {
+           is_a_s_file(".s\0".as_ptr() as *const c_char)
+   });
+   assert_eq!(1, unsafe {
            is_a_s_file("_.s\0".as_ptr() as *const c_char)
    });
+   assert_eq!(1, unsafe {
+           is_a_s_file("___________.s.s\0".as_ptr() as *const c_char)
+   });
+   assert_eq!(1, unsafe {
+           is_a_s_file("_.s.s\0".as_ptr() as *const c_char)
+   });
+}
+
+#[test]
+fn test_is_not_a_s_file () {
    assert_eq!(0, unsafe {
-           is_a_s_file("ss.\0".as_ptr() as *const c_char)
+           is_a_s_file(".a\0".as_ptr() as *const c_char)
+   });
+   assert_eq!(0, unsafe {
+           is_a_s_file("_.a\0".as_ptr() as *const c_char)
+   });
+   assert_eq!(0, unsafe {
+           is_a_s_file("___________.s.a\0".as_ptr() as *const c_char)
+   });
+   assert_eq!(0, unsafe {
+           is_a_s_file("_.s.a\0".as_ptr() as *const c_char)
+   });
+   assert_eq!(0, unsafe {
+           is_a_s_file("s.a\0".as_ptr() as *const c_char)
+   });
+   assert_eq!(0, unsafe {
+           is_a_s_file("s.\0".as_ptr() as *const c_char)
+   });
+   assert_eq!(0, unsafe {
+           is_a_s_file("s\0".as_ptr() as *const c_char)
+   });
+   assert_eq!(0, unsafe {
+           is_a_s_file("\0".as_ptr() as *const c_char)
    });
 }
