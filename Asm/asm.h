@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/22 00:59:10 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/22 16:23:26 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ typedef struct				s_label_list
 	int						line_number;
 	struct s_label_list		*next;
 }							t_label_list;
+
+typedef struct				s_label
+{
+
+}							t_label;
 
 typedef struct				s_instruction
 {

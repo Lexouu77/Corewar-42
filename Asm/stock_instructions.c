@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_label_called.c                                  :+:      :+:    :+:   */
+/*   stock_instructions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/22 00:29:30 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/22 13:49:32 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/22 13:57:23 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/22 16:23:28 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-
-int	is_label_called(char *s, t_data *data)
+/*
+void	stock_instructions(t_data *data)
 {
-	char			*tmp;
-	t_label_list	*list;
+	t_file_line	*node;
 
-	tmp = ft_strndup(s, get_shorten_len(s));
-	list = data->label_list;
-	while (list)
+	node = data->file_content;
+	add_new_label(data, NULL); // set base label with NULL name
+	while (node)
 	{
-		if (!ft_strcmp(list->label_name, tmp))
-		{
-			free(tmp);
-			return (1);
-		}
-		list = list->next;
+		if (node->is_label)
+//			add_new_label(data, node); // ajouter tous les labels via label_list
+			change_label_node(data);
+		if (node->is_instruction)
+			add_new_instruction(data, node);
+		node = node->next;
 	}
-	free(tmp);
-	return (0);
-}
+}*/
