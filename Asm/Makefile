@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/25 04:48:20 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/25 21:32:45 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
 SRC = add_file_content_line.c\
+	  add_new_label.c\
 	  add_label_to_list.c\
 	  asm.c\
 	  assemble.c\
@@ -36,6 +37,7 @@ SRC = add_file_content_line.c\
 	  check_sign_error.c\
 	  create_asm_file.c\
 	  create_cor_file.c\
+	  create_label_list.c\
 	  create_lst_instruction.c\
 	  cut_comment_and_check_syntax.c\
 	  cut_name_and_check_syntax.c\
@@ -81,6 +83,7 @@ SRC = add_file_content_line.c\
 	  reset_data_struct.c\
 	  stock_comment.c\
 	  stock_file_content.c\
+	  stock_instructions.c\
 	  stock_name.c\
 	  was_already_called.c\
 	  write_asm_body.c\

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/25 04:48:18 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/25 21:32:36 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ typedef struct				s_label_list
 	struct s_label_list		*next;
 }							t_label_list;
 
-typedef struct				s_label
-{
+/* LABEL LIST STRUCTURE */
 
-}							t_label;
+/*
+** Label name.
+** Line number.
+** Next pointer.
+*/
 
 typedef struct				s_instruction
 {
@@ -43,6 +46,7 @@ typedef struct				s_instruction
 	int						number_of_label_called;
 	char					**label_called;
 	struct s_instruction	*next;
+	struct s_instruction	*prev;
 }							t_instruction;
 
 /* INSTRUCTION STRUCTURE */
@@ -61,6 +65,27 @@ typedef struct				s_instruction
 ** Size (Bytes) of arguments.
 ** Number of label called in the instruction.
 ** Name of called label.
+** Next pointer.
+*/
+
+// TODO : Manage comment inside the name/comment
+
+typedef struct				s_label
+{
+	char					*name;
+	int						label_size;
+	struct s_instruction	instruction;
+	struct s_label			*prev;
+	struct s_label			*next;
+}							t_label;
+
+/* LABEL STRUCTURE */
+
+/*
+** Label name.
+** Label size (Bytes).
+** Label's instructions.
+** Prev pointer.
 ** Next pointer.
 */
 
@@ -93,6 +118,7 @@ typedef struct				s_data
 {
 	struct s_file_line		*file_content;
 	struct s_label_list		*label_list;
+	struct s_label			*label;
 	int						fd;
 	int						total_file_size;
 	char					*name;
@@ -118,55 +144,10 @@ typedef struct				s_data
 ** Display byte decomposition during assemble.
 */
 
-/*
-typedef enum				e_parsing_error
-{
-	NO_ERROR,
-	EMPTY_FILENAME,
-	NOT_A_DOT_S_FILE,
-	UNREADABLE_FILE,
-	EMPTY_FILE,
-	MULTIPLE_NAME_DEFINITIONS,
-	MULTIPLE_COMMENT_DEFINITIONS,
-	MISSING_NAME,
-	MISSING_COMMENT,
-	INVALID_CHARACTER,
-	INVALID_INSTRUCTION,
-	INVALID_INSTRUCTION_FORMAT,
-	INVALID_PARAMS_NUMBER,
-	INVALID_REGISTER,
-	UNKNOW_LABEL,
-	MISSING_MAGIC_CODE,
-	MISSING_INSTRUCTIONS,
-	MULTIPLE_INSTRUCTIONS,
-	CANT_CREATE
-}							t_parsing_error;
-
-typedef struct				s_label
-{
-	char					*name;
-	struct s_instruction	*instructions;
-	unsigned int			bytes_size;
-	struct s_label			*next;
-}							t_label;
-TODO : Redo it later.
-typedef struct				s_asm_data
-{
-	char					*base_filename;
-	char					*name;
-	char					*comment;
-	int						line_number_of_error;
-	t_parsing_error			error;
-	struct s_instruction	*lines;
-	struct s_label			*labels;
-	int						just_switched_label;
-	int						total_size;
-	int						display_byte_info;
-}							t_asm_data;
-*/
-
+void						add_new_label(t_data *data, char *name);
 void						add_label_to_list(char	*name, t_data *data,
 							int line_number);
+void						create_label_list(t_data *data);
 int							stock_comment(t_file_line *node, t_data *data,
 							int i);
 int							stock_name(t_file_line *node, t_data *data, int i);
@@ -184,6 +165,7 @@ void						disassemble(char *file);
 void						get_asm_body(int fd, t_instruction **instruction,
 							unsigned int size);
 char						*remove_comment_from_line(char *line);
+void						stock_instructions(t_data *data);
 
 /* DISPLAY FUNCTIONS */
 

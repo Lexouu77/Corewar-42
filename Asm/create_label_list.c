@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_new_label.c                                    :+:      :+:    :+:   */
+/*   create_label_list.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/22 15:27:35 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/25 21:32:05 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/25 20:38:31 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/25 21:26:05 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-void	add_new_label(t_data *data, char *name)
+void	create_label_list(t_data *data)
 {
-	t_label		*tmp;
-	t_label		*prev;
-	t_label		*new_label;
+	t_label_list	*tmp;
 
-	new_label = ft_memalloc(sizeof(t_label));
-	new_label->name = name;
-	if (!data->label)
+	add_new_label(data, NULL);
+	while(tmp)
 	{
-		data->label = new_label;
-		return ;
-	}
-	while (tmp)
-	{
-		prev = tmp;
+		add_new_label(data, ft_strdup(tmp->label_name));
 		tmp = tmp->next;
 	}
-	prev->next = new_label;
-	new_label->prev = prev;
 }
