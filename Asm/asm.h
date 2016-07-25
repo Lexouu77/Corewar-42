@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/22 16:23:26 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/25 04:48:18 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,7 @@ void						display_success(char *filename);
 /* TEST FUNCTIONS */
 
 void						check_comment(t_data *data);
+int							check_empty_label(char *file, t_data *data);
 int							check_forbidden_characters(char *s, int *i);
 int							check_label_called(char *file, t_data *data);
 void						check_name(t_data *data);

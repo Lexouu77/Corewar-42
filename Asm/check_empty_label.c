@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stock_instructions.c                               :+:      :+:    :+:   */
+/*   check_empty_label.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/22 13:57:23 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/25 04:48:16 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/25 04:05:25 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/25 04:47:54 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-/*
-void	stock_instructions(t_data *data)
+
+#define EM1 "No instructions in label"
+
+int	check_empty_label(char *file, t_data *data)
 {
 	t_file_line	*node;
 
 	node = data->file_content;
-	//create_label_list(data);
-	add_new_label(data, NULL); // set base label with NULL name
 	while (node)
 	{
-		if (node->is_label)
-//			add_new_label(data, node); // ajouter tous les labels via label_list
-			change_label_node(data);
-		if (node->is_instruction)
-			add_new_instruction(data, node);
-		node = node->next;
+		if (((node->next && node->next->is_label) || (!node->next)) &&
+				node->is_label && !node->is_instruction && node->next->is_label)
+			return (display_error_line(EM1, file, node->next->line_number, -1));
 	}
-}*/
+	return (1);
+}
