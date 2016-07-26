@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/25 21:32:36 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/26 06:59:13 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ typedef struct				s_label_list
 
 typedef struct				s_instruction
 {
-	char					*raw_string;
-	int						line_number;
+	char					*raw_string; // to delete
+	int						line_number; // to delete
 	unsigned int			bytes_size;
 	char					op_code;
 	char					format;
@@ -74,7 +74,7 @@ typedef struct				s_label
 {
 	char					*name;
 	int						label_size;
-	struct s_instruction	instruction;
+	struct s_instruction	*instruction;
 	struct s_label			*prev;
 	struct s_label			*next;
 }							t_label;

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/13 23:41:39 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 14:55:54 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/26 07:01:28 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	check_args(int argc, char **argv)
 		else
 			display_error("Invalid filename", argv[i]);
 		reset_data_struct(data);
-		bzero(data, sizeof(t_data));
 	}
 	free(data);
 }
