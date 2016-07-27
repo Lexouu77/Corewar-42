@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/26 06:59:13 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/27 08:51:26 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct				s_instruction
 {
 	char					*raw_string; // to delete
 	int						line_number; // to delete
-	unsigned int			bytes_size;
+	unsigned int			size;
 	char					op_code;
 	char					format;
 	int						number_of_args;
@@ -126,7 +126,7 @@ typedef struct				s_data
 	char					has_name;
 	char					has_comment;
 	char					has_instructions;
-	char					display_byte_info;
+	char					display_instruction_info;
 }							t_data;
 
 /* DATA STRUCTURE */
@@ -144,6 +144,10 @@ typedef struct				s_data
 ** Display byte decomposition during assemble.
 */
 
+void						fill_instruction(t_data *data,
+							t_instruction *instruction, char *s);
+void						add_new_instruction(t_data *data, t_label *label,
+							char *line);
 void						add_new_label(t_data *data, char *name);
 void						add_label_to_list(char	*name, t_data *data,
 							int line_number);
@@ -158,6 +162,7 @@ void						get_asm_body(int fd, t_instruction **instruction,
 							unsigned int size);
 int							get_parameter_define_type(char *line, int index);
 int							get_number_of_arg(char *s);
+int							go_to_end_of_label(char *s);
 int							go_to_next_label_call(char *s);
 int							go_to_next_param(char *s, int index);
 void						check_args(int argc, char **argv);

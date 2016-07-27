@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_lst_label.c                                 :+:      :+:    :+:   */
+/*   go_to_end_of_label.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/29 23:59:03 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/05/11 19:30:42 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/07/27 02:53:35 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/07/27 04:52:18 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-t_label		*create_lst_label(char *label_name)
+int		go_to_end_of_label(char *s)
 {
-	t_label	*list;
+	int		i;
 
-	if (!(list = (t_label *)ft_memalloc(sizeof(t_label))))
-		ft_malloc_error();
-	if (label_name)
-		list->name = ft_strdup(label_name);
-	return (list);
+	i = 0;
+	while (s[i] && s[i] != LABEL_CHAR)
+		i++;
+	if (!s[i])
+		return (0);
+	i++;
+	while (s[i] && ft_isspace(s[i]))
+		i++;
+	return (i);
 }

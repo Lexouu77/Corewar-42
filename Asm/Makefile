@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/25 21:32:45 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/27 08:51:33 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ DEBUGFLAG = -g3 -fsanitize=address
 INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
-SRC = add_file_content_line.c\
+SRC = add_new_instruction.c\
+	  add_file_content_line.c\
 	  add_new_label.c\
 	  add_label_to_list.c\
 	  asm.c\
@@ -53,12 +54,14 @@ SRC = add_file_content_line.c\
 	  display_usage.c\
 	  display_success.c\
 	  does_instruction_exist.c\
+	  fill_instruction.c\
 	  free_file_content.c\
 	  free_list.c\
 	  get_asm_body.c\
 	  get_parameter_define_type.c\
 	  get_number_of_arg.c\
 	  get_shorten_len.c\
+	  go_to_end_of_label.c\
 	  go_to_next_label_call.c\
 	  go_to_next_param.c\
 	  has_a_label_call.c\

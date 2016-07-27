@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/22 00:41:39 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/22 01:16:57 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/27 02:10:19 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	go_to_next_label_call(char *s)
 	while (s[i])
 	{
 		if (s[i] == DIRECT_CHAR && s[i + 1] && s[i + 1] == LABEL_CHAR)
-		 return (i + 2);
+			return (i + 2);
 		i++;
 	}
 	return (-1);

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 04:41:32 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 07:03:18 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/27 08:46:21 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void		read_param_types(t_instruction *instr)
 		if (instr->args_type[i] == 'd')
 			instr->args_byte_size[i] =
 				(g_op_tab[instr->op_code - 1].byte_dir) ? IND_SIZE : DIR_SIZE;
-		instr->bytes_size += instr->args_byte_size[i];
+		instr->size += instr->args_byte_size[i];
 	}
 }
