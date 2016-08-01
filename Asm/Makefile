@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/27 08:51:33 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/07/27 13:34:19 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,9 +48,13 @@ SRC = add_new_instruction.c\
 	  display_error.c\
 	  display_error_line.c\
 	  display_instruction_error.c\
+	  display_instruction_info.c\
 	  display_label_call_error.c\
 	  display_label_error.c\
+	  display_line_info.c\
 	  display_name_definition_error.c\
+	  display_parameter_info.c\
+	  display_parameter_type.c\
 	  display_usage.c\
 	  display_success.c\
 	  does_instruction_exist.c\
@@ -58,8 +62,11 @@ SRC = add_new_instruction.c\
 	  free_file_content.c\
 	  free_list.c\
 	  get_asm_body.c\
-	  get_parameter_define_type.c\
+	  get_last_instruction_node.c\
+	  get_negative_size.c\
 	  get_number_of_arg.c\
+	  get_parameter_define_type.c\
+	  get_positive_size.c\
 	  get_shorten_len.c\
 	  go_to_end_of_label.c\
 	  go_to_next_label_call.c\
@@ -70,6 +77,7 @@ SRC = add_new_instruction.c\
 	  is_file_valid.c\
 	  is_instruction_label.c\
 	  is_label_called.c\
+	  is_label_called_before.c\
 	  is_only_flags_or_nothing.c\
 	  label_already_exist.c\
 	  line_has_comment.c\
@@ -86,12 +94,18 @@ SRC = add_new_instruction.c\
 	  reset_data_struct.c\
 	  stock_comment.c\
 	  stock_file_content.c\
+	  stock_format_byte.c\
 	  stock_instructions.c\
+	  stock_label_called_name.c\
+	  stock_label_distance.c\
 	  stock_name.c\
+	  stock_param_type.c\
+	  stock_param_value.c\
 	  was_already_called.c\
 	  write_asm_body.c\
 	  write_asm_header.c\
 	  write_asm_param.c\
+	  write_cor_body.c\
 	  write_cor_header.c
 HEADER = asm.h\
 		 op.h

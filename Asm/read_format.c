@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 04:33:51 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 09:35:03 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/27 11:02:58 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int		read_format(int fd, t_instruction *instr, int *i)
 	if (!read(fd, &instr->format, 1))
 		return (0);
 	*i = *i - 1;
-	if (!(instr->args_type = (char*)malloc(sizeof(char)
-			* instr->number_of_args)) || !(instr->args_value =
+	if (!(instr->parameter_type = (char*)malloc(sizeof(char)
+			* instr->number_of_args)) || !(instr->parameter_value =
 				(int*)malloc(sizeof(int) * instr->number_of_args)) ||
-				!(instr->args_byte_size =
+				!(instr->parameter_size =
 			(int*)malloc(sizeof(int) * instr->number_of_args)))
 		ft_malloc_error();
 	read_param_types(instr);
 	while (++j < instr->number_of_args)
-		*i -= instr->args_byte_size[j];
+		*i -= instr->parameter_size[j];
 	return (1);
 }

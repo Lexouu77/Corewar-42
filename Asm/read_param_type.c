@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 04:41:32 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 08:46:21 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/27 10:25:43 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ void		read_param_types(t_instruction *instr)
 	{
 		shift = 6 - 2 * i;
 		if (((instr->format >> shift) & 0x3) == REG_CODE)
-			instr->args_type[i] = 'r';
+			instr->parameter_type[i] = 'r';
 		if (((instr->format >> shift) & 0x3) == IND_CODE)
-			instr->args_type[i] = 'i';
+			instr->parameter_type[i] = 'i';
 		if (((instr->format >> shift) & 0x3) == DIR_CODE)
-			instr->args_type[i] = 'd';
-		if (instr->args_type[i] == 'r')
-			instr->args_byte_size[i] = 1;
-		if (instr->args_type[i] == 'i')
-			instr->args_byte_size[i] = IND_SIZE;
-		if (instr->args_type[i] == 'd')
-			instr->args_byte_size[i] =
+			instr->parameter_type[i] = 'd';
+		if (instr->parameter_type[i] == 'r')
+			instr->parameter_size[i] = 1;
+		if (instr->parameter_type[i] == 'i')
+			instr->parameter_size[i] = IND_SIZE;
+		if (instr->parameter_type[i] == 'd')
+			instr->parameter_size[i] =
 				(g_op_tab[instr->op_code - 1].byte_dir) ? IND_SIZE : DIR_SIZE;
-		instr->size += instr->args_byte_size[i];
+		instr->size += instr->parameter_size[i];
 	}
 }

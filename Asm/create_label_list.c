@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/25 20:38:31 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 08:43:00 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/27 09:17:03 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	create_label_list(t_data *data)
 
 	add_new_label(data, NULL);
 	tmp = data->label_list;
-	while(tmp)
+	while (tmp)
 	{
 		add_new_label(data, ft_strdup(tmp->label_name));
 		tmp = tmp->next;

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 08:51:26 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/27 13:34:17 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ typedef struct				s_label_list
 
 typedef struct				s_instruction
 {
-	char					*raw_string; // to delete
-	int						line_number; // to delete
+	char					*raw_string;
+	int						line_number;
 	unsigned int			size;
-	char					op_code;
+	int						op_code;
 	char					format;
 	int						number_of_args;
-	char					*args_type;
-	int						*args_value;
-	int						*args_byte_size;
+	char					*parameter_type;
+	int						*parameter_value;
+	int						*parameter_size;
 	int						number_of_label_called;
 	char					**label_called;
 	struct s_instruction	*next;
@@ -144,10 +144,22 @@ typedef struct				s_data
 ** Display byte decomposition during assemble.
 */
 
+void						stock_label_called_name(t_instruction *instruction,
+							char *s);
+void						get_negative_size(t_label *label, char *label_name,
+							t_instruction *instruction);
+void						get_positive_size(t_label *label, char *label_name,
+							t_instruction *instruction);
+t_instruction				*get_last_instruction_node(t_label	*label);
+void						stock_label_distance(t_data *data);
+void						stock_param_value(t_instruction *instruction,
+							char *s, int shift);
+void						stock_param_type(t_instruction *instruction,
+							char *s, int shift);
 void						fill_instruction(t_data *data,
 							t_instruction *instruction, char *s);
 void						add_new_instruction(t_data *data, t_label *label,
-							char *line);
+							char *line, t_file_line *node);
 void						add_new_label(t_data *data, char *name);
 void						add_label_to_list(char	*name, t_data *data,
 							int line_number);
@@ -171,6 +183,8 @@ void						get_asm_body(int fd, t_instruction **instruction,
 							unsigned int size);
 char						*remove_comment_from_line(char *line);
 void						stock_instructions(t_data *data);
+void						stock_format_byte(t_instruction *instruction,
+							char *s, int shift);
 
 /* DISPLAY FUNCTIONS */
 
@@ -180,14 +194,19 @@ int							display_error_line(char *message, char *file,
 
 int							display_instruction_error(int line, char *file,
 							int c, char *instruction);
+void						display_instruction_info(t_data *data);
 int							display_label_call_error(int line, char *label,
 							char *file);
 int							display_label_error(int line, char *label,
 							char *file, int er_line);
+void						display_line_info(t_instruction *instruction,
+							int *size);
 void						display_comment_definition_error(char *file,
 							t_data *data);
 void						display_name_definition_error(char *file,
 							t_data *data);
+void						display_parameter_info(t_instruction *instruction);
+void						display_parameter_type(char c);
 void						display_usage(void);
 void						display_success(char *filename);
 
@@ -207,6 +226,8 @@ int							is_a_s_file(char *filename);
 int							is_file_valid(char *file);
 int							is_instruction_label(char *s);
 int							is_label_called(char *s, t_data *data);
+int							is_label_called_before(t_label *label,
+							char *label_name);
 int							is_only_flags_or_nothing(int argc, char **argv);
 int							label_already_exist(t_data *data, char *label_name);
 int							line_starts_with_comment(char *s);
@@ -232,6 +253,7 @@ void						create_cor_file(char *file, t_data *data);
 void						write_asm_body(int fd, t_instruction *instr);
 void						write_asm_header(int fd, t_header header);
 void						write_asm_param(int fd, t_instruction *instr);
+void						write_cor_body(int fd, t_data *data);
 void						write_cor_header(int fd, t_data *data);
 
 /* FREE FUNCTIONS */

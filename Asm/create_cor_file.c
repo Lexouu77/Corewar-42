@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 17:04:21 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/19 23:30:43 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/27 13:05:13 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void		create_cor_file(char *file, t_data *data)
 	}
 	display_success(new_file);
 	write_cor_header(fd, data);
-	//write_cor_body(fd, data);
+	write_cor_body(fd, data);
 }

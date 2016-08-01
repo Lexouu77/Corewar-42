@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 04:34:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/15 09:33:24 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/27 10:26:36 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int		read_param_value(int fd, t_instruction *instr)
 		return (1);
 	while (++i < instr->number_of_args)
 	{
-		if (!read(fd, &instr->args_value[i], instr->args_byte_size[i]))
+		if (!read(fd, &instr->parameter_value[i], instr->parameter_size[i]))
 			return (0);
-		byte_swap(&instr->args_value[i], instr->args_byte_size[i]);
-		if (instr->args_byte_size[i] == 2)
-			instr->args_value[i] &= 0x0000FFFF;
+		byte_swap(&instr->parameter_value[i], instr->parameter_size[i]);
+		if (instr->parameter_size[i] == 2)
+			instr->parameter_value[i] &= 0x0000FFFF;
 	}
 	return (1);
 }

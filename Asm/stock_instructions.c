@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/22 13:57:23 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 08:49:36 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/07/27 12:07:57 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	stock_instructions(t_data *data)
 		if (node->is_label)
 			label = label->next;
 		if (node->is_instruction && node->is_label)
-			add_new_instruction(data, label, NS + go_to_end_of_label(NS));
+			add_new_instruction(data, label, NS + go_to_end_of_label(NS), node);
 		if (node->is_instruction && !node->is_label)
-			add_new_instruction(data, label, NS);
+			add_new_instruction(data, label, NS, node);
 		node = node->next;
 	}
 }
