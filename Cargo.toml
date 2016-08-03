@@ -1,0 +1,24 @@
+[package]
+name          = "corewar-vm"
+version       = "0.0.1"
+authors       = ["adjivas <adjivas@users.noreply.github.com>"]
+build         = "tango-build.rs"
+description   = ""
+readme        = "README.md"
+keywords      = ["corewar", "42"]
+license       = "GPL-3.0"
+
+[[bin]]
+name          = "server"
+path          = "src/bin/server.rs"
+doc           = false
+
+[lib]
+name          = "corewar_vm"
+path          = "src/lib.rs"
+
+[build-dependencies.tango]
+git = "https://github.com/pnkfelix/tango"
+
+[dependencies.libc]
+version       = "*"

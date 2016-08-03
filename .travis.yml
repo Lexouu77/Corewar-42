@@ -1,23 +1,32 @@
-
----
 sudo: false
-language: c
-compiler:
-  - clang
+language: rust
+rust: 
+  - nightly
+  - stable
+  - beta
+
+branches:
+  except:
+    - notes
+    - developers-guides
+
+# Only while clippy is failing
+matrix:
+  allow_failures:
+    - rust: nightly
+env:
+  global:
+    - PATH="$PATH:$TRAVIS_BUILD_DIR/target/debug"
+cache:
+  directories:
+    - $TRAVIS_BUILD_DIR/target
+    - $HOME/.cargo
 
 os:
   - linux
   - osx
 
-env:
-  - ARCH=x86_64
-  - ARCH=i686
-
 script:
-  - make -C ASM_OLD
-  - make -C VM_OLD
-
-addons:
-  apt:
-    packages:
-      - gcc-multilib
+  - cargo build --verbose
+  - cargo test
+  - cargo bench
