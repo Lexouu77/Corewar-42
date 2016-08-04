@@ -2,7 +2,7 @@
 #![allow(dead_code)]
 
 /// Primitive types
-pub use libc::{pid_t, size_t, ssize_t, c_int, uint16_t, c_char, c_void, sockaddr, socklen_t};
+pub use libc::{pid_t, size_t, ssize_t, c_int, uint16_t, c_char, c_void, sockaddr, socklen_t, sockaddr_in, in_addr, in_addr_t, sa_family_t, in_port_t};
 
 /// Primitive constents.
 pub use libc::{AF_INET, SOCK_STREAM};
@@ -39,7 +39,7 @@ extern "C" {
 Delete a descriptor:
 ```rust
 extern "C" {
-    fn close(fd: c_int) -> c_int;
+    pub fn close(fd: c_int) -> c_int;
 }
 ```
 
@@ -71,28 +71,28 @@ extern "C" {
 Convert values between host and network byte order:
 ```rust
 extern "C" {
-    fn htons(hostshort: uint16_t) -> uint16_t;
-    fn htonl(hostshort: uint16_t) -> uint16_t;
+    pub fn htons(hostshort: uint16_t) -> uint16_t;
+    pub fn htonl(hostshort: uint16_t) -> uint16_t;
 }
 ```
 
 Bind a name to a socket:
 ```rust
 extern "C" {
-    fn bind(socket: c_int, address: *const sockaddr, address_len: socklen_t) -> c_int;
+    pub fn bind(socket: c_int, address: *const sockaddr_in, address_len: socklen_t) -> c_int;
 }
 ```
 
 Listen for connections on a socket:
 ```rust
 extern "C" {
-    fn listen(socket: c_int, backlog: c_int) -> c_int;
+    pub fn listen(socket: c_int, backlog: c_int) -> c_int;
 }
 ```
 
 Accept a connection on a socket:
 ```rust
 extern "C" {
-    fn accept(socket: c_int, address: *mut sockaddr, address_len: *mut socklen_t) -> c_int;
+    pub fn accept(socket: c_int, address: *const sockaddr, address_len: *const socklen_t) -> c_int;
 }
 ```

@@ -12,6 +12,8 @@ pub enum ServerError {
     GetProtoByNameNull,
     /// If a error is occured.
     SocketError,
+    /// If a error is occured.
+    BindError,
 }
 
 
@@ -31,8 +33,10 @@ impl Error for ServerError {
     fn description(&self) -> &str {
         match *self {
             ServerError::GetProtoByNameNull => "Null pointer (0) returned on EOF or error.",
-            ServerError::SocketError => "A -1 is returned if an error occurs, otherwise the return
-                value is a descriptor referencing the socket.",
+            ServerError::SocketError => "A -1 is returned if an error occurs, otherwise the return\
+                                         value is a descriptor referencing the socket.",
+            ServerError::BindError => "Otherwise, a value of -1 is returned and the global integer\
+                                       variable errno is set to indicate the error.",
         }
     }
 

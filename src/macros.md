@@ -33,4 +33,24 @@ macro_rules! socket {
         }
     });
 }
+
+#[macro_export]
+macro_rules! bind {
+    ($socket: expr, $address: expr, $address_len: expr) => ({
+          match $crate::ffi::bind($socket, $address, $address_len) {
+              -1 => None,
+              s => Some(s),
+          }
+    });
+}
+
+#[macro_export]
+macro_rules! accept {
+    ($socket: expr, $address: expr, $address_len: expr) => ({
+          match $crate::ffi::accept($socket, $address, $address_len) {
+              -1 => None,
+              s => Some(s),
+          }
+    });
+}
 ```
