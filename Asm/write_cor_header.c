@@ -6,13 +6,13 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 21:46:53 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/19 21:56:49 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 13:30:20 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-void	write_cor_header(int fd, t_data *data)
+void		write_cor_header(int fd, t_data *data)
 {
 	t_header	header;
 

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 12:52:45 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 13:03:28 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 17:42:19 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ void	write_cor_body(int fd, t_data *data)
 		while (instruction)
 		{
 			i = -1;
-			instruction->op_code--;
-			write(fd, &(instruction->op_code), sizeof(instruction->op_code));
+			ft_printf("opcode%d \n", instruction->op_code);
+			instruction->op_code++;
+			write(fd, &(instruction->op_code), 1);
 			if (g_op_tab[instruction->op_code - 1].byte_param)
 				write(fd, &(instruction->format), sizeof(instruction->format));
 			while (++i < instruction->number_of_args)

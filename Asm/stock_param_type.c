@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 09:39:50 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 10:29:13 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 15:21:13 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ void	stock_param_type(t_instruction *instruction, char *s, int shift)
 	else
 		instruction->parameter_type[index] = 'i';
 	if (instruction->parameter_type[index] == 'r')
-		instruction->size++;
-	if (instruction->parameter_type[index] == 'l')
-		instruction->size += IND_SIZE;
-	if (instruction->parameter_type[index] == 'd')
-		instruction->size +=
+		instruction->parameter_size[index]++;
+	else if (instruction->parameter_type[index] == 'l')
+		instruction->parameter_size[index] = IND_SIZE;
+	else if (instruction->parameter_type[index] == 'd')
+		instruction->parameter_size[index] =
 			(!g_op_tab[instruction->op_code].byte_dir) ? DIR_SIZE : IND_SIZE;
 	else
-		instruction->size += IND_SIZE;
+		instruction->parameter_size[index] = IND_SIZE;
+	instruction->size += instruction->parameter_size[index];
 }

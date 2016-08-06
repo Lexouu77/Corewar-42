@@ -6,30 +6,45 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 05:31:49 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 13:06:09 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 16:11:43 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
+#define NARG instruction->number_of_args
+
+static char	*stock_op_code(char *s)
+{
+	int		i;
+
+	i = 0;
+	while (s[i] && !ft_isspace(s[i]) && s[i] != SEPARATOR_CHAR)
+		++i;
+	return (ft_strndup(s, i));
+}
 
 void	fill_instruction(t_data *data, t_instruction *instruction, char *s)
 {
 	int			len;
-	char		*tmp;
+	const char	*tmp = (const char *)stock_op_code(s);
 	int			shift;
-	const int	arg_number = g_op_tab[instruction->op_code].arg_number;
+//	int			arg_number;
 
 	shift = 6;
 	len = 0;
-	tmp = ft_strndup(s, len);
-	instruction->op_code = does_instruction_exist(tmp);
-	free(tmp);
-	instruction->parameter_type = ft_memalloc(sizeof(char) * arg_number);
-	instruction->parameter_value = ft_memalloc(sizeof(int) * arg_number);
-	instruction->parameter_size = ft_memalloc(sizeof(int) * arg_number);
-	while ((len = go_to_next_param(s, 0)) != -1)
+	instruction->op_code = does_instruction_exist((char *)tmp);
+	instruction->number_of_args = g_op_tab[instruction->op_code].arg_number;
+	free((char *)tmp);
+	instruction->parameter_type = ft_memalloc(sizeof(char) * NARG);
+	instruction->parameter_value = ft_memalloc(sizeof(int) * NARG);
+	instruction->parameter_size = ft_memalloc(sizeof(int) * NARG);
+	instruction->size++;
+	while ((len = go_to_next_param(s, len)) != -1)
 	{
+//		ft_printf("s + len = %s\n", s + len);
+		//CHECK VALUE 
+		//CHECK %: not going well.
 		if (g_op_tab[instruction->op_code].byte_param)
 			stock_format_byte(instruction, s + len, shift);
 		stock_param_type(instruction, s + len, shift);
@@ -37,7 +52,4 @@ void	fill_instruction(t_data *data, t_instruction *instruction, char *s)
 		shift -= 2;
 	}
 	data->total_file_size += instruction->size;
-	stock_label_distance(data);
-	if (data->display_instruction_info)
-		display_instruction_info(data);
 }

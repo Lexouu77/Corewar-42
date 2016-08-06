@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 17:04:21 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 13:05:13 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 13:39:52 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void		create_cor_file(char *file, t_data *data)
 		free(new_file);
 		return ((void)display_error("Couldn't create the file", file));
 	}
-	display_success(new_file);
+	if (data->display_instruction_info)
+		display_instruction_info(data);
 	write_cor_header(fd, data);
 	write_cor_body(fd, data);
+	display_success(new_file);
+	free(new_file);
 }

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 11:36:17 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 11:40:16 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 13:21:19 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		is_label_called_before(t_label *label, char *label_name)
 	tmp = label;
 	while (tmp)
 	{
-		if (!ft_strcmp(label->name, label_name))
+		if (tmp->name && !ft_strcmp(tmp->name, label_name))
 			return (1);
-		label = label->prev;
+		tmp = tmp->prev;
 	}
 	return (0);
 }

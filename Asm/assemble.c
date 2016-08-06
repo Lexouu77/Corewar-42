@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 07:50:46 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/06 09:49:23 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 10:56:30 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,8 @@ void		assemble(char *file, t_data *data)
 	remove_comment_from_file_content(data);
 	if (!check_instructions(file, data))
 		return ;
-	ft_printf("COUCOU\n");
 	if (!check_label_called(file, data) || !check_empty_label(file, data))
 		return ;
-	ft_printf("COUCOU\n");
 	stock_instructions(data); // free les instructions TODO : ADD UN PREV/NEXT dans label et instr pour plus tard.
 	create_cor_file(file, data);
 }

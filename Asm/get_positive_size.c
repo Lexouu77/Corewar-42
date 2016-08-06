@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 11:40:29 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 11:56:33 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 16:35:13 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@ void	get_positive_size(t_label *label, char *label_name,
 			tmp_instruction = tmp_instruction->next;
 		}
 		tmp_label = tmp_label->next;
-		tmp_instruction = tmp_label->instruction;
+		if (tmp_label)
+			tmp_instruction = tmp_label->instruction;
 	}
 	i = -1;
 	while (++i < instruction->number_of_args)
-		if (!instruction->parameter_value[i])
+		if (instruction->parameter_type[i] == 'l' &&
+				!instruction->parameter_value[i])
 			break ;
-	instruction->parameter_value[i] = -size;
+	instruction->parameter_value[i] = size;
 }

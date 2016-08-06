@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/22 13:57:23 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 12:07:57 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 16:12:04 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,5 @@ void	stock_instructions(t_data *data)
 			add_new_instruction(data, label, NS, node);
 		node = node->next;
 	}
+	stock_label_distance(data);
 }

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 17:23:44 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/06 09:40:38 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 11:21:34 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int			check_instruction_line(char *file, t_data *data, t_file_line *node,
 	number_of_args = get_number_of_arg(NSTRING + len);
 	if (number_of_args != g_op_tab[i].arg_number)
 		return (!N_A ? D_ERR(NO_ARG) : D_ERR(N_ARG));
+	node->is_instruction = 1;
 	return (check_instruction_parameters(file, node, index + len, i));
 }
-
-// TODO + LABEL_CALLED

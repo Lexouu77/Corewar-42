@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 12:02:23 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 12:09:19 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 13:29:11 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void		display_line_info(t_instruction *instruction, int *size)
 		ft_printf("Size : [%[[FG_RED,SP_RST]d] Bytes | ", instruction->size);
 		*size += instruction->size;
 		ft_printf("Total size : [%[[FG_YEL,SP_RST]d] bytes\n", *size);
-
 }

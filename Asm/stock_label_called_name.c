@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 10:28:48 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 13:07:12 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 16:25:39 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	stock_label_called_name(t_instruction *instruction, char *s)
 	int		i;
 	char	*label;
 
-	label = (get_shorten_len(s) < (int)ft_strxlen(s, LABEL_CHAR))?
+	label = (get_shorten_len(s) < (int)ft_strxlen(s, SEPARATOR_CHAR))?
 		ft_strndup(s, get_shorten_len(s)) : ft_strndup(s,
-				ft_strxlen(s, LABEL_CHAR));
+				ft_strxlen(s, SEPARATOR_CHAR));
 	if (instruction->number_of_label_called == 1)
 	{
 		instruction->label_called = ft_memalloc(sizeof(char *) * 1);
