@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 05:31:49 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 08:52:15 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/02 19:27:38 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 //
 void	fill_instruction(t_data *data, t_instruction *instruction, char *s)
 {
-	int		len;
+	(void)data;
+	(void)instruction;
+	(void)s;
+/*	int		len;
 	char	*tmp;
 	int		shift;
 
@@ -40,5 +43,5 @@ void	fill_instruction(t_data *data, t_instruction *instruction, char *s)
 	data->total_file_size += instruction->size;
 	stock_label_distance(data);
 	if (data->display_instruction_info)
-		display_instruction_info(data);
+		display_instruction_info(data);*/
 }

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 21:58:48 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 02:48:28 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/02 19:26:42 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,17 @@
 #define NL node->line_number
 #define NS node->line
 
-int		check_instruction_label(char *file, t_data *data, t_file_line *node)
+static int	get_instr_index(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] && ft_isspace(s[i]))
+		i++;
+	return (i);
+}
+
+int			check_instruction_label(char *file, t_data *data, t_file_line *node)
 {
 	const int	len = ft_strxlen(node->line, LABEL_CHAR);
 	const char	*tmp = ft_strndup(node->line, len);
@@ -30,6 +40,6 @@ int		check_instruction_label(char *file, t_data *data, t_file_line *node)
 	if (ft_strlen(NS + len + 1) < 1 || ft_is_str_space(NS + len + 1))
 		return (1);
 	else
-		return (check_instruction_line(file, data, node, len + 1));
+		return (check_instruction_line(file, data, node, len + 1 + get_instr_index(NS + len + 1)));
 	return (1);
 }

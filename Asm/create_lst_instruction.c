@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/30 00:07:57 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 08:44:50 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 08:26:02 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ t_instruction		*create_lst_instruction(char *line, int line_number)
 {
 	t_instruction	*list;
 
-	if (!(list = (t_instruction *)ft_memalloc(sizeof(t_instruction))))
-		ft_malloc_error();
+	list = (t_instruction *)ft_memalloc(sizeof(t_instruction));
 	if (line)
 		list->raw_string = ft_strdup(line);
 	list->size = 1;

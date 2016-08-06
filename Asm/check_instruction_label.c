@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 21:58:48 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 13:30:46 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 09:43:50 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,21 @@
 #define NL node->line_number
 #define NS node->line
 
-int		check_instruction_label(char *file, t_data *data, t_file_line *node)
+static int	get_instr_len(char *s, int len)
+{
+	while (s[len] && !ft_isspace(s[len]))
+	{
+		len++;
+	}
+	return (len);
+}
+
+int			check_instruction_label(char *file, t_data *data,
+			t_file_line *node)
 {
 	const int	len = ft_strxlen(node->line, LABEL_CHAR);
 	const char	*tmp = ft_strndup(node->line, len);
 	const int	line = label_already_exist(data, (char*)tmp);
-	int			i;
 
 	if (!len)
 		return (display_error_line("No label name", file, NL, -1));
@@ -32,10 +41,8 @@ int		check_instruction_label(char *file, t_data *data, t_file_line *node)
 		return (1);
 	else
 	{
-		i = 0;
-	//	while (node->line[len + 1 + i] && ft_isspace(node->line[len + 1 +i]))
-	//		i++;
-		return (check_instruction_line(file, data, node, len + i + 1));
+		return (check_instruction_line(file, data, node, get_instr_len(NS,
+						len + 1)));
 	}
 	return (1);
 }

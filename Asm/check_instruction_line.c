@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 17:23:44 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 13:34:11 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/06 09:40:38 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ int			check_instruction_line(char *file, t_data *data, t_file_line *node,
 	while (node->line[index] && ft_isspace(node->line[index]))
 			index++;
 	len = get_shorten_len(NSTRING);
-//	len = go_to_next_param(NSTRING + len, len);
-//	ft_printf("%[[BG_BLU,SP_RST]s - %d\n", NSTRING + len, *(node->line + index + len));
 	instruction = ft_strndup(NSTRING, len);
 	if ((i = does_instruction_exist(instruction)) == -1)
 		return (display_instruction_error(NL, file, index, instruction));
@@ -45,3 +43,5 @@ int			check_instruction_line(char *file, t_data *data, t_file_line *node,
 		return (!N_A ? D_ERR(NO_ARG) : D_ERR(N_ARG));
 	return (check_instruction_parameters(file, node, index + len, i));
 }
+
+// TODO + LABEL_CALLED

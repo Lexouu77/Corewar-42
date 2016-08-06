@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/22 00:29:30 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/22 13:49:32 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/02 20:24:05 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	is_label_called(char *s, t_data *data)
 	char			*tmp;
 	t_label_list	*list;
 
-	tmp = ft_strndup(s, get_shorten_len(s));
+	if (get_shorten_len(s) < (int)ft_strxlen(s, SEPARATOR_CHAR))
+		tmp = ft_strndup(s, get_shorten_len(s));
+	else
+		tmp = ft_strndup(s, ft_strxlen(s, SEPARATOR_CHAR));
 	list = data->label_list;
 	while (list)
 	{
