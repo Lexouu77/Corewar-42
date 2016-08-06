@@ -5,13 +5,13 @@ use corewar_vm::server::Server;
 use corewar_vm::server::connection::Connect;
 
 fn main() {
-    let serv: Server = unsafe {
+    let server: Server = unsafe {
         Server::new(4242, 80)
     }.unwrap();
 
     loop {
         let _: Connect = unsafe {
-            Connect::new(serv.fd)
+            Connect::new(server.fd)
         }.unwrap();
     }
 }
