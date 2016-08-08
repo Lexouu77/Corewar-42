@@ -1,4 +1,4 @@
-# File generated the Sun Jul 17 18:37:27 2016
+# File generated the Sat Aug  6 18:47:22 2016
 # Total size : 617 bytes 
 .name "helltrain"
 .comment "choo-choo, motherf*****s !"
@@ -15,10 +15,10 @@
 	 sti r1, %461, %1
 	 sti r1, %454, %9
 	 sti r1, %408, %1
-	 ld %0, r16
+	 ld %0, r1073741840
 	 fork %323
-	 ld %0, r2
-	 ld %0, r16
+	 ld %0, r1073741826
+	 ld %0, r1073741840
 	 live %4902343
 	 st r2, 65512
 	 st r2, 65503
@@ -78,7 +78,7 @@
 	 zjmp %65256
 	 live %4239423
 	 fork %65531
-	 ld %0, r16
+	 ld %0, r1073741840
 	 live %3442302
 	 zjmp %65531
 	 live %4320423

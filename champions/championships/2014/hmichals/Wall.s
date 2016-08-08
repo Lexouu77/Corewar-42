@@ -1,84 +1,71 @@
-	.name "Wall"
-	.comment "Werror(you) Wextra(me)"
+# File generated the Mon Aug  8 09:28:30 2016
+# Total size : 338 bytes 
+.name "Wall"
+.comment "Werror(you) Wextra(me)"
 
-start:
-	ld		%1, r14
-	zjmp	%:wallstart
-	st		r15, -8				#	15
-	
-stlive:
-	sti	    r1,	%:wall,	%1		#	7
-	sti		r1, %:alive, %1
-	sti		r1, %:forklive, %1
-	sti		r1, %:wallstart, %1
-	sti		r1, %:fork, %1
-	sti     r1, %:fork, %9
-	sti     r1, %:kta, %1
-	sti     r1, %:kta, %9
-	sti     r1, %:kta, %17		#	63
-								#	78
-fork:
-	live	%66
-	fork	%:wallstart
-	live	%66
-	fork	%:fork				#	16
-								#	94
-kta:
-	live	%2576980377			#	99
-	lfork	%925
-	live    %66					#	107
-	lfork   %1941
-	live    %66					#	115
-	lfork   %2957
-	
-forklive:	
-	live	%66
-	fork	%:forklive
-	aff		r1
-
-alive:
-	live	%66
-	ld		%0, r16
-	zjmp	%:alive
-
-wallstart:
-	live	%66
-    ld      %42991616, r2
-	ld      %265, r3
-	ld      %4294508544, r4
-	fork	%:wallstart
-
-wall:
-	live    %66
-	st      r2, -300
-	st      r3, -301
-	st      r4, -302
-	st      r2, -303
-	st      r3, -304
-	st      r4, -305
-	st      r2, -306
-	st      r3, -307
-	st      r4, -308
-	st      r2, -309
-	st      r3, -310
-	st      r4, -311
-	st      r2, -312
-	st      r3, -313
-	st      r4, -314
-    st      r2, -315
-	st      r3, -316
-	st      r4, -317
-	st      r2, -318
-	st      r3, -319
-	st      r4, -320
-	st      r2, -321
-	st      r3, -322
-	st      r4, -323
-	st      r2, -324
-	st      r3, -325
-	st      r4, -326
-	st      r2, -327
-	st      r3, -328
-	st      r4, -329
-	ld		%0, r16
-	zjmp	%:wall
+	 ld %1, r-1094795762
+	 zjmp %137
+	 st r-1094795761, 65528
+	 sti r-1094795775, %158, %1
+	 sti r-1094795775, %107, %1
+	 sti r-1094795775, %89, %1
+	 sti r-1094795775, %108, %1
+	 sti r-1094795775, %35, %1
+	 sti r-1094795775, %28, %9
+	 sti r-1094795775, %37, %1
+	 sti r-1094795775, %30, %9
+	 sti r-1094795775, %23, %17
+	 live %66
+	 fork %61
+	 live %66
+	 fork %65523
+	 live %-1717986919
+	 lfork %925
+	 live %66
+	 lfork %1941
+	 live %66
+	 lfork %2957
+	 live %66
+	 fork %65531
+	 aff r-1094795775
+	 live %66
+	 ld %0, r-1094795760
+	 zjmp %65524
+	 live %66
+	 ld %42991616, r-1094795774
+	 ld %265, r-1094795773
+	 ld %-458752, r-1094795772
+	 fork %65510
+	 live %66
+	 st r-1094795774, 65236
+	 st r-1094795773, 65235
+	 st r-1094795772, 65234
+	 st r-1094795774, 65233
+	 st r-1094795773, 65232
+	 st r-1094795772, 65231
+	 st r-1094795774, 65230
+	 st r-1094795773, 65229
+	 st r-1094795772, 65228
+	 st r-1094795774, 65227
+	 st r-1094795773, 65226
+	 st r-1094795772, 65225
+	 st r-1094795774, 65224
+	 st r-1094795773, 65223
+	 st r-1094795772, 65222
+	 st r-1094795774, 65221
+	 st r-1094795773, 65220
+	 st r-1094795772, 65219
+	 st r-1094795774, 65218
+	 st r-1094795773, 65217
+	 st r-1094795772, 65216
+	 st r-1094795774, 65215
+	 st r-1094795773, 65214
+	 st r-1094795772, 65213
+	 st r-1094795774, 65212
+	 st r-1094795773, 65211
+	 st r-1094795772, 65210
+	 st r-1094795774, 65209
+	 st r-1094795773, 65208
+	 st r-1094795772, 65207
+	 ld %0, r-1094795760
+	 zjmp %65374

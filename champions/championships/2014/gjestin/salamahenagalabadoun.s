@@ -1,25 +1,14 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    salamahenagalabadoun.s                             :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: gjestin <gjestin@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2014/02/21 22:08:42 by gjestin           #+#    #+#              #
-#    Updated: 2014/02/25 21:02:17 by gjestin          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
+# File generated the Mon Aug  8 09:28:30 2016
+# Total size : 45 bytes 
 .name "salamahenagalabadoun"
 .comment "sussKBO hin hin"
 
-ld		32, r3
-ld		4, r4
-ld		190, r5
-st		r1, 6
-loop:
-live	%666
-sti		r5, r5, r3
-add		r3, r4, r5
-ld		%0, r16
-zjmp	%:loop
+	 ld 32, r-1094795773
+	 ld 4, r-1094795772
+	 ld 190, r-1094795771
+	 st r-1094795775, 6
+	 live %666
+	 sti r-1094795771, r-1094795771, r-1094795773
+	 add r-1094795773, r-1094795772, r-1094795771
+	 ld %0, r-1094795760
+	 zjmp %65514

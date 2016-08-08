@@ -1,433 +1,222 @@
+# File generated the Mon Aug  8 09:28:30 2016
+# Total size : 681 bytes 
 .name "Ultimate Surrender"
 .comment "Y'en a qui vont prendre cher... :)"
 
-ld %0, r2
-zjmp %:var170
-var1:
-lfork %:var1
-var2:
-lfork %:var1
-var3:
-lfork %:var1
-var4:
-lfork %:var1
-var5:
-lfork %:var1
-var6:
-lfork %:var1
-var7:
-lfork %:var1
-var8:
-lfork %:var1
-var9:
-lfork %:var1
-var10:
-lfork %:var1
-var11:
-lfork %:var1
-var12:
-lfork %:var1
-var13:
-lfork %:var1
-var14:
-lfork %:var1
-var15:
-lfork %:var1
-var16:
-lfork %:var1
-var17:
-lfork %:var1
-var18:
-lfork %:var1
-var19:
-lfork %:var1
-var20:
-lfork %:var1
-var21:
-lfork %:var1
-var22:
-lfork %:var1
-var23:
-lfork %:var1
-var24:
-lfork %:var1
-var25:
-lfork %:var1
-var26:
-lfork %:var1
-var27:
-lfork %:var1
-var28:
-lfork %:var1
-var29:
-lfork %:var1
-var30:
-lfork %:var1
-var31:
-lfork %:var1
-var32:
-lfork %:var1
-var33:
-lfork %:var1
-var34:
-lfork %:var1
-var35:
-lfork %:var1
-var36:
-lfork %:var1
-var37:
-lfork %:var1
-var38:
-lfork %:var1
-var39:
-lfork %:var1
-var40:
-lfork %:var1
-var41:
-lfork %:var1
-var42:
-lfork %:var1
-var43:
-lfork %:var1
-var44:
-lfork %:var1
-var45:
-lfork %:var1
-var46:
-lfork %:var1
-var47:
-lfork %:var1
-var48:
-lfork %:var1
-var49:
-lfork %:var1
-var50:
-lfork %:var1
-var51:
-lfork %:var1
-var52:
-lfork %:var1
-var53:
-lfork %:var1
-var54:
-lfork %:var1
-var55:
-lfork %:var1
-var56:
-lfork %:var1
-var57:
-lfork %:var1
-var58:
-lfork %:var1
-var59:
-lfork %:var1
-var60:
-lfork %:var1
-var61:
-lfork %:var1
-var62:
-lfork %:var1
-var63:
-lfork %:var1
-var64:
-lfork %:var1
-var65:
-lfork %:var1
-var66:
-lfork %:var1
-var67:
-lfork %:var1
-var68:
-lfork %:var1
-var69:
-lfork %:var1
-var70:
-lfork %:var1
-var71:
-lfork %:var1
-var72:
-lfork %:var1
-var73:
-lfork %:var1
-var74:
-lfork %:var1
-var75:
-lfork %:var1
-var76:
-lfork %:var1
-var77:
-lfork %:var1
-var78:
-lfork %:var1
-var79:
-lfork %:var1
-var80:
-lfork %:var1
-var81:
-lfork %:var1
-var82:
-lfork %:var1
-var83:
-lfork %:var1
-var84:
-lfork %:var1
-var85:
-lfork %:var1
-var86:
-lfork %:var1
-var87:
-lfork %:var1
-var88:
-lfork %:var1
-var89:
-lfork %:var1
-var90:
-lfork %:var1
-var91:
-lfork %:var1
-var92:
-lfork %:var1
-var93:
-lfork %:var1
-var94:
-lfork %:var1
-var95:
-lfork %:var1
-var96:
-lfork %:var1
-var97:
-lfork %:var1
-var98:
-lfork %:var1
-var99:
-lfork %:var1
-var100:
-lfork %:var1
-var101:
-lfork %:var1
-var102:
-lfork %:var1
-var103:
-lfork %:var1
-var104:
-lfork %:var1
-var105:
-lfork %:var1
-var106:
-lfork %:var1
-var107:
-lfork %:var1
-var108:
-lfork %:var1
-var109:
-lfork %:var1
-var110:
-lfork %:var1
-var111:
-lfork %:var1
-var112:
-lfork %:var1
-var113:
-lfork %:var1
-var114:
-lfork %:var1
-var115:
-lfork %:var1
-var116:
-lfork %:var1
-var117:
-lfork %:var1
-var118:
-lfork %:var1
-var119:
-lfork %:var1
-var120:
-lfork %:var1
-var121:
-lfork %:var1
-var122:
-lfork %:var1
-var123:
-lfork %:var1
-var124:
-lfork %:var1
-var125:
-lfork %:var1
-var126:
-lfork %:var1
-var127:
-lfork %:var1
-var128:
-lfork %:var1
-var129:
-lfork %:var1
-var130:
-lfork %:var1
-var131:
-lfork %:var1
-var132:
-lfork %:var1
-var133:
-lfork %:var1
-var134:
-lfork %:var1
-var135:
-lfork %:var1
-var136:
-lfork %:var1
-var137:
-lfork %:var1
-var138:
-lfork %:var1
-var139:
-lfork %:var1
-var140:
-lfork %:var1
-var141:
-lfork %:var1
-var142:
-lfork %:var1
-var143:
-lfork %:var1
-var144:
-lfork %:var1
-var145:
-lfork %:var1
-var146:
-lfork %:var1
-var147:
-lfork %:var1
-var148:
-lfork %:var1
-var149:
-lfork %:var1
-var150:
-lfork %:var1
-var151:
-lfork %:var1
-var152:
-lfork %:var1
-var153:
-lfork %:var1
-var154:
-lfork %:var1
-var155:
-lfork %:var1
-var156:
-lfork %:var1
-var157:
-lfork %:var1
-var158:
-lfork %:var1
-var159:
-lfork %:var1
-var160:
-lfork %:var1
-var161:
-lfork %:var1
-var162:
-lfork %:var1
-var163:
-lfork %:var1
-var164:
-lfork %:var1
-var165:
-lfork %:var1
-var166:
-lfork %:var1
-var167:
-lfork %:var1
-var168:
-var169:
-var170:
-st r4, -503
-zjmp %:var225
-var171:
-lfork %:var1
-var172:
-lfork %:var1
-var173:
-lfork %:var1
-var174:
-lfork %:var1
-var175:
-lfork %:var1
-var176:
-lfork %:var1
-var177:
-lfork %:var1
-var178:
-lfork %:var1
-var179:
-lfork %:var1
-var180:
-lfork %:var1
-var181:
-lfork %:var1
-var182:
-lfork %:var1
-var183:
-lfork %:var1
-var184:
-lfork %:var1
-var185:
-lfork %:var1
-var186:
-lfork %:var1
-var187:
-lfork %:var1
-var188:
-lfork %:var1
-var189:
-lfork %:var1
-var190:
-lfork %:var1
-var191:
-lfork %:var1
-var192:
-lfork %:var1
-var193:
-lfork %:var1
-var194:
-lfork %:var1
-var195:
-lfork %:var1
-var196:
-lfork %:var1
-var197:
-lfork %:var1
-var198:
-lfork %:var1
-var199:
-lfork %:var1
-var200:
-lfork %:var1
-var201:
-lfork %:var1
-var202:
-lfork %:var1
-var203:
-lfork %:var1
-var204:
-lfork %:var1
-var205:
-lfork %:var1
-var206:
-lfork %:var1
-var207:
-lfork %:var1
-var208:
-var209:
-var210:
-var211:
-var225:
-st r1, 6
-live %0
-ld %57672449, r4				;ld %4278780395, r5
-ld %4278780410, r5
-ld %151088384, r3 ;st r4, 511
-st r4, 511
-st r5, 510
-	;; st r3, 509
-ld %0, r2
-zjmp %494
+	 ld %0, r-1094795774
+	 zjmp %504
+	 lfork %0
+	 lfork %65533
+	 lfork %65530
+	 lfork %65527
+	 lfork %65524
+	 lfork %65521
+	 lfork %65518
+	 lfork %65515
+	 lfork %65512
+	 lfork %65509
+	 lfork %65506
+	 lfork %65503
+	 lfork %65500
+	 lfork %65497
+	 lfork %65494
+	 lfork %65491
+	 lfork %65488
+	 lfork %65485
+	 lfork %65482
+	 lfork %65479
+	 lfork %65476
+	 lfork %65473
+	 lfork %65470
+	 lfork %65467
+	 lfork %65464
+	 lfork %65461
+	 lfork %65458
+	 lfork %65455
+	 lfork %65452
+	 lfork %65449
+	 lfork %65446
+	 lfork %65443
+	 lfork %65440
+	 lfork %65437
+	 lfork %65434
+	 lfork %65431
+	 lfork %65428
+	 lfork %65425
+	 lfork %65422
+	 lfork %65419
+	 lfork %65416
+	 lfork %65413
+	 lfork %65410
+	 lfork %65407
+	 lfork %65404
+	 lfork %65401
+	 lfork %65398
+	 lfork %65395
+	 lfork %65392
+	 lfork %65389
+	 lfork %65386
+	 lfork %65383
+	 lfork %65380
+	 lfork %65377
+	 lfork %65374
+	 lfork %65371
+	 lfork %65368
+	 lfork %65365
+	 lfork %65362
+	 lfork %65359
+	 lfork %65356
+	 lfork %65353
+	 lfork %65350
+	 lfork %65347
+	 lfork %65344
+	 lfork %65341
+	 lfork %65338
+	 lfork %65335
+	 lfork %65332
+	 lfork %65329
+	 lfork %65326
+	 lfork %65323
+	 lfork %65320
+	 lfork %65317
+	 lfork %65314
+	 lfork %65311
+	 lfork %65308
+	 lfork %65305
+	 lfork %65302
+	 lfork %65299
+	 lfork %65296
+	 lfork %65293
+	 lfork %65290
+	 lfork %65287
+	 lfork %65284
+	 lfork %65281
+	 lfork %65278
+	 lfork %65275
+	 lfork %65272
+	 lfork %65269
+	 lfork %65266
+	 lfork %65263
+	 lfork %65260
+	 lfork %65257
+	 lfork %65254
+	 lfork %65251
+	 lfork %65248
+	 lfork %65245
+	 lfork %65242
+	 lfork %65239
+	 lfork %65236
+	 lfork %65233
+	 lfork %65230
+	 lfork %65227
+	 lfork %65224
+	 lfork %65221
+	 lfork %65218
+	 lfork %65215
+	 lfork %65212
+	 lfork %65209
+	 lfork %65206
+	 lfork %65203
+	 lfork %65200
+	 lfork %65197
+	 lfork %65194
+	 lfork %65191
+	 lfork %65188
+	 lfork %65185
+	 lfork %65182
+	 lfork %65179
+	 lfork %65176
+	 lfork %65173
+	 lfork %65170
+	 lfork %65167
+	 lfork %65164
+	 lfork %65161
+	 lfork %65158
+	 lfork %65155
+	 lfork %65152
+	 lfork %65149
+	 lfork %65146
+	 lfork %65143
+	 lfork %65140
+	 lfork %65137
+	 lfork %65134
+	 lfork %65131
+	 lfork %65128
+	 lfork %65125
+	 lfork %65122
+	 lfork %65119
+	 lfork %65116
+	 lfork %65113
+	 lfork %65110
+	 lfork %65107
+	 lfork %65104
+	 lfork %65101
+	 lfork %65098
+	 lfork %65095
+	 lfork %65092
+	 lfork %65089
+	 lfork %65086
+	 lfork %65083
+	 lfork %65080
+	 lfork %65077
+	 lfork %65074
+	 lfork %65071
+	 lfork %65068
+	 lfork %65065
+	 lfork %65062
+	 lfork %65059
+	 lfork %65056
+	 lfork %65053
+	 lfork %65050
+	 lfork %65047
+	 lfork %65044
+	 lfork %65041
+	 lfork %65038
+	 st r-1094795772, 65033
+	 zjmp %114
+	 lfork %65027
+	 lfork %65024
+	 lfork %65021
+	 lfork %65018
+	 lfork %65015
+	 lfork %65012
+	 lfork %65009
+	 lfork %65006
+	 lfork %65003
+	 lfork %65000
+	 lfork %64997
+	 lfork %64994
+	 lfork %64991
+	 lfork %64988
+	 lfork %64985
+	 lfork %64982
+	 lfork %64979
+	 lfork %64976
+	 lfork %64973
+	 lfork %64970
+	 lfork %64967
+	 lfork %64964
+	 lfork %64961
+	 lfork %64958
+	 lfork %64955
+	 lfork %64952
+	 lfork %64949
+	 lfork %64946
+	 lfork %64943
+	 lfork %64940
+	 lfork %64937
+	 lfork %64934
+	 lfork %64931
+	 lfork %64928
+	 lfork %64925
+	 lfork %64922
+	 lfork %64919
+	 st r-1094795775, 6
+	 live %0
+	 ld %57672449, r-1094795772
+	 ld %-16186886, r-1094795771
+	 ld %151088384, r-1094795773
+	 st r-1094795772, 511
+	 st r-1094795771, 510
+	 ld %0, r-1094795774
+	 zjmp %494

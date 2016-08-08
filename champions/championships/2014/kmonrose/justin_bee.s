@@ -1,125 +1,108 @@
+# File generated the Mon Aug  8 09:28:30 2016
+# Total size : 527 bytes 
 .name "L'arene des abeilles"
 .comment "Baby, baby, baby, oh !"
 
-ertuen:
-	sti		r1, %:label1, %1
-	sti		r1, %:label2, %1
-	sti		r1, %:label3, %1
-	sti		r1, %:label4, %1
-	sti		r1, %:label5, %1
-	sti		r1, %:label6, %1
-	sti		r1, %:label7, %1
-	sti		r1, %:label8, %1
-	sti		r1, %:label9, %1
-	ld		%0, r16
-	fork	%:label1
-
-label4:
-	live	%314
-	ld		%31415926, r2
-	ld		%0, r16
-	fork	%:label3
-
-label6:
-	live	%314
-	ld		%0, r16
-	fork	%:label5
-
-label7:
-	ld		%62821932, r5
-	ld		%0, r16
-	fork	%:label8
-	
-label2:
-	live	%314
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st		r2, -450
-	st      r2, -450
-	st      r2, -450
-	zjmp	%:label2
-
-label1:
-	live	%314
-	zjmp	%:label1
-
-label3:
-	live	%314
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st		r2, 450
-	st      r2, 450
-	st      r2, 450
-	zjmp	%:label3
-	
-label5:
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	live    %314
-	zjmp	%:label6
-
-label8:
-	zjmp	%:label9
-	st		r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-
-label9:
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
-	st      r5, 500
+	 sti r-1094795775, %210, %1
+	 sti r-1094795775, %120, %1
+	 sti r-1094795775, %204, %1
+	 sti r-1094795775, %52, %1
+	 sti r-1094795775, %273, %1
+	 sti r-1094795775, %60, %1
+	 sti r-1094795775, %68, %1
+	 sti r-1094795775, %355, %1
+	 sti r-1094795775, %411, %1
+	 ld %0, r-1094795760
+	 fork %140
+	 live %314
+	 ld %31415926, r-1094795774
+	 ld %0, r-1094795760
+	 fork %126
+	 live %314
+	 ld %0, r-1094795760
+	 fork %194
+	 ld %62821932, r-1094795771
+	 ld %0, r-1094795760
+	 fork %280
+	 live %314
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 st r-1094795774, 65086
+	 zjmp %65456
+	 live %314
+	 zjmp %65531
+	 live %314
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 st r-1094795774, 450
+	 zjmp %65456
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 live %314
+	 zjmp %65230
+	 zjmp %63
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500
+	 st r-1094795771, 500

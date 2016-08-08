@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/21 15:06:03 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 10:06:52 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/08 08:21:23 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		check_instruction_parameters(char *file, t_file_line *node, int index,
 		if (type == T_DIR && NS[index + 1] && NS[index + 1] == LABEL_CHAR &&
 				NS[index + 2] && ft_isspace(NS[index + 2]))
 			return (display_error_line(EM4, FL, NL, IDX + 2));
-		if (type == T_REG && (ft_atoi(LN) > REG_NUMBER || ft_atoi(LN) <= 0))
+		if (type == T_REG && (a_to_ll(LN) > REG_NUMBER || a_to_ll(LN) <= 0))
 			return (display_error_line(EM1, FL, NL, IDX + 1));
 	}
 	return (1);

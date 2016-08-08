@@ -1,172 +1,122 @@
-.name		"Oh, You Fork my TRALALA ..."
-.comment	"HMMMM, my ding-ding-dong !!"
+# File generated the Mon Aug  8 09:28:30 2016
+# Total size : 544 bytes 
+.name "Oh, You Fork my TRALALA ..."
+.comment "HMMMM, my ding-ding-dong !!"
 
-# LD : charge la valeur du 1er param dans le registre
-
-# ST : stocke la valeur du registre vers le second paramètre.
-
-# ADD : Additionne les 2 premiers registres, et met le résultat dans le 3eme.
-
-# SUB : Soustrait les 2 premiers registres, et met le résultat dans le 3eme.
-
-# AND : Applique un & (ET bit-a-bit) sur les 2 premiers registres, et met le 
-# résultat dans le 3eme.
-
-# OR : Applique un OU (bit-a-bit) sur les 2 premiers registres, et met le 
-#résultat dans le troisième.
-
-# XOR : Fait un OU exclusif bit a bit (c'est comme un OU normal, mais 1^1 = 0)
-
-# ZJMP : saute a l'adresse si le carry est a 1.
-
-# LDI : additionne les 2 premiers, traite ca comme une adresse, y lit une valeur
-# de la taille d’un registre et la met dans le 3eme.
-
-# STI  : additionne les 2 derniers, utilise cette somme comme une adresse ou 
-# sera copiee la valeur du 1er param
-
-# FORK : Crée un nouveau processus, qui hérite des diﬀérents états de son père,
- # à part son PC, qui est mis à (PC + (1er paramètre % IDX_MOD)).
-
-# LLD : similaire a ld sans la restriction de IDX_MOD (ici 512) (a confirmer)
-
-# LLDI : Pareil que ldi, mais n’applique aucun modulo aux adresses.
-
-# LFORK : Pareil qu’un fork sans modulo à l'adresse.
-
-# AFF : affiche sur la sortie standard le char ASCII
-
-entry:
-	st		r1, 6
-	st		r1, r3
-	live	%42
-	fork	%:hanibalsmith
-	zjmp	%:move1
-
-hanibalsmith:
-	live	%42
-	st		r15, -50
-	st		r15, -64
-	st		r15, -78
-	st		r15, -92
-	st		r15, -106
-	st		r15, -120
-	st		r15, -134
-	st		r15, -148
-	st		r15, -162
-	st		r15, -176
-	st		r15, -190
-	st		r15, -204
-	st		r15, -218
-	st		r15, -232
-	st		r15, -246
-	st		r15, -260
-	st		r15, -274
-	st		r15, -288
-	st		r15, -302
-	st		r15, -318
-	st		r15, -332
-	st		r15, -346
-	st		r15, -360
-	st		r15, -374
-	st		r15, -388
-	st		r15, -402
-	st		r15, -416
-	st		r15, -430
-	st		r15, -444
-	st		r15, -458
-	st		r15, -472
-	st		r15, -486
-	st		r15, -500
-	st		r16, 1
-	live	%42
-	fork	%:hanibalsmith
-	zjmp	%:hanibalsmith
-
-forking:
-	live	%898
-	fork	%:move2
-	live	%1892
-	fork	%:move2
-	live	%4024
-	fork	%:move2
-	live	%232
-	fork	%:move2
-
-move1:
-	st		r1, 6
-	live	%5
-	fork	%:move1
-	zjmp	%9
-
-move2:
-	st		r1, 6
-	live	%42
-	fork	%:move2
-	zjmp	%1
-
-move3:
-	st		r1, 6
-	live	%42
-	fork	%:move3
-	zjmp	%2
-
-move4:
-	st		r1, 6
-	live	%7
-	fork	%:move4
-	zjmp	%3
-
-move5:
-	st		r1, 6
-	live	%1
-	fork	%:move5
-	zjmp	%4
-
-hanibalsmith2:
-	live	%512
-	st		r14, 1
-	st		r14, -203
-	st		r14, -406
-	st		r14, -609
-	st		r14, -803
-	st		r14, -1006
-	st		r14, -1209
-	st		r14, -1403
-	st		r14, -1606
-	st		r14, -1809
-	st		r14, -2003
-	st		r14, -2206
-	st		r14, -2409
-	st		r14, -2603
-	st		r14, -2806
-	st		r14, -3009
-	st		r14, -3203
-	st		r14, -3406
-	st		r14, -3609
-	st		r14, -3803
-	st		r14, -4006
-	st		r14, -4209
-	st		r14, -4403
-	st		r14, -4606
-	st		r14, -4809
-	st		r14, -5003
-	st		r14, -5206
-	st		r14, -5409
-	st		r14, -5603
-	st		r14, -5806
-	st		r14, -6009
-	st		r14, -6203
-	st		r14, -6406
-	st		r14, -6609
-	st		r14, -6803
-	st		r14, -7006
-	st		r14, -7209
-	st		r14, -7403
-	st		r14, -7606
-	st		r14, -7809
-	st		r14, -8003
-	st		r1, 6
-	live	%1
-	zjmp	%:hanibalsmith2
-	fork	%:hanibalsmith2
+	 st r-1094795775, 6
+	 st r-1094795775, r-1094795773
+	 live %42
+	 fork %6
+	 zjmp %221
+	 live %42
+	 st r-1094795761, 65486
+	 st r-1094795761, 65472
+	 st r-1094795761, 65458
+	 st r-1094795761, 65444
+	 st r-1094795761, 65430
+	 st r-1094795761, 65416
+	 st r-1094795761, 65402
+	 st r-1094795761, 65388
+	 st r-1094795761, 65374
+	 st r-1094795761, 65360
+	 st r-1094795761, 65346
+	 st r-1094795761, 65332
+	 st r-1094795761, 65318
+	 st r-1094795761, 65304
+	 st r-1094795761, 65290
+	 st r-1094795761, 65276
+	 st r-1094795761, 65262
+	 st r-1094795761, 65248
+	 st r-1094795761, 65234
+	 st r-1094795761, 65218
+	 st r-1094795761, 65204
+	 st r-1094795761, 65190
+	 st r-1094795761, 65176
+	 st r-1094795761, 65162
+	 st r-1094795761, 65148
+	 st r-1094795761, 65134
+	 st r-1094795761, 65120
+	 st r-1094795761, 65106
+	 st r-1094795761, 65092
+	 st r-1094795761, 65078
+	 st r-1094795761, 65064
+	 st r-1094795761, 65050
+	 st r-1094795761, 65036
+	 st r-1094795760, 1
+	 live %42
+	 fork %65356
+	 zjmp %65353
+	 live %898
+	 fork %43
+	 live %1892
+	 fork %35
+	 live %4024
+	 fork %27
+	 live %232
+	 fork %19
+	 st r-1094795775, 6
+	 live %5
+	 fork %65526
+	 zjmp %9
+	 st r-1094795775, 6
+	 live %42
+	 fork %65526
+	 zjmp %1
+	 st r-1094795775, 6
+	 live %42
+	 fork %65526
+	 zjmp %2
+	 st r-1094795775, 6
+	 live %7
+	 fork %65526
+	 zjmp %3
+	 st r-1094795775, 6
+	 live %1
+	 fork %65526
+	 zjmp %4
+	 live %512
+	 st r-1094795762, 1
+	 st r-1094795762, 65333
+	 st r-1094795762, 65130
+	 st r-1094795762, 64927
+	 st r-1094795762, 64733
+	 st r-1094795762, 64530
+	 st r-1094795762, 64327
+	 st r-1094795762, 64133
+	 st r-1094795762, 63930
+	 st r-1094795762, 63727
+	 st r-1094795762, 63533
+	 st r-1094795762, 63330
+	 st r-1094795762, 63127
+	 st r-1094795762, 62933
+	 st r-1094795762, 62730
+	 st r-1094795762, 62527
+	 st r-1094795762, 62333
+	 st r-1094795762, 62130
+	 st r-1094795762, 61927
+	 st r-1094795762, 61733
+	 st r-1094795762, 61530
+	 st r-1094795762, 61327
+	 st r-1094795762, 61133
+	 st r-1094795762, 60930
+	 st r-1094795762, 60727
+	 st r-1094795762, 60533
+	 st r-1094795762, 60330
+	 st r-1094795762, 60127
+	 st r-1094795762, 59933
+	 st r-1094795762, 59730
+	 st r-1094795762, 59527
+	 st r-1094795762, 59333
+	 st r-1094795762, 59130
+	 st r-1094795762, 58927
+	 st r-1094795762, 58733
+	 st r-1094795762, 58530
+	 st r-1094795762, 58327
+	 st r-1094795762, 58133
+	 st r-1094795762, 57930
+	 st r-1094795762, 57727
+	 st r-1094795762, 57533
+	 st r-1094795775, 6
+	 live %1
+	 zjmp %65316
+	 fork %65313

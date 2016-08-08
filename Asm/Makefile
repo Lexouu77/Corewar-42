@@ -6,14 +6,14 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/06 13:24:56 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/08 09:26:34 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = asm
 CC = clang
 RM = rm -f
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 OFLAGS = -O3 -march=native
 DEBUGFLAG = -g3 -fsanitize=address
 INCLUDES = ./
@@ -25,6 +25,7 @@ SRC = add_new_instruction.c\
 	  add_label_to_list.c\
 	  asm.c\
 	  assemble.c\
+	  a_to_ll.c\
 	  check_args.c\
 	  check_comment.c\
 	  check_empty_label.c\

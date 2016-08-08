@@ -1,11 +1,10 @@
-.name 		"laugh"
-.comment	"aff, just kidding"
+# File generated the Mon Aug  8 09:28:30 2016
+# Total size : 23 bytes 
+.name "laugh"
+.comment "aff, just kidding"
 
-hello:
-	sti		r1, %:alive, %1
-	fork	%:alive
-	add		r2, r3, r4
-
-alive:
-	live	%0
-	zjmp	%:alive
+	 sti r-1094795775, %15, %1
+	 fork %8
+	 add r-1094795774, r-1094795773, r-1094795772
+	 live %0
+	 zjmp %65531

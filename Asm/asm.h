@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/06 17:41:58 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/08 08:20:28 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ typedef struct				s_data
 ** Display byte decomposition during assemble.
 */
 
+long long					a_to_ll(char *nptr);
 void						stock_label_called_name(t_instruction *instruction,
 							char *s);
 void						get_negative_size(t_label *label, char *label_name,

@@ -1,79 +1,67 @@
-.name		"Gédéon le Cochon"
-.comment	"Tout est bon dans Gédéon"
+# File generated the Mon Aug  8 09:28:30 2016
+# Total size : 316 bytes 
+.name "Gédéon le Cochon"
+.comment "Tout est bon dans Gédéon"
 
-tmp:
-	sti		r1, %:youshallnotpass, %1
-	sti		r1, %:core, %1
-	sti		r1, %:core, %9
-	sti		r1, %:core, %17
-	sti		r1, %:core, %25
-	sti		r1, %:live1, %1
-	sti		r1, %:live2, %1
-	sti		r1, %:youshallnotpass2, %1
-	ld		%0, r1
-	fork	%:core
-
-trap:
-	ld		%0, r1
-
-youshallnotpass:
-	live	%1337
-	st		r1, -16
-	st		r1, -25
-	st		r1, -34
-	st		r1, -43
-	st		r1, -52
-	st		r1, -61
-	st		r1, -70
-	st		r1, -79
-	st		r1, -88
-	st		r1, -97
-	st		r1, -106
-	st		r1, -115
-	st		r1, -124
-	st		r1, -133
-	st		r1, -142
-	st		r1, -151
-	st		r1, -160
-	st		r1, -410
-	st		r1, -411
-	st		r1, -412
-	st		r1, -413
-	st		r1, -414
-	st		r1, -425
-	st		r1, -416
-	st		r1, -417
-	st		r1, -418
-	st		r1, -419
-	ld		%0, r1
-	zjmp	%:youshallnotpass
-
-core:
-	live	%1337
-	fork	%:youshallnotpass
-	live	%1337
-	fork	%:youshallnotpass2
-	live	%1337
-	fork	%:live1
-	live	%1337
-	fork	%:core
-	#ld		%0, r1
-	zjmp	%:core
-
-live1:
-	live	%1337
-	fork	%:live1
-	ld		%0, r1
-
-live2:
-	live	%1337
-	zjmp	%:live2
-
-youshallnotpass2:
-	live	%1337
-	st		r1, 30
-	st		r1, 29
-	st		r1, 28
-	st		r1, 27
-	ld		%0, r1
-	zjmp	%:youshallnotpass2
+	 sti r-1094795775, %73, %1
+	 sti r-1094795775, %216, %1
+	 sti r-1094795775, %209, %9
+	 sti r-1094795775, %202, %17
+	 sti r-1094795775, %195, %25
+	 sti r-1094795775, %223, %1
+	 sti r-1094795775, %231, %1
+	 sti r-1094795775, %232, %1
+	 ld %0, r-1094795775
+	 fork %160
+	 ld %0, r-1094795775
+	 live %1337
+	 st r-1094795775, 65520
+	 st r-1094795775, 65511
+	 st r-1094795775, 65502
+	 st r-1094795775, 65493
+	 st r-1094795775, 65484
+	 st r-1094795775, 65475
+	 st r-1094795775, 65466
+	 st r-1094795775, 65457
+	 st r-1094795775, 65448
+	 st r-1094795775, 65439
+	 st r-1094795775, 65430
+	 st r-1094795775, 65421
+	 st r-1094795775, 65412
+	 st r-1094795775, 65403
+	 st r-1094795775, 65394
+	 st r-1094795775, 65385
+	 st r-1094795775, 65376
+	 st r-1094795775, 65126
+	 st r-1094795775, 65125
+	 st r-1094795775, 65124
+	 st r-1094795775, 65123
+	 st r-1094795775, 65122
+	 st r-1094795775, 65111
+	 st r-1094795775, 65120
+	 st r-1094795775, 65119
+	 st r-1094795775, 65118
+	 st r-1094795775, 65117
+	 ld %0, r-1094795775
+	 zjmp %65389
+	 live %1337
+	 fork %65381
+	 live %1337
+	 fork %45
+	 live %1337
+	 fork %14
+	 live %1337
+	 fork %65507
+	 zjmp %65504
+	 live %1337
+	 fork %65531
+	 ld %0, r-1094795775
+	 live %1337
+	 zjmp %65531
+	 live %1337
+	 st r-1094795775, 30
+	 st r-1094795775, 29
+	 st r-1094795775, 28
+	 st r-1094795775, 27
+	 ld %0, r-1094795775
+	 zjmp %65504

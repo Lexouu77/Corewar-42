@@ -6,14 +6,14 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:30 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/17 18:12:58 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/08 09:27:30 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = clang
 RM = rm -f
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 OFLAGS = -O3 -march=native
 DEBUGFLAG = -g3 -fsanitize=address
 INCLUDES = ./
