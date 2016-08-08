@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/21 15:06:03 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/08 08:21:23 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/08 14:22:01 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@
 #define EM5 "Missing parameter value"
 #define LN node->line + index + 1
 
+static int	has_sign(char *s, int index)
+{
+	if ((ft_isdigit(s[index + 1]))
+		|| ((s[index + 1] == '+' || s[index + 1] == '-')
+			&& ft_isdigit(s[index + 2])))
+		return (0);
+	return (1);
+}
+
 int		check_instruction_parameters(char *file, t_file_line *node, int index,
 		int opc)
 {
@@ -39,15 +48,15 @@ int		check_instruction_parameters(char *file, t_file_line *node, int index,
 			return (display_error_line(EM2, FL, NL, IDX));
 		if ((type == T_DIR || type == T_REG) && (!NS[index + 1]))
 			return (display_error_line(EM5, FL, NL, IDX));
-		if (type == T_REG && NS[index + 1] && !ft_isdigit(NS[index + 1]))
+		if (type == T_REG && NS[index + 1] && has_sign(NS, index))
 			return (display_error_line(EM3, FL, NL, IDX + 1));
-		if (type == T_DIR && NS[index + 1] && NS[index + 1] != LABEL_CHAR &&
-				NS[index + 1] && !ft_isdigit(NS[index + 1]))
+		if (type == T_DIR && NS[index + 1] && NS[index + 1] != LABEL_CHAR && ((
+				/*!ft_isdigit(NS[index + 1]) || */has_sign(NS, index))))
 			return (display_error_line(EM3, FL, NL, IDX + 1));
 		if (type == T_DIR && NS[index + 1] && NS[index + 1] == LABEL_CHAR &&
 				NS[index + 2] && ft_isspace(NS[index + 2]))
 			return (display_error_line(EM4, FL, NL, IDX + 2));
-		if (type == T_REG && (a_to_ll(LN) > REG_NUMBER || a_to_ll(LN) <= 0))
+		if (type == T_REG && ((char)a_to_ll(LN) > REG_NUMBER || (char)a_to_ll(LN) <= 0))
 			return (display_error_line(EM1, FL, NL, IDX + 1));
 	}
 	return (1);

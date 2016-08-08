@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/21 21:00:58 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/06 14:12:24 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/08 14:26:54 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ int		go_to_next_param(char *s, int index)
 {
 	if (!s[index])
 		return (-1);
-	if (ft_isspace(s[index]))
+	if (ft_isspace(s[index]) || s[index] == SEPARATOR_CHAR)
 	{
-		while (s[index] && ft_isspace(s[index]))
+		while (s[index] && (ft_isspace(s[index]) || s[index] == SEPARATOR_CHAR))
 			index++;
 	}
 	else
 	{
-		while (s[index] && !ft_isspace(s[index]))
+		while (s[index] && (!ft_isspace(s[index]) || s[index] == SEPARATOR_CHAR))
 			index++;
-		while (s[index] && ft_isspace(s[index]))
+		while (s[index] && (ft_isspace(s[index]) || s[index] == SEPARATOR_CHAR))
 			index++;
 	}
 	if (!s[index])
