@@ -1,79 +1,56 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    big_feet.s                                         :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: clafleur <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2014/02/16 20:28:04 by clafleur          #+#    #+#              #
-#    Updated: 2014/03/02 17:23:26 by clafleur         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
+# File generated the Tue Aug  9 18:08:21 2016
+# Total size : 277 bytes 
 .name "top defense plus plus"
 .comment "la meilleure defense c'est d'avoir une bonne defense"
 
-start:
-
-start_piege:
-ld		%-16, r5				# r2 = soustraction de start pr aller a r2 : carry a 1
-ld		%-12, r4				# r4 = suite (soustraction de start pr aller a r3 : suite du carry)
-ld		%-8, r6					# r6 = soustration de start pr aller a r10 : zjmp
-ld		%150994944, r10			# r10 = zjmp
-ld		%42991616, r2			# debut de carry a 1
-ld		%256, r3				# suite du carry a 1
-ld		%16, r16				# decrementation de start
-ld		%12, r7					# r7 = addition de end pr aller a r7 : carry a 1
-ld		%16, r9					# r9 = suite (addition de end pr aller a r9 : suite du carry)
-ld		%20, r11				# r11 = addition de end pr aller a r11 : zjmp
-ld		%23, r12				# compteur pour le nombres de pieges
-ld		%1, r13
-ld		%0, r8					# carry = 1
-sti		r1, %:piege1, %1
-sti		r1, %:piege2, %1
-sti		r1, %:begin, %1
-sti		r1, %:live, %1
-fork	%:begin
-
-piege1:							# while(1)
-live	%118978653103279		# je suis en vie
-sti		r2, %:start, r5 
-sti		r3, %:start, r4
-sti		r10, %:start, r6
-sub		r5, r16, r5
-sub		r4, r16, r4
-sub		r6, r16, r6
-sub		r12, r13, r12			# decrementation du compteur
-zjmp	%:start_piege			# reviens en debut de boucle
-ld		%0, r8					# carry = 1
-zjmp	%:piege1				# reviens en debut de boucle
-
-begin:
-live 	%13371337
-fork	%:piege1
-live 	%42424242
-fork	%:piege2
-live 	%123456789
-fork	%:begin
-live	%08395432657
-fork	%:live
-zjmp	%:begin
-
-live:
-live	%23456789456780987
-zjmp	%:begin
-
-piege2:
-live	%198562346853412
-sti		r2, %:end, r7 
-sti		r3, %:end, r9
-sti		r10, %:end, r11
-add		r7, r16, r7
-add		r9, r16, r9
-add		r11, r16, r11
-sub		r12, r13, r12			# decrementation du compteur
-zjmp	%:start_piege			# reviens en debut de boucle
-ld		%0, r8					# carry = 1
-zjmp	%:piege2				# reviens en debut de boucle
-
-end:
+	 ld %-16, r268435461
+	 ld %-12, r268435460
+	 ld %-8, r268435462
+	 ld %150994944, r268435466
+	 ld %42991616, r268435458
+	 ld %256, r268435459
+	 ld %16, r268435472
+	 ld %12, r268435463
+	 ld %16, r268435465
+	 ld %20, r268435467
+	 ld %23, r268435468
+	 ld %1, r268435469
+	 ld %0, r268435464
+	 sti r1, %31, %1
+	 sti r1, %123, %1
+	 sti r1, %73, %1
+	 sti r1, %101, %1
+	 fork %59
+	 live %-530930513
+	 sti r2, %65409, r5
+	 sti r3, %65403, r4
+	 sti r10, %65397, r6
+	 sub r5, r16, r5
+	 sub r4, r16, r4
+	 sub r6, r16, r6
+	 sub r12, r13, r12
+	 zjmp %65371
+	 ld %0, r8
+	 zjmp %65483
+	 live %13371337
+	 fork %65475
+	 live %42424242
+	 fork %30
+	 live %123456789
+	 fork %65515
+	 live %-194501935
+	 fork %6
+	 zjmp %65504
+	 live %1663336123
+	 zjmp %65496
+	 live %1713792036
+	 sti r2, %51, r7
+	 sti r3, %45, r9
+	 sti r10, %39, r11
+	 add r7, r16, r7
+	 add r9, r16, r9
+	 add r11, r16, r11
+	 sub r12, r13, r12
+	 zjmp %65272
+	 ld %0, r8
+	 zjmp %65483

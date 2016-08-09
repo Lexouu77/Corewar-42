@@ -1,9 +1,9 @@
-# File generated the Mon Aug  8 09:28:30 2016
+# File generated the Tue Aug  9 18:08:21 2016
 # Total size : 681 bytes 
 .name "Ultimate Surrender"
 .comment "Y'en a qui vont prendre cher... :)"
 
-	 ld %0, r-1094795774
+	 ld %0, r268435458
 	 zjmp %504
 	 lfork %0
 	 lfork %65533
@@ -172,7 +172,7 @@
 	 lfork %65044
 	 lfork %65041
 	 lfork %65038
-	 st r-1094795772, 65033
+	 st r4, 65033
 	 zjmp %114
 	 lfork %65027
 	 lfork %65024
@@ -211,12 +211,12 @@
 	 lfork %64925
 	 lfork %64922
 	 lfork %64919
-	 st r-1094795775, 6
+	 st r1, 6
 	 live %0
-	 ld %57672449, r-1094795772
-	 ld %-16186886, r-1094795771
-	 ld %151088384, r-1094795773
-	 st r-1094795772, 511
-	 st r-1094795771, 510
-	 ld %0, r-1094795774
+	 ld %57672449, r4
+	 ld %-16186886, r5
+	 ld %151088384, r3
+	 st r4, 511
+	 st r5, 510
+	 ld %0, r2
 	 zjmp %494

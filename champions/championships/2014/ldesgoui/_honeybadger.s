@@ -1,9 +1,9 @@
-# File generated the Mon Aug  8 09:28:30 2016
+# File generated the Tue Aug  9 18:08:21 2016
 # Total size : 681 bytes 
 .name "HoneyBadger"
 .comment "This is where I'd put the forks. IF I HAD ANY"
 
-	 ld %0, r-1094795774
+	 ld %0, r268435458
 	 zjmp %510
 	 lfork %0
 	 lfork %65533
@@ -215,10 +215,10 @@
 	 lfork %64915
 	 lfork %64912
 	 lfork %64909
-	 ld %57672449, r-1094795772
-	 ld %-16186886, r-1094795771
-	 ld %151087104, r-1094795773
-	 ld %0, r-1094795774
-	 st r-1094795772, 511
-	 st r-1094795771, 510
+	 ld %57672449, r268435460
+	 ld %-16186886, r268435461
+	 ld %151087104, r268435459
+	 ld %0, r268435458
+	 st r4, 511
+	 st r5, 510
 	 zjmp %501
