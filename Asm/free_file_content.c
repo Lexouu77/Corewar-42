@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 20:24:27 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/16 20:29:39 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 20:52:17 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	free_file_content(t_data *data)
 	{
 		tmp = actual_line;
 		actual_line = actual_line->next;
+		free(tmp->line);
 		free(tmp);
 	}
 }

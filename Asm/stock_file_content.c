@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 21:51:29 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/26 07:04:07 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 20:47:06 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,13 @@
 ** Setting line to NULL on purpose since gnl free line if line != NULL
 */
 
-void	stock_file_content(t_data *data, int fd)
+static void	check_read_return(int read_return)
+{
+	if (read_return == -1)
+		ft_error("Gnl returned -1.");
+}
+
+void		stock_file_content(t_data *data, int fd)
 {
 	char	*line;
 	char	*tmp;
@@ -41,6 +47,6 @@ void	stock_file_content(t_data *data, int fd)
 		add_file_content_line(data, line);
 		line = NULL;
 	}
-	if (read_return == -1)
-		ft_error("Gnl returned -1.");
+	check_read_return(read_return);
+	free(line);
 }
