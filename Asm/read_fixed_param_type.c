@@ -6,13 +6,27 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 04:34:30 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/27 10:20:39 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 16:43:09 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int		read_fixed_param_types(int fd, t_instruction *instr, int *i)
+static int	max_size()
+{
+	int	i;
+
+	i = 0;
+	if (i < IND_SIZE)
+		i = IND_SIZE;
+	if (i < REG_SIZE)
+		i = REG_SIZE;
+	if (i < DIR_SIZE)
+		i = DIR_SIZE;
+	return (i);
+}
+
+int			read_fixed_param_types(int fd, t_instruction *instr, int *i)
 {
 	if (g_op_tab[instr->op_code - 1].byte_param)
 		return (1);
@@ -27,6 +41,11 @@ int		read_fixed_param_types(int fd, t_instruction *instr, int *i)
 		(g_op_tab[instr->op_code - 1].byte_dir) ? IND_SIZE : DIR_SIZE;
 	if (!read(fd, &instr->parameter_value[0], instr->parameter_size[0]))
 		return (0);
+	if (instr->parameter_size[0] <= 0 || instr->parameter_size[0] > max_size())
+	{
+		ft_printf_fd(2, "ERROR : Invalid parameter size.\n");
+		exit(-1);
+	}
 	byte_swap(&instr->parameter_value[0], instr->parameter_size[0]);
 	if (instr->parameter_size[0] == 2)
 		instr->parameter_value[0] &= 0x0000FFFF;
