@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 03:19:22 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/07/17 18:12:19 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 12:24:59 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@
 # include <sys/xattr.h>
 # include <pwd.h>
 # include <grp.h>
-# include <uuid/uuid.h>
 # include <time.h>
 # include <pwd.h>
 # include <errno.h>
 # include <sys/acl.h>
 # include <termios.h>
 # include <curses.h>
+
 # define BUFF_SIZE 4096
 
 # define ANSI_RESET			"\x1b[0m"
