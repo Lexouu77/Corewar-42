@@ -6,13 +6,13 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 04:34:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/10 16:43:08 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 22:43:12 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-static int	get_max_size()
+static int	get_max_size(void)
 {
 	int	i;
 

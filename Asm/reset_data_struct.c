@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 20:13:34 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/10 20:38:11 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 22:43:52 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static void	delete_data_label(t_label *label)
 		tmp = tmp->next;
 		free(to_del);
 	}
-
 }
 
 void		reset_data_struct(t_data *data)

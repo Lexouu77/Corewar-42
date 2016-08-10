@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 11:40:29 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/06 17:51:21 by justasze         ###   ########.fr       */
+/*   Updated: 2016/08/10 22:42:23 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,8 @@ void	get_positive_size(t_label *label, char *label_name,
 	while (tmp_label && (!tmp_label->name ||
 			(tmp_label->name && ft_strcmp(tmp_label->name, label_name))))
 	{
-		while (tmp_instruction)
-		{
-			size += tmp_instruction->size;
+		while (tmp_instruction && (size += tmp_instruction->size))
 			tmp_instruction = tmp_instruction->next;
-		}
 		tmp_label = tmp_label->next;
 		if (tmp_label)
 			tmp_instruction = tmp_label->instruction;

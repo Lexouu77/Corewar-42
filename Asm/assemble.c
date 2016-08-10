@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/15 07:50:46 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/10 15:59:05 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 22:42:10 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void		assemble(char *file, t_data *data)
 		return ;
 	if (!check_label_called(file, data))
 		return ;
-	stock_instructions(data); // free les instructions
+	stock_instructions(data);
 	create_cor_file(file, data);
 }
