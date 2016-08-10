@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 03:19:22 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/10 12:24:59 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 12:32:05 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 # include <time.h>
 # include <pwd.h>
 # include <errno.h>
-# include <sys/acl.h>
 # include <termios.h>
 # include <curses.h>
 
