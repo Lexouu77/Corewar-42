@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/16 18:07:26 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/08 08:20:28 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 16:10:29 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ typedef struct				s_label_list
 	struct s_label_list		*next;
 }							t_label_list;
 
-/* LABEL LIST STRUCTURE */
+/*
+** LABEL LIST STRUCTURE
+*/
 
 /*
 ** Label name.
@@ -49,9 +51,13 @@ typedef struct				s_instruction
 	struct s_instruction	*prev;
 }							t_instruction;
 
-/* INSTRUCTION STRUCTURE */
+/*
+** INSTRUCTION STRUCTURE
+*/
 
-/* Contains information about the Instruction itself */
+/*
+** Contains information about the Instruction itself
+*/
 
 /*
 ** Instruction string.
@@ -68,8 +74,6 @@ typedef struct				s_instruction
 ** Next pointer.
 */
 
-// TODO : Manage comment inside the name/comment
-
 typedef struct				s_label
 {
 	char					*name;
@@ -79,7 +83,9 @@ typedef struct				s_label
 	struct s_label			*next;
 }							t_label;
 
-/* LABEL STRUCTURE */
+/*
+** LABEL STRUCTURE
+*/
 
 /*
 ** Label name.
@@ -100,9 +106,13 @@ typedef struct				s_file_line
 	struct s_file_line		*next;
 }							t_file_line;
 
-/* FILE STRUCTURE */
+/*
+** FILE STRUCTURE
+*/
 
-/* Contains each line of the file. */
+/*
+** Contains each line of the file.
+*/
 
 /*
 ** File string line by line.
@@ -129,9 +139,13 @@ typedef struct				s_data
 	char					display_instruction_info;
 }							t_data;
 
-/* DATA STRUCTURE */
+/*
+** DATA STRUCTURE
+*/
 
-/* Contains data about everything. */
+/*
+** Contains data about everything.
+*/
 
 /*
 ** Structure with every line of the file.
@@ -187,7 +201,9 @@ void						stock_instructions(t_data *data);
 void						stock_format_byte(t_instruction *instruction,
 							char *s, int shift);
 
-/* DISPLAY FUNCTIONS */
+/*
+** DISPLAY FUNCTIONS
+*/
 
 int							display_error(char *message, char *file);
 int							display_error_line(char *message, char *file,
@@ -211,7 +227,9 @@ void						display_parameter_type(char c);
 void						display_usage(void);
 void						display_success(char *filename);
 
-/* TEST FUNCTIONS */
+/*
+** TEST FUNCTIONS
+*/
 
 void						check_comment(t_data *data);
 int							check_empty_label(char *file, t_data *data);
@@ -235,7 +253,9 @@ int							line_starts_with_comment(char *s);
 int							line_has_comment(char *s);
 int							was_already_called(char **argv, int index);
 
-/* READING FUNCTIONS */
+/*
+** READING FUNCTIONS
+*/
 
 void						stock_file_content(t_data *data, int fd);
 void						add_file_content_line(t_data *data, char *line);
@@ -247,7 +267,9 @@ int							read_op_code(int fd, t_instruction *instr, int *i);
 void						read_param_types(t_instruction *instr);
 int							read_param_value(int fd, t_instruction *instr);
 
-/* WRITING FUNCTIONS */
+/*
+** WRITING FUNCTIONS
+*/
 
 int							create_asm_file(char *file, int reading_fd);
 void						create_cor_file(char *file, t_data *data);
@@ -257,19 +279,25 @@ void						write_asm_param(int fd, t_instruction *instr);
 void						write_cor_body(int fd, t_data *data);
 void						write_cor_header(int fd, t_data *data);
 
-/* FREE FUNCTIONS */
+/*
+** FREE FUNCTIONS
+*/
 
 void						reset_data_struct(t_data *data);
 void						free_file_content(t_data *data);
 void						free_list(t_instruction *list);
 
-/* DELETE FUNCTIONS */
+/*
+** DELETE FUNCTIONS
+*/
 
 void						delete_label_list(t_label_list *list);
 void						remove_comment_from_file_content(t_data *data);
 void						remove_name_from_file_content(t_data *data);
 
-/* PARSING FUNCTIONS */
+/*
+** PARSING FUNCTIONS
+*/
 
 int							check_instructions(char *file, t_data *data);
 int							check_instruction_label(char *file, t_data *data,

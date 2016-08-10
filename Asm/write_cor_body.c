@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 12:52:45 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/09 20:46:39 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 16:06:02 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void	write_cor_body(int fd, t_data *data)
 				write(fd, &(instruction->format), sizeof(instruction->format));
 			while (++i < instruction->number_of_args)
 			{
-				byte_swap(&(instruction->parameter_value[i]), instruction->parameter_size[i]);
-				write(fd, &(instruction->parameter_value[i]), instruction->parameter_size[i]);
+				byte_swap(&(instruction->parameter_value[i]),
+						instruction->parameter_size[i]);
+				write(fd, &(instruction->parameter_value[i]),
+						instruction->parameter_size[i]);
 			}
 			instruction = instruction->next;
 		}

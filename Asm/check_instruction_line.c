@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/20 17:23:44 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/06 11:21:34 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 15:59:25 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			check_instruction_line(char *file, t_data *data, t_file_line *node,
 	if (ft_is_str_space(node->line + index))
 		return (display_error_line("Missing instruction", file, NL, -1));
 	while (node->line[index] && ft_isspace(node->line[index]))
-			index++;
+		index++;
 	len = get_shorten_len(NSTRING);
 	instruction = ft_strndup(NSTRING, len);
 	if ((i = does_instruction_exist(instruction)) == -1)

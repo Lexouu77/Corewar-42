@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 05:31:49 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/09 20:56:17 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 16:04:09 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	*stock_op_code(char *s)
 	return (ft_strndup(s, i));
 }
 
-void	fill_instruction(t_data *data, t_instruction *instruction, char *s)
+void		fill_instruction(t_data *data, t_instruction *instruction, char *s)
 {
 	int			len;
 	const char	*tmp = (const char *)stock_op_code(s);

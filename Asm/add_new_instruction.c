@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/22 15:27:46 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/06 14:24:24 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/10 15:58:02 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*get_line_without_label(char *s)
 	return (ft_strdup(s + i));
 }
 
-void	add_new_instruction(t_data *data, t_label *label, char *line,
+void		add_new_instruction(t_data *data, t_label *label, char *line,
 		t_file_line *node)
 {
 	t_instruction	*new_instruction;
