@@ -6,23 +6,23 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/16 20:13:34 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/10 22:43:52 by justasze         ###   ########.fr       */
+/*   Updated: 2016/08/11 17:47:33 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-static void	delete_data_label(t_label *label)
+static void	delete_data_label(t_data *data)
 {
 	t_label			*tmp;
 	t_label			*to_del;
 	t_instruction	*tmp_instr;
 	t_instruction	*to_del_instr;
 
-	tmp = label;
+	tmp = data->label;
 	while (tmp)
 	{
-		tmp_instr = label->instruction;
+		tmp_instr = tmp->instruction;
 		while (tmp_instr)
 		{
 			to_del_instr = tmp_instr;
@@ -51,6 +51,6 @@ void		reset_data_struct(t_data *data)
 	if (data->label_list)
 		delete_label_list(data->label_list);
 	if (data->label)
-		delete_data_label(data->label);
+		delete_data_label(data);
 	ft_bzero(data, sizeof(t_data));
 }
