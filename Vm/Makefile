@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/12 15:09:18 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/12 16:55:47 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,26 @@ DEBUGFLAG = -g3 -fsanitize=address
 INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
-SRC = display_usage.c\
+SRC = add_player.c\
+	  check_file_header.c\
+	  check_players_validity.c\
+	  create_new_player.c\
+	  delete_invalid_players.c\
+	  display_error.c\
+	  display_usage.c\
 	  free_arena.c\
+	  get_number_of_players.c\
+	  get_winner.c\
+	  init_data.c\
+	  init_game.c\
+	  init_process.c\
+	  introduce_players.c\
+	  is_file_valid.c\
 	  op.c\
 	  parse_flag.c\
-	  vm.c
+	  vm.c\
+	  set_players_number.c\
+	  stock_players_and_number.c
 
 HEADER = op.h\
 		 vm.h\
