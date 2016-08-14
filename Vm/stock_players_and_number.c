@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/12 16:17:06 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/13 17:11:28 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 20:26:15 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	is_a_flag(char *s, int *i, char *next, int argc)
 	{
 		if ((!ft_strcmp(s, "-d") || !ft_strcmp(s, "-l") || !ft_strcmp(s, "-v"))
 				&& *i < argc && next && ft_is_str_digit(next))
-				*i = *i + 1;
+			*i = *i + 1;
 		return (1);
 	}
 	return (0);

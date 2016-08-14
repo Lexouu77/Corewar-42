@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 02:37:43 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 16:40:40 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 20:26:29 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		init_game(char **argv, t_vm_data *arena, int argc)
 	init_process(arena);
 	if (!arena->number_of_valid_player)
 		return (display_error("Not enough valid players.", NULL));
-//	set_players_in_field(arena);
+	set_players_in_field(arena);
 	introduce_players(arena);
 	return (1);
 }

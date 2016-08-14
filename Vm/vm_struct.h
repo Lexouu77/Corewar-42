@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 08:28:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/13 21:55:58 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 21:09:36 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct		s_vm_data
 	int				period_live_number;
 	//int				number_of_reg;
 	int				next_cycle_check;
+	int				tmp; // sorry la norme..
 	int				cycles;
 	int				number_of_players;
 	int				mem_size;

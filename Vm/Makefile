@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/14 16:32:49 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/14 21:39:25 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,10 @@ SRC = add_player.c\
 	  display_error.c\
 	  display_usage.c\
 	  display_warning.c\
+	  display_winner.c\
+	  fill_field.c\
 	  free_arena.c\
+	  get_instruction_parameter_size.c\
 	  get_number_of_players.c\
 	  get_winner.c\
 	  init_data.c\
@@ -41,8 +44,13 @@ SRC = add_player.c\
 	  op.c\
 	  parse_flag.c\
 	  vm.c\
+	  set_players_in_field.c\
 	  set_players_number.c\
-	  stock_players_and_number.c
+	  stock_fixed_parameter_value.c\
+	  stock_format.c\
+	  stock_parameter_value.c\
+	  stock_players_and_number.c\
+	  stock_op_code.c
 
 HEADER = op.h\
 		 vm.h\

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/14 16:17:52 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 18:20:00 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 20:09:41 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ static void	delete_cor_file(char **stock_place)
 		exit(status);
 	}
 	else
+	{
 		if (waitpid(pid, &status, 0) < 0)
 			ft_error("Waitpid returned -1");
+	}
 }
 
 static void	execute_asm(char **stock_place)
@@ -46,12 +48,13 @@ static void	execute_asm(char **stock_place)
 		exit(status);
 	}
 	else
+	{
 		if (waitpid(pid, &status, 0) < 0)
 			ft_error("Waitpid returned -1");
-
+	}
 }
 
-void	assemble_asm_file(t_player *player)
+void		assemble_asm_file(t_player *player)
 {
 	char		*new_file;
 	char		*tmp;

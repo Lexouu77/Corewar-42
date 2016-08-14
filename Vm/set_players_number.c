@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/07 09:26:39 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/13 18:33:48 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 21:36:35 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void		set_players_number(t_vm_data *arena)
 			players->desired_number = -1;
 		players = players->next;
 	}
+	players = arena->players;
 	while (players)
 	{
 		if (players->desired_number == -1 && players->number_of_player == 0)
