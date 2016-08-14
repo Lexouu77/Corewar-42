@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/12 16:55:47 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/14 16:32:49 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,15 @@ INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
 SRC = add_player.c\
+	  assemble_asm_file.c\
+	  check_asm_file.c\
 	  check_file_header.c\
 	  check_players_validity.c\
 	  create_new_player.c\
 	  delete_invalid_players.c\
 	  display_error.c\
 	  display_usage.c\
+	  display_warning.c\
 	  free_arena.c\
 	  get_number_of_players.c\
 	  get_winner.c\
@@ -33,6 +36,7 @@ SRC = add_player.c\
 	  init_game.c\
 	  init_process.c\
 	  introduce_players.c\
+	  is_a_s_file.c\
 	  is_file_valid.c\
 	  op.c\
 	  parse_flag.c\
@@ -42,7 +46,7 @@ SRC = add_player.c\
 
 HEADER = op.h\
 		 vm.h\
-		 vm_struct.c
+		 vm_struct.h
 
 
 NORMINETTE_TEST := $(shell norminette $(SRC) $(HEADER) | grep -B 1 Error)

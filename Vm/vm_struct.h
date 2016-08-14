@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 08:28:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/12 16:55:49 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/13 21:55:58 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 typedef struct		s_instr
 {
 	char			op_code;
-	unsigned char			format;
-	int				number_of_args;
-	int				fd;
+	unsigned char	format;
+	char			number_of_args;
+	char			fd;
 	int				i;
 }					t_instr;
 
@@ -26,11 +26,11 @@ typedef struct		s_proc
 {
 	int				*reg;
 	int				number;
-	int				owner;
+	char			owner;
 	int				pc;
-	int				carry;
+	char			carry;
 	int				lives;
-	int				is_waiting;
+	char			is_waiting;
 	int				cycles_waiting;
 	int				cycles_to_wait;
 	struct s_player	*father;
@@ -40,18 +40,19 @@ typedef struct		s_proc
 
 typedef struct		s_player
 {
-	int				still_in_game;
-	int				alive;
-	int				validity;
+	char			still_in_game;
+	char			alive;
+	char			validity;
 	char			*filename;
 	int				number_of_player;
+	int				desired_number;
 	int				bytes_size;
 	int				number_of_process;
 	char			*name;
 	char			*comment;
 	int				cycle_of_last_live;
 	int				period_live_number;
-	int				to_kill;
+	char			to_kill;
 	struct s_proc	*process;
 	struct s_proc	*last_process;
 	struct s_player	*next;
@@ -64,27 +65,27 @@ typedef struct		s_vm_data
 	int				winner;
 	int				number_of_valid_player;
 	int				max_checks;
-	int				decrementing;
+	char			decrementing;
 	int				cycles_to_dump;
 	int				cycles_to_loop_dump;
 	int				cycles_to_die;
- 	int				cycle_delta;
+ //	int				cycle_delta;
 	int				number_of_checks;
-	int				nbr_live;
+//	int				nbr_live;
 	int				period_live_number;
-	int				number_of_reg;
+	//int				number_of_reg;
 	int				next_cycle_check;
 	int				cycles;
 	int				number_of_players;
 	int				mem_size;
-	int				log_file;
-	int				fd;
-	int				dump;
-	int				color;
-	int				graph;
-	int				loop_dump;
-	int				verbosity;
-	int				pause;
+	char			log_file;
+	char			fd;
+	char			dump;
+	char			color;
+	char			graph;
+	char			loop_dump;
+	char			verbosity;
+	char			pause; // ???
 	int				*color_field;
 	int				*field;
 	int				*process_field; // use proc->pc to get it.

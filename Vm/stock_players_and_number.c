@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/12 16:17:06 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/12 16:20:26 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/13 17:11:28 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,14 @@ void		stock_players_and_number(char **argv, t_vm_data *arena, int argc)
 	while (++i < argc)
 	{
 		number = -1;
-		if (!argv[i] || !ft_strlen(argv[i]) || (argv[i + 1] &&
-				is_a_flag(argv[i], &i, argv[i + 1], argc)))
+		if (!argv[i] || !ft_strlen(argv[i]) ||
+				is_a_flag(argv[i], &i, argv[i + 1], argc))
 			continue ;
 		if (!ft_strcmp(argv[i - 1], "-n") && ft_is_str_digit(argv[i]))
 			number = ft_atoi(argv[i++]);
-		while (i < argc)
-			if (!argv[i] || !ft_strlen(argv[i]) || (argv[i] &&
-						ft_is_str_space(argv[i])))
-				i++;
+		if (!ft_strlen(argv[i]) || (argv[i] &&
+					ft_is_str_space(argv[i])))
+			continue ;
 		if (is_a_flag(argv[i], &i, argv[i + 1], argc))
 			continue ;
 		if (i >= argc)

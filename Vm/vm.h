@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/12 16:55:48 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 16:32:39 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@
 
 extern t_op g_op_tab[];
 
+void		assemble_asm_file(t_player *player);
+
 /*
 ** DISPLAY FUNCTIONS
 */
 
 int			display_error(char *message, char *filename);
 void		display_usage(void);
+int			display_warning(char *message, char *filename);
 void		get_number_of_players(t_vm_data *arena);
 t_player	*get_winner(t_vm_data *arena);
 void		introduce_players(t_vm_data *arena);
@@ -61,8 +64,10 @@ t_player	*create_new_player(int desired_number, char *file);
 ** TEST FUNCTIONS
 */
 
+void		check_asm_file(t_vm_data *arena);
 void		check_file_header(t_vm_data *arena);
 void		check_players_validity(t_vm_data *arena);
+int			is_a_s_file(char *filename);
 int			is_file_valid(char *file);
 
 /*

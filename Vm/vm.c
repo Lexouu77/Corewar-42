@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 00:56:32 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/12 15:37:59 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/13 16:38:21 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int					main(int argc, char **argv)
 	//	if (arena->graph)
 	//		ncurses_play(arena);
 	//	else
-		play(arena);
-		display_winner(arena);
+//		play(arena);
+//		display_winner(arena);
 		free_arena(arena);
 		free(arena);
 	}
