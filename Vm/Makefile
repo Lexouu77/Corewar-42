@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/14 22:20:20 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/14 22:46:03 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC = add_player.c\
 	  op.c\
 	  parse_flag.c\
 	  vm.c\
+	  set_color_field_owner.c\
 	  set_players_in_field.c\
 	  set_players_number.c\
 	  stock_fixed_parameter_value.c\

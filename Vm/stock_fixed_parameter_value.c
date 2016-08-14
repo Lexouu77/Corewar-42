@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/14 21:17:04 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 21:30:24 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 22:42:49 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	cast_fixed_values(t_vm_data *arena, t_instr *instruction, int size,
 		t_player *player)
 {
+	set_color_field_owner(arena, size, player->process, instruction->i);
 	if (size == 2)
 	{
 		arena->field[player->process->pc + instruction->i] =

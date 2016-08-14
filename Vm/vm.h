@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 22:07:17 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 22:45:53 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void		fill_field(t_vm_data *arena, t_player *player, int prog_sz, int fd);
 t_vm_data	*init_data(void);
 int			init_game(char **argv, t_vm_data *arena, int argc);
 void		init_process(t_vm_data *arena);
+void		set_color_field_owner(t_vm_data *arena, int size, t_proc *process,
+			int index);
 void		set_players_in_field(t_vm_data *arena);
 
 /*
