@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/13 18:40:55 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 18:20:01 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 22:27:32 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void		check_asm_file(t_vm_data *arena)
 		{
 			if (is_a_s_file(players->filename))
 				players->validity = 0;
+			else
+				players->validity = 1;
 			players = players->next;
 		}
 	if (!is_asm_here)

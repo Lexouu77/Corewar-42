@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_player.c                                       :+:      :+:    :+:   */
+/*   display_field.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/06 19:21:38 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 22:27:02 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/06/10 00:47:33 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/06/13 20:07:49 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-/*
-** Create a new player, return an already malloced node with his desired number
-** and his filename
-*/
-
-t_player		*create_new_player(int desired_number, char *file)
+void	display_field(t_vm_data *arena)
 {
-	t_player	*player;
+	int		i;
 
-	player = ft_memalloc(sizeof(t_player));
-	if (desired_number > MAX_PLAYERS || desired_number < 1)
-		player->desired_number = -1;
-	else
-		player->desired_number = desired_number;
-	player->filename = ft_strdup(file);
-	return (player);
+	i = -1;
+	while (++i < MEM_SIZE)
+	{
+//		if (arena->color)
+//			TODO:
+		if ((i + 1) % (32 * 2)  == 0 && i != 0)
+			ft_printf("%02x\n", arena->field[i]);
+		else
+			ft_printf("%02x ", arena->field[i]);
+	}
 }
+
+//Changer printf, retourner la chaine de char au lieu d'un int et faire des strjoin -> 1 seul write, opti -> -g

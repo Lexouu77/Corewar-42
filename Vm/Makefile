@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/14 21:39:25 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/14 22:20:20 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = add_player.c\
 	  create_new_player.c\
 	  delete_invalid_players.c\
 	  display_error.c\
+	  display_field.c\
 	  display_usage.c\
 	  display_warning.c\
 	  display_winner.c\

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 21:31:06 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 22:07:17 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void		assemble_asm_file(t_player *player);
 */
 
 int			display_error(char *message, char *filename);
+void		display_field(t_vm_data *arena);
 void		display_usage(void);
 int			display_warning(char *message, char *filename);
 void		display_winner(t_vm_data *arena);

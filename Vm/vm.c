@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 00:56:32 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 21:39:13 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/14 22:07:05 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int					main(int argc, char **argv)
 	//		ncurses_play(arena);
 	//	else
 //		play(arena);
+		display_field(arena);
 //		display_winner(arena); TODO : get last_player  or segfault.
 		free_arena(arena);
 		free(arena);
