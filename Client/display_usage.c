@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 22:02:56 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/15 19:28:50 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/15 20:54:55 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			display_usage(void)
 {
-	ft_printf("%[[FG_YEL,SP_RST]s : ./corewar [", "Usage");
+	ft_printf("%[[FG_YEL,SP_RST]s : ./client [", "Usage");
 	ft_printf("%[[FG_MAG,SP_RST]s (Color Display) | ", "-c");
 	ft_printf("%[[FG_RED,SP_RST]s [0-9] (Dump) | ", "-d");
 	ft_printf("%[[FG_YEL,SP_RST]s [0-9] (Set Player Number) | ", "-n");

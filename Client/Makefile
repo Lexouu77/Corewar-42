@@ -6,11 +6,11 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/15 19:45:49 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/15 20:54:05 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = client.a
+NAME = client
 CC = clang
 RM = rm -f
 CFLAGS = -Wall -Werror -Wextra
@@ -56,9 +56,7 @@ NORMINETTE_TEST := $(shell norminette $(SRC) $(HEADER) | grep -B 1 Error)
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEADER) $(LIB)
-#	$(CC) -o $(NAME) $(SRC) $(CFLAGS) -I $(INCLUDES) -L ./libftprintf/ -lftprintf
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	$(CC) -o $(NAME) $(SRC) $(CFLAGS) -I $(INCLUDES) -L ./libftprintf/ -lftprintf
 
 $(LIB) :
 	make -C libftprintf

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 19:34:05 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/15 19:41:44 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/15 20:54:56 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 extern t_op g_op_tab[];
 
 void		assemble_asm_file(t_player *player);
-
-int			client(int argc, char **argv);
 
 /*
 ** DISPLAY FUNCTIONS
