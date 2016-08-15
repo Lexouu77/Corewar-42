@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/14 22:46:03 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/15 22:28:49 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC = add_player.c\
 	  assemble_asm_file.c\
 	  check_asm_file.c\
 	  check_file_header.c\
+	  check_instruction_from_proc.c\
 	  check_players_validity.c\
 	  create_new_player.c\
 	  delete_invalid_players.c\
@@ -31,11 +32,15 @@ SRC = add_player.c\
 	  display_usage.c\
 	  display_warning.c\
 	  display_winner.c\
+	  dump.c\
+	  dump_and_wait.c\
+	  execute_instruction.c\
 	  fill_field.c\
 	  free_arena.c\
 	  get_instruction_parameter_size.c\
 	  get_number_of_players.c\
 	  get_winner.c\
+	  increment_waiting_time.c\
 	  init_data.c\
 	  init_game.c\
 	  init_process.c\
@@ -44,9 +49,12 @@ SRC = add_player.c\
 	  is_file_valid.c\
 	  op.c\
 	  parse_flag.c\
+	  play.c\
 	  vm.c\
 	  set_color_field_owner.c\
+	  set_last_player.c\
 	  set_players_in_field.c\
+	  set_players_in_game.c\
 	  set_players_number.c\
 	  stock_fixed_parameter_value.c\
 	  stock_format.c\

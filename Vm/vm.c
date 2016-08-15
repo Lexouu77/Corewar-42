@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 00:56:32 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 22:07:05 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/15 21:46:48 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int					main(int argc, char **argv)
 			open("Corewar.log", O_WRONLY | O_CREAT | O_TRUNC, 0644)) == -1)
 			ft_error("Couldn't create the log file.\n");
 	//	if (arena->graph)
-	//		ncurses_play(arena);
+	//		rust_graph_play(arena);
 	//	else
 //		play(arena);
 		display_field(arena);

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 22:45:53 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/15 22:31:24 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,17 @@
 
 extern t_op g_op_tab[];
 
+/*
+** MAIN FUNCTIONS
+*/
+
 void		assemble_asm_file(t_player *player);
+void		check_instruction_from_proc(t_vm_data *arena);
+void		dump(t_vm_data *arena);
+void		dump_and_wait(t_vm_data *arena);
+void		execute_instruction(t_vm_data *arena);
+void		increment_waiting_time(t_vm_data *arena);
+void		play(t_vm_data *arena);
 
 /*
 ** DISPLAY FUNCTIONS
@@ -64,7 +74,9 @@ int			init_game(char **argv, t_vm_data *arena, int argc);
 void		init_process(t_vm_data *arena);
 void		set_color_field_owner(t_vm_data *arena, int size, t_proc *process,
 			int index);
+void		set_last_player(t_vm_data *arena);
 void		set_players_in_field(t_vm_data *arena);
+void		set_players_in_game(t_vm_data *arena);
 
 /*
 ** PARSING FUNCTIONS

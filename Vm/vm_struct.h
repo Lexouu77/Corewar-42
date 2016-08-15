@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 08:28:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 21:09:36 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/15 22:23:37 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef struct		s_vm_data
 	int				cycles_to_dump;
 	int				cycles_to_loop_dump;
 	int				cycles_to_die;
- //	int				cycle_delta;
+	int				cycle_delta;
 	int				number_of_checks;
 //	int				nbr_live;
 	int				period_live_number;
