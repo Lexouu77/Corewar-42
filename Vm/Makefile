@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/15 22:28:49 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/15 23:21:32 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = add_player.c\
 	  check_asm_file.c\
 	  check_file_header.c\
 	  check_instruction_from_proc.c\
+	  check_period.c\
 	  check_players_validity.c\
 	  create_new_player.c\
 	  delete_invalid_players.c\
@@ -47,6 +48,8 @@ SRC = add_player.c\
 	  introduce_players.c\
 	  is_a_s_file.c\
 	  is_file_valid.c\
+	  is_someone_in_game.c\
+	  kill_player.c\
 	  op.c\
 	  parse_flag.c\
 	  play.c\

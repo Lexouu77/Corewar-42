@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 08:28:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/15 22:23:37 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/15 23:21:35 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ typedef struct		s_vm_data
 	int				process_next_number;
 	int				winner;
 	int				number_of_valid_player;
-	int				max_checks;
+//	int				max_checks;
 	char			decrementing;
 	int				cycles_to_dump;
 	int				cycles_to_loop_dump;
