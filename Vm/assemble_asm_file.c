@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/14 16:17:52 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 20:09:41 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/16 18:16:36 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void		assemble_asm_file(t_player *player)
 	execute_asm(stock_place);
 	if (access(player->filename, F_OK) == -1)
 		player->validity = 0;
+	else
+		player->validity = 1;
 	free(tmp);
 	free(stock_place[0]);
 	free(stock_place);

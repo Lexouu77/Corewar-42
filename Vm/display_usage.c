@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 22:02:56 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/11 22:14:24 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/16 19:21:55 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ void			display_usage(void)
 	ft_printf("%[[FG_CYA,SP_RST]s (Create a Log File)]", "-f");
 	ft_printf(" [file%[[FG_MAG,SP_RST]s] [file%[[FG_MAG,SP_RST]s] ...\n",
 			".s", ".cor");
-	ft_printf("Verbosity : \t - 1 : Show lives.\n");
-	ft_printf("\t\t - 2 : Show cycles.\n");
-	ft_printf("\t\t - 4 : Show deaths.\n");
-	ft_printf("\t\t - 8 : Show instruction execution.\n");
+	ft_printf("Verbosity : \t - 1  : Show lives.\n");
+	ft_printf("\t\t - 2  : Show cycles.\n");
+	ft_printf("\t\t - 4  : Show deaths.\n");
+	ft_printf("\t\t - 8  : Show instruction execution.\n");
+	ft_printf("\t\t - 16 : Show instruction extra.\n");
 	ft_printf("-Playing with more than four valid players will only ");
 	ft_printf("use the four first valid ones as players.\n");
 	ft_printf("-Playing with no valid players won't trigger the arena.\n");

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/14 21:17:04 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 22:42:49 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/16 18:19:26 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ static void	cast_fixed_values(t_vm_data *arena, t_instr *instruction, int size,
 		arena->field[player->process->pc + instruction->i] = arena->tmp & 0xFF;
 }
 
-int	stock_fixed_parameter_value(t_vm_data *arena, t_instr *instruction,
+int			stock_fixed_parameter_value(t_vm_data *arena, t_instr *instruction,
 		t_player *player, int *size)
 {
-	const int	direct_size = (g_op_tab[instruction->op_code - 1].byte_dir) ?
+	int	direct_size;
+
+	direct_size = (g_op_tab[instruction->op_code - 1].byte_dir) ?
 		IND_SIZE : DIR_SIZE;
 	if (g_op_tab[instruction->op_code - 1].byte_param)
 		return (1);

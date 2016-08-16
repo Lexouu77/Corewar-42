@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 08:28:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/15 23:21:35 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/16 18:54:22 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct		s_vm_data
 	int				cycles;
 	int				number_of_players;
 	int				mem_size;
+	char			format; // tmp_format
 	char			log_file;
 	char			fd;
 	char			dump;

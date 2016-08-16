@@ -6,20 +6,11 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:26:43 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/15 23:16:06 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/16 19:09:39 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
-
-static void	display_kill_player(t_player *player, t_vm_data *arena)
-{
-	player->to_kill = 0;
-	player->still_in_game = 0;
-	if ((arena->verbosity & 4) == 4)
-		ft_printf_fd(arena->fd, "Player number : %d just died !\n",
-				player->number_of_player);
-}
 
 static void	display_kill_process(t_proc *process, t_vm_data *arena,
 		t_player *player)
@@ -52,7 +43,6 @@ void		kill_player(t_vm_data *arena)
 		process = player->process;
 		if (player->to_kill && player->still_in_game)
 		{
-			display_kill_player(player, arena);
 			while (process)
 			{
 				display_kill_process(process, arena, player);
