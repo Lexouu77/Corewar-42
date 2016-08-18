@@ -1,0 +1,8 @@
+[package]
+name = "coretermion"
+version = "0.1.0"
+authors = ["adjivas <adjivas@users.noreply.github.com>"]
+
+[lib]
+name = "coretermion"
+crate-type = ["staticlib"]
