@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/15 23:21:33 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/19 00:59:44 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ void		kill_player(t_vm_data *arena);
 void		play(t_vm_data *arena);
 
 /*
+** INSTRUCTIONS FUNCTIONS
+*/
+
+void		do_fork(t_vm_data *arena, t_proc *process);
+void		live(t_vm_data *arena, t_proc *process);
+void		long_fork(t_vm_data *arena, t_proc *process);
+void		zjump(t_vm_data *arena, t_proc *process);
+
+/*
 ** DISPLAY FUNCTIONS
 */
 
@@ -48,9 +57,14 @@ void		introduce_players(t_vm_data *arena);
 ** ACCESSOR FUNCTIONS
 */
 
+int			get_direct_arg_value(t_vm_data *arena, t_proc *process,
+			int *byte_size);
 void		get_number_of_players(t_vm_data *arena);
+int			get_param_value(t_vm_data *arena, int pc, int size);
 t_player	*get_winner(t_vm_data *arena);
 void		set_players_number(t_vm_data *arena);
+void		write_param_value(t_vm_data *arena, int pc, int value,
+			t_proc *process);
 
 /*
 ** STOCK FUNCTIONS
@@ -102,6 +116,7 @@ t_player	*create_new_player(int desired_number, char *file);
 void		check_asm_file(t_vm_data *arena);
 void		check_file_header(t_vm_data *arena);
 void		check_players_validity(t_vm_data *arena);
+int			check_reg_number(int reg_number);
 int			is_a_s_file(char *filename);
 int			is_file_valid(char *file);
 

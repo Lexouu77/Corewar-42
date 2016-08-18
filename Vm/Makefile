@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/15 23:21:32 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/19 00:59:40 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC = add_player.c\
 	  check_instruction_from_proc.c\
 	  check_period.c\
 	  check_players_validity.c\
+	  check_reg_number.c\
 	  create_new_player.c\
 	  delete_invalid_players.c\
 	  display_error.c\
@@ -33,13 +34,16 @@ SRC = add_player.c\
 	  display_usage.c\
 	  display_warning.c\
 	  display_winner.c\
+	  do_fork.c\
 	  dump.c\
 	  dump_and_wait.c\
 	  execute_instruction.c\
 	  fill_field.c\
 	  free_arena.c\
+	  get_direct_arg_value.c\
 	  get_instruction_parameter_size.c\
 	  get_number_of_players.c\
+	  get_param_value.c\
 	  get_winner.c\
 	  increment_waiting_time.c\
 	  init_data.c\
@@ -50,6 +54,8 @@ SRC = add_player.c\
 	  is_file_valid.c\
 	  is_someone_in_game.c\
 	  kill_player.c\
+	  live.c\
+	  long_fork.c\
 	  op.c\
 	  parse_flag.c\
 	  play.c\
@@ -63,7 +69,9 @@ SRC = add_player.c\
 	  stock_format.c\
 	  stock_parameter_value.c\
 	  stock_players_and_number.c\
-	  stock_op_code.c
+	  stock_op_code.c\
+	  write_param_value.c\
+	  zjump.c
 
 HEADER = op.h\
 		 vm.h\

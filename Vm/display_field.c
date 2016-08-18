@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 00:47:33 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/16 18:08:04 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/19 01:00:14 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,3 @@ void		display_field(t_vm_data *arena)
 		}
 	}
 }
-
-//Changer printf, retourner la chaine de char au lieu d'un int et faire des strjoin -> 1 seul write, opti -> -g
