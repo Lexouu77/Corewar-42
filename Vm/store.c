@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 10:57:07 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/19 00:22:20 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/19 04:21:30 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,6 @@ static void	display_st_instruction(t_proc *process, t_vm_data *arena, int i)
 				" And it failed (Reason : invalid register number) !\n");
 		process->carry = 0;
 	}
-}
-
-static int	get_arg_val(t_proc *process, t_vm_data *arena, int i, int shift)
-{
-	if ((arena->field[(process->pc + 1) % arena->mem_size] >> shift
-					& 3) == REG_CODE)
-		return (process->reg[i - 1]);
-	else
-		return (i);
 }
 
 static void	display_st_instruction_end(t_vm_data *arena, t_proc *process,
@@ -82,6 +73,7 @@ void		store(t_vm_data *arena, t_proc *process)
 	else
 	{
 		tmp = get_param_value(arena, process->pc + 3, 4);
+		//get dir if dir 
 		display_st_instruction(process, arena, check_reg_number(tmp_reg - 1));
 		if (check_reg_number(tmp_reg - 1))
 			write_param_value(arena, process->pc + (tmp % IDX_MOD),

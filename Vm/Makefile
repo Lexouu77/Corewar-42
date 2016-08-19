@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/19 00:59:40 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/19 04:25:21 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC = add_player.c\
 	  get_instruction_parameter_size.c\
 	  get_number_of_players.c\
 	  get_param_value.c\
+	  get_param_type.c\
 	  get_winner.c\
 	  increment_waiting_time.c\
 	  init_data.c\

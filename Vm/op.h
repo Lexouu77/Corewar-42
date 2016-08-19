@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 05:11:46 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/06/11 23:16:44 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/19 03:47:16 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,17 @@ typedef struct		s_op
 	int				byte_param;
 	int				byte_dir;
 }					t_op;
+
+/*
+** t_op
+** Name ?
+** Number of args.
+** Type of args accepted.
+** op_code.
+** number of cycles to before realisation of the instruction.
+** Description lel.
+** Do i need a byte to define the format of the args after the opcode ?
+** DIRECT Args on : 4 bytes if 0 else, 2 bytes.
+*/
 
 #endif

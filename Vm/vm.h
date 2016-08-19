@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/19 00:59:44 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/19 04:25:22 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int			get_direct_arg_value(t_vm_data *arena, t_proc *process,
 			int *byte_size);
 void		get_number_of_players(t_vm_data *arena);
 int			get_param_value(t_vm_data *arena, int pc, int size);
+int			get_param_type(t_vm_data *arena, int param_number);
 t_player	*get_winner(t_vm_data *arena);
 void		set_players_number(t_vm_data *arena);
 void		write_param_value(t_vm_data *arena, int pc, int value,
