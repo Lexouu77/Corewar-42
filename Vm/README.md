@@ -1,18 +1,17 @@
-- [ ] live
+- [x] live
 - [x] ld
-- [ ] st
+- [x] st
 - [ ] add
 - [ ] sub
 - [ ] and
 - [ ] or
 - [ ] xor
-- [ ] zjmp
+- [x] zjmp
 - [ ] ldi
 - [ ] sti
-- [ ] fork
-- [ ] lld
+- [x] fork
+- [x] lld
 - [ ] lldi
-- [ ] lfork
-- [ ] aff
-- [ ] ##Aller chercher la valeur a l'adresse si c'est un DIR -> check ld.
+- [x] lfork
+- [x] aff
 

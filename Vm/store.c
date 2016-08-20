@@ -6,13 +6,14 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 10:57:07 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/19 04:21:30 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/20 12:33:52 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
 #define TMIDX (tmp % IDX_MOD)
+#define CRN(x) check_reg_number(x)
 
 extern t_op g_op_tab[];
 
@@ -62,8 +63,7 @@ void		store(t_vm_data *arena, t_proc *process)
 	if (((arena->format >> 4) & 0x3) == REG_CODE)
 	{
 		tmp = arena->field[(process->pc + 3) % arena->mem_size];
-		display_st_instruction(process, arena, check_reg_number(tmp - 1) &
-				check_reg_number(tmp_reg - 1));
+		display_st_instruction(process, arena, CRN(tmp - 1) & CRN(tmp_reg - 1));
 		if (check_reg_number(tmp - 1) & check_reg_number(tmp_reg - 1))
 			process->reg[tmp - 1] = process->reg[tmp_reg - 1];
 		if (check_reg_number(tmp - 1) & check_reg_number(tmp_reg - 1))
@@ -73,7 +73,7 @@ void		store(t_vm_data *arena, t_proc *process)
 	else
 	{
 		tmp = get_param_value(arena, process->pc + 3, 4);
-		//get dir if dir 
+		tmp = get_param_value(arena, process->pc + tmp, 4);
 		display_st_instruction(process, arena, check_reg_number(tmp_reg - 1));
 		if (check_reg_number(tmp_reg - 1))
 			write_param_value(arena, process->pc + (tmp % IDX_MOD),

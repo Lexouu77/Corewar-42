@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 23:12:38 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/16 19:09:38 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/20 12:51:22 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ static void	soft_kill_player(t_vm_data *arena)
 	}
 }
 
+static int	stock_players_live(t_player *player)
+{
+	if (player->alive)
+	{
+		player->still_in_game = 1;
+		return (1);
+	}
+	return (0);
+}
+
 int			is_someone_in_game(t_vm_data *arena)
 {
 	t_player	*player;
@@ -42,8 +52,7 @@ int			is_someone_in_game(t_vm_data *arena)
 	player = arena->players;
 	while (player)
 	{
-		if (player->alive)
-			alive = 1;
+		alive = stock_players_live(player);
 		player = player->next;
 	}
 	if (!alive)
