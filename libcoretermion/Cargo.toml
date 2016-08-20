@@ -1,0 +1,23 @@
+[package]
+name = "coretermion"
+version = "0.1.0"
+authors = ["adjivas <adjivas@users.noreply.github.com>"]
+
+[lib]
+name = "coretermion"
+crate-type = ["staticlib"]
+
+[dependencies.itertools]
+version = "0.4"
+
+[dependencies.collect_slice]
+version = "1.0.0"
+
+[dependencies.termion]
+version = "*"
+
+[dependencies.nalgebra]
+version = "*"
+
+[dependencies.libc]
+version = "*"
