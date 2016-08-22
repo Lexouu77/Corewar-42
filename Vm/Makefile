@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/19 04:25:21 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/22 21:07:27 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ DEBUGFLAG = -g3 -fsanitize=address
 INCLUDES = ./
 LIB = ./libftprintf/libftprintf.a
 OBJ = $(SRC:.c=.o)
-SRC = add_player.c\
+SRC = add.c\
+	  add_player.c\
+	  aff.c\
 	  assemble_asm_file.c\
 	  check_asm_file.c\
 	  check_file_header.c\
@@ -42,9 +44,11 @@ SRC = add_player.c\
 	  free_arena.c\
 	  get_direct_arg_value.c\
 	  get_instruction_parameter_size.c\
+	  get_n_param_value.c\
 	  get_number_of_players.c\
 	  get_param_value.c\
 	  get_param_type.c\
+	  get_parameter_size.c\
 	  get_winner.c\
 	  increment_waiting_time.c\
 	  init_data.c\
@@ -71,6 +75,8 @@ SRC = add_player.c\
 	  stock_parameter_value.c\
 	  stock_players_and_number.c\
 	  stock_op_code.c\
+	  store.c\
+	  sub.c\
 	  write_param_value.c\
 	  zjump.c
 

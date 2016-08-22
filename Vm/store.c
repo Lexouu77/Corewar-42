@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 10:57:07 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/22 18:25:09 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/22 21:22:38 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void		store(t_vm_data *arena, t_proc *process)
 	}
 	else
 	{
-		tmp = get_param_value(arena, process->pc + 3, 4);
-		tmp = get_param_value(arena, process->pc + tmp, 4);
+		tmp = get_param_value(arena, process->pc + 3, IND_SIZE);
+		tmp = get_param_value(arena, process->pc + tmp, IND_SIZE);
 		display_st_instruction(process, arena, check_reg_number(tmp_reg - 1));
 		if (check_reg_number(tmp_reg - 1))
 			write_param_value(arena, process->pc + (tmp % IDX_MOD),

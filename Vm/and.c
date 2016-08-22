@@ -1,57 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load.c                                             :+:      :+:    :+:   */
+/*   and.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/14 11:07:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/22 21:22:42 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/08/22 20:15:51 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/08/22 21:22:37 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-static void	display_ld_instruction(t_proc *process, t_vm_data *arena, int i)
+static void	display_and_instruction(t_proc *process, t_vm_data *arena, int i)
 {
+	process->carry = i;
 	if ((arena->verbosity & 8) != 8)
-	{
-		if (!i)
-			process->carry = 0;
 		return ;
-	}
 	ft_printf_fd(arena->fd, "Process number : %d",
 			process->number);
 	ft_printf_fd(arena->fd, " owned by player number : %d",
 			process->father->number_of_player);
-	ft_printf_fd(arena->fd, " is doing a ld!");
+	ft_printf_fd(arena->fd, " is doing an and!");
 	if (i)
 		ft_printf_fd(arena->fd, " And it worked !");
 	else
-	{
 		ft_printf_fd(arena->fd,
 				" And it failed (Reason : invalid register number) !\n");
-		process->carry = 0;
-	}
 }
 
-void		load(t_vm_data *arena, t_proc *process)
+void		add(t_vm_data *arena, t_proc *process)
 {
-	const int	reg = get_param_value(arena, process->pc + 6, 1);
-	int			tmp;
+	int		error;
+	int		var;
+	int		var_two;
+	int		reg;
 
-	if (!check_reg_number(reg - 1))
+	error = 0;
+	var = get_n_param_value(arena, process->pc, 1, &error);
+	var_two = get_n_param_value(arena, process->pc, 2, &error);
+	reg = get_n_param_value(arena, process->pc, 3, &error);
+	if (error == 1)
 	{
-		process->pc = (process->pc + 7) % arena->mem_size;
-		return (display_ld_instruction(process, arena, 0));
+		move_pc_from_format(arena, process);
+		return (display_and_instruction(process, arena, 0));
 	}
-	tmp = get_param_value(arena, process->pc + 2,
-		get_parameter_size(arena->field[process->pc],
-			get_param_type(arena, 1)));
-	if (get_param_type(arena, 1) == IND_CODE)
-		tmp = get_param_value(arena, process->pc + (tmp % IDX_MOD), 4);
-	process->reg[reg - 1] = tmp;
+	display_and_instruction(process, arena, 1);
 	if ((arena->verbosity & 8) != 8)
-		ft_printf_fd(arena->fd, "It stocked %d in reg %d\n", tmp, reg);
-	process->carry = 1;
+		ft_printf_fd(arena->fd, "It stocked [%d] & [%d] in r%d!\n",
+				var, var_two, reg - 1);
+	process->reg[reg - 1] = var & var_two;
+	move_pc_from_format_size(arena, process);
 }

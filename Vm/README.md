@@ -1,8 +1,8 @@
 - [x] live
 - [x] ld
 - [x] st
-- [ ] add
-- [ ] sub
+- [x] add
+- [x] sub
 - [ ] and
 - [ ] or
 - [ ] xor
@@ -15,3 +15,5 @@
 - [x] lfork
 - [x] aff
 
+IND = 2 
+Si on va chercher via ind, on prends 2 ou 4 ?

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/19 04:25:22 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/22 21:22:40 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,13 @@ void		play(t_vm_data *arena);
 ** INSTRUCTIONS FUNCTIONS
 */
 
+void		add(t_vm_data *arena, t_proc *process);
+void		aff(t_vm_data *arena, t_proc *process);
 void		do_fork(t_vm_data *arena, t_proc *process);
 void		live(t_vm_data *arena, t_proc *process);
 void		long_fork(t_vm_data *arena, t_proc *process);
+void		store(t_vm_data *arena, t_proc *process);
+void		sub(t_vm_data *arena, t_proc *process);
 void		zjump(t_vm_data *arena, t_proc *process);
 
 /*
@@ -59,9 +63,11 @@ void		introduce_players(t_vm_data *arena);
 
 int			get_direct_arg_value(t_vm_data *arena, t_proc *process,
 			int *byte_size);
+int			get_n_param_value(t_vm_data *arena, t_proc *proc, int nb, int *err);
 void		get_number_of_players(t_vm_data *arena);
 int			get_param_value(t_vm_data *arena, int pc, int size);
 int			get_param_type(t_vm_data *arena, int param_number);
+int			get_parameter_size(int op_code, int var_code);
 t_player	*get_winner(t_vm_data *arena);
 void		set_players_number(t_vm_data *arena);
 void		write_param_value(t_vm_data *arena, int pc, int value,
