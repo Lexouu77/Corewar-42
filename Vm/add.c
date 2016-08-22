@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 12:19:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/22 18:29:34 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/22 18:31:28 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void		add(t_vm_data *arena, t_proc *process)
 				process->reg[reg_two - 1], reg_three - 1);
 	process->reg[reg_three - 1] = process->reg[reg - 1] +
 		process->reg[reg_two - 1];
+	process->pc = (process->pc + 5) % arena->mem_size;
 }
