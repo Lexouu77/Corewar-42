@@ -34,7 +34,7 @@ int	get_n_param_value(t_vm_data *arena, t_proc *process, int nb, int *error)
 	while (++i != nb)
 		size += get_parameter_size(arena->field[process->pc],
 				get_param_type(arena, i));
-	tmp = get_param_value(arena, process->pc + size + 2,
+	tmp = get_param_value(arena, process->pc + size + g_op_tab[arena->field[process->pc] - 1].byte_param + 1,
 		get_parameter_size(arena->field[process->pc],
 			get_param_type(arena, i)));
 	if (get_param_type(arena, i) == REG_CODE && !check_reg_number(tmp - 1))
