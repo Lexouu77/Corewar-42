@@ -13,7 +13,12 @@
 #include "vm.h"
 
 /*
-** takes arena, process, number of desired parameter and a pointer on error.
+** takes arena, process, number of desired parameter and a pointer on error
+** returns a value of the desired parameter
+** if error is already at 1, it does nothing :D
+** if register, returns the value inside the register
+** if register number is invalid, set error to 1
+** if indirect type, returns value which is [value] bytes away 
 */
 
 int	get_n_param_value(t_vm_data *arena, t_proc *process, int nb, int *error)
@@ -38,7 +43,7 @@ int	get_n_param_value(t_vm_data *arena, t_proc *process, int nb, int *error)
 		return (0);
 	}
 	if (get_param_type(arena, i) == IND_CODE)
-		tmp = get_param_value(arena, process->pc + tmp % IDX_MOD, IND_SIZE); // 2 ou 4 .... faire des tests.
+		tmp = get_param_value(arena, process->pc + (tmp % IDX_MOD), DIR_SIZE);
 //	process->pc = (process->pc + size) % arena->mem_size; // do it in move pc
 	if (get_param_type(arena, i) == REG_CODE)
 		return (process->reg[tmp - 1]);
