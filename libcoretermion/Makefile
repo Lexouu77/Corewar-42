@@ -10,7 +10,9 @@ build:
 clean:
 	cargo clean ;
 
-fclean: clean
+fclean:
+	cargo clean ;
+	rm -vf Cargo.lock ;
 	rm -vf $(NAME) ;
 
 re: fclean build

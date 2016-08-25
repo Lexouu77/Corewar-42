@@ -86,9 +86,13 @@ $(NAME): $(OBJO)
 	$(CC) $(FLAG) -c $< -o $@ $(INDS)
 
 clean:
+	make -C libftprintf clean
+	make -C libcoretermion clean
 	/bin/rm -rfv $(OBJO)
 
 fclean:
+	make -C libftprintf fclean
+	make -C libcoretermion fclean
 	/bin/rm -rfv $(OBJO)
 	/bin/rm -rfv $(NAME)
 

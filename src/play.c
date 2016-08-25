@@ -12,15 +12,22 @@
 
 #include "vm.h"
 
-extern int32_t core_termion(int32_t *fields, int32_t *colors);
+extern int32_t core_start();
+extern int32_t core_end();
+
+extern int32_t core_idle (
+  int32_t *fields,
+  int32_t *colors,
+  int32_t *procs
+);
 
 void			play(t_vm_data *arena)
 {
 	set_players_in_game(arena);
+  core_start();
 	while (1) //set un moment ou stop ? if cycle_delta == 1 ?
 	{
-    printf("%d\n", *arena->field);
-    core_termion(arena->field, arena->color_field);
+    core_idle(arena->field, arena->color_field, arena->process_field);
 		//refresh_fresh_field(arena); // do it. check throught the real corewar asm.
 		arena->cycles++;
 		increment_waiting_time(arena);
