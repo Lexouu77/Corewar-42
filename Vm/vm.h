@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/22 21:22:40 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/28 19:47:12 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void		execute_instruction(t_vm_data *arena);
 void		increment_waiting_time(t_vm_data *arena);
 int			is_someone_in_game(t_vm_data *arena);
 void		kill_player(t_vm_data *arena);
+void		move_pc_from_format(t_vm_data *arena, t_proc *process);
 void		play(t_vm_data *arena);
-
 /*
 ** INSTRUCTIONS FUNCTIONS
 */
@@ -64,6 +64,8 @@ void		introduce_players(t_vm_data *arena);
 int			get_direct_arg_value(t_vm_data *arena, t_proc *process,
 			int *byte_size);
 int			get_n_param_value(t_vm_data *arena, t_proc *proc, int nb, int *err);
+int			get_n_reg_param_value(t_vm_data *arena, t_proc *process, int nb,
+			int *error);
 void		get_number_of_players(t_vm_data *arena);
 int			get_param_value(t_vm_data *arena, int pc, int size);
 int			get_param_type(t_vm_data *arena, int param_number);

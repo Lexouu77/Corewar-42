@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 20:15:51 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/22 21:22:37 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/28 19:47:03 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void		add(t_vm_data *arena, t_proc *process)
 	int		reg;
 
 	error = 0;
-	var = get_n_param_value(arena, process->pc, 1, &error);
-	var_two = get_n_param_value(arena, process->pc, 2, &error);
-	reg = get_n_param_value(arena, process->pc, 3, &error);
+	var = get_n_param_value(arena, process, 1, &error);
+	var_two = get_n_param_value(arena, process, 2, &error);
+	reg = get_n_reg_param_value(arena, process, 3, &error);
 	if (error == 1)
 	{
 		move_pc_from_format(arena, process);
@@ -50,5 +50,5 @@ void		add(t_vm_data *arena, t_proc *process)
 		ft_printf_fd(arena->fd, "It stocked [%d] & [%d] in r%d!\n",
 				var, var_two, reg - 1);
 	process->reg[reg - 1] = var & var_two;
-	move_pc_from_format_size(arena, process);
+	move_pc_from_format(arena, process);
 }

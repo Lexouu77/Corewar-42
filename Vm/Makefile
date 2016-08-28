@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/22 21:07:27 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/28 19:47:05 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC = add.c\
 	  get_direct_arg_value.c\
 	  get_instruction_parameter_size.c\
 	  get_n_param_value.c\
+	  get_n_reg_param_value.c\
 	  get_number_of_players.c\
 	  get_param_value.c\
 	  get_param_type.c\
@@ -59,6 +60,7 @@ SRC = add.c\
 	  is_file_valid.c\
 	  is_someone_in_game.c\
 	  kill_player.c\
+	  move_pc_from_format.c\
 	  live.c\
 	  long_fork.c\
 	  op.c\

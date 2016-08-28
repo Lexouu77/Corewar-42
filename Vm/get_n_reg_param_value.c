@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_n_param_value.c                                :+:      :+:    :+:   */
+/*   get_n_reg_param_value.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/22 20:07:52 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/28 19:47:08 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/08/28 19:07:12 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/08/28 19:09:17 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 /*
 ** takes arena, process, number of desired parameter and a pointer on error
-** returns a value of the desired parameter
+** returns a value of the pointed register
 ** if error is already at 1, it does nothing :D
-** if register, returns the value inside the register
-** if register number is invalid, set error to 1
-** if indirect type, returns value which is [value] bytes away 
 */
 
-int	get_n_param_value(t_vm_data *arena, t_proc *process, int nb, int *error)
+int	get_n_reg_param_value(t_vm_data *arena, t_proc *process, int nb, int *error)
 {
 	int	size;
 	int	tmp;
@@ -42,9 +39,5 @@ int	get_n_param_value(t_vm_data *arena, t_proc *process, int nb, int *error)
 		*error = 1;
 		return (0);
 	}
-	if (get_param_type(arena, i) == IND_CODE)
-		tmp = get_param_value(arena, process->pc + (tmp % IDX_MOD), DIR_SIZE);
-	if (get_param_type(arena, i) == REG_CODE)
-		return (process->reg[tmp - 1]);
 	return (tmp);
 }

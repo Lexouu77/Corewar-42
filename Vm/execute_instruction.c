@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:37:05 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/22 19:51:34 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/28 19:03:26 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void		execute_instruction(t_vm_data *arena)
 			if (process->is_waiting &&
 					process->cycles_waiting == process->cycles_to_wait)
 			{
+				arena->op_code = arena->field[process->pc];
 				arena->format =
 					arena->field[(process->pc + 1) % arena->mem_size];
 				f[arena->field[process->pc] - 1](arena, process);
