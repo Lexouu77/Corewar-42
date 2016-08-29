@@ -6,16 +6,11 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 10:57:07 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/29 14:51:00 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/29 14:51:16 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
-
-#define TMIDX (tmp % IDX_MOD)
-#define CRN(x) check_reg_number(x)
-
-extern t_op g_op_tab[];
 
 static void	display_st_instruction(t_proc *process, t_vm_data *arena, int i)
 {

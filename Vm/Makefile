@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/28 19:47:05 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/29 14:51:10 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,8 +62,11 @@ SRC = add.c\
 	  kill_player.c\
 	  move_pc_from_format.c\
 	  live.c\
+	  load_index.c\
 	  long_fork.c\
+	  long_load_index.c\
 	  op.c\
+	  or.c\
 	  parse_flag.c\
 	  play.c\
 	  vm.c\
@@ -79,6 +82,7 @@ SRC = add.c\
 	  stock_op_code.c\
 	  store.c\
 	  sub.c\
+	  xor.c\
 	  write_param_value.c\
 	  zjump.c
 

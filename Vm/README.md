@@ -1,19 +1,16 @@
 - [x] live
-- [x] ld
+- [x] ld OK
 - [x] st
 - [x] add
 - [x] sub
-- [ ] and
-- [ ] or
-- [ ] xor
+- [x] and OK
+- [x] or OK
+- [x] xor OK
 - [x] zjmp
-- [ ] ldi
+- [x] ldi OK
 - [ ] sti
 - [x] fork
 - [x] lld
-- [ ] lldi
+- [x] lldi OK
 - [x] lfork
 - [x] aff
-
-IND = 2 
-Si on va chercher via ind, on prends 2 ou 4 ?

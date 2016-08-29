@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/28 19:07:12 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/28 19:09:17 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/29 14:51:14 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	get_n_reg_param_value(t_vm_data *arena, t_proc *process, int nb, int *error)
 
 	if (*error == 1)
 		return (1);
+		tmp = get_param_value(arena, process->pc + (tmp % IDX_MOD), 4);
+		tmp = get_param_value(arena, process->pc + (tmp % IDX_MOD), 4);
 	i = 0;
 	size = 0;
 	while (++i != nb)

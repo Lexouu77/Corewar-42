@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 11:07:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/22 21:22:42 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/29 14:07:55 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,16 @@ static void	display_ld_instruction(t_proc *process, t_vm_data *arena, int i)
 
 void		load(t_vm_data *arena, t_proc *process)
 {
-	const int	reg = get_param_value(arena, process->pc + 6, 1);
-	int			tmp;
+	int		error;
+	int		reg;
+	int		tmp;
 
-	if (!check_reg_number(reg - 1))
-	{
-		process->pc = (process->pc + 7) % arena->mem_size;
+	error = 0;
+	tmp = get_n_param_value(arena, process, 1, &error);
+	reg = get_n_reg_param_value(arena, process, 2, &error);
+	move_pc_from_format(arena, process);
+	if (error)
 		return (display_ld_instruction(process, arena, 0));
-	}
-	tmp = get_param_value(arena, process->pc + 2,
-		get_parameter_size(arena->field[process->pc],
-			get_param_type(arena, 1)));
-	if (get_param_type(arena, 1) == IND_CODE)
-		tmp = get_param_value(arena, process->pc + (tmp % IDX_MOD), 4);
 	process->reg[reg - 1] = tmp;
 	if ((arena->verbosity & 8) != 8)
 		ft_printf_fd(arena->fd, "It stocked %d in reg %d\n", tmp, reg);
