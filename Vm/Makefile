@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/29 14:51:10 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/30 11:40:11 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,9 @@ SRC = add.c\
 	  execute_instruction.c\
 	  fill_field.c\
 	  free_arena.c\
-	  get_direct_arg_value.c\
 	  get_instruction_parameter_size.c\
 	  get_n_param_value.c\
+	  get_n_param_size.c\
 	  get_n_reg_param_value.c\
 	  get_number_of_players.c\
 	  get_param_value.c\
@@ -61,6 +61,7 @@ SRC = add.c\
 	  is_someone_in_game.c\
 	  kill_player.c\
 	  move_pc_from_format.c\
+	  move_pc_without_format.c\
 	  live.c\
 	  load_index.c\
 	  long_fork.c\

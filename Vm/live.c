@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 21:42:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/22 21:22:39 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 11:40:03 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		live(t_vm_data *arena, t_proc *process)
 
 	if ((arena->verbosity & 8) == 8)
 		display_live_instruction(process, arena);
-	tmp = get_direct_arg_value(arena, process, &size);
+	tmp = get_param_value(arena, process->pc + 1, get_n_param_size(arena, 1)); // faire un move pc 
 	process->pc = (process->pc + size + 1) % arena->mem_size;
 	if ((arena->verbosity & 1) == 1)
 		display_live(process, tmp, arena);
