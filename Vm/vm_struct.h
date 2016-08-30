@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 08:28:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/28 19:00:31 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 17:05:39 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct		s_proc
 	char			owner;
 	int				pc;
 	char			carry;
-	int				lives;
+	unsigned long	lives;
 	char			is_waiting;
 	int				cycles_waiting;
 	int				cycles_to_wait;
@@ -41,7 +41,7 @@ typedef struct		s_proc
 typedef struct		s_player
 {
 	char			still_in_game;
-	char			alive;
+	unsigned long	alive;
 	char			validity;
 	char			*filename;
 	int				number_of_player;
@@ -72,7 +72,7 @@ typedef struct		s_vm_data
 	int				cycle_delta;
 	int				number_of_checks;
 //	int				nbr_live;
-	int				period_live_number;
+	unsigned long	period_live_number;
 	//int				number_of_reg;
 	int				next_cycle_check;
 	int				tmp; // sorry la norme..

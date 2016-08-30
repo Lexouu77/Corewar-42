@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/29 14:26:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/29 14:26:53 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 17:08:44 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		do_or(t_vm_data *arena, t_proc *process)
 		return (display_or_instruction(process, arena, 0));
 	display_or_instruction(process, arena, 1);
 	if ((arena->verbosity & 8) != 8)
-		ft_printf_fd(arena->fd, "It stocked [%d]  [%d] in r%d!\n",
+		ft_printf_fd(arena->fd, "It stocked [%d] | [%d] in r%d!\n",
 				var, var_two, reg - 1);
 	process->reg[reg - 1] = var | var_two;
 }

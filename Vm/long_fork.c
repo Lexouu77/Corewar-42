@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 11:51:14 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/17 18:45:00 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 17:25:23 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ void		long_fork(t_vm_data *arena, t_proc *process)
 	int	tmp;
 	int	i;
 
-	tmp = (arena->field[(process->pc + 1) % arena->mem_size] << 8 & 0x0000FF00);
-	tmp |= (arena->field[(process->pc + 2) % arena->mem_size] & 0x000000FF);
+	tmp = get_param_value(arena, process->pc + 1, get_n_param_size(arena, 1));
 	if (!(process->father->last_process->next =
 			(t_proc *)ft_memalloc(sizeof(t_proc))) ||
 			!(process->father->last_process->next->reg =
@@ -43,6 +42,6 @@ void		long_fork(t_vm_data *arena, t_proc *process)
 		display_lfork_instruction(process, arena);
 	while (++i < REG_NUMBER)
 		process->next->reg[i] = process->reg[i];
-	process->pc = (process->pc + 3) % arena->mem_size;
+	move_pc_without_format(arena, process);
 	process->next->pc = (process->pc + tmp) % arena->mem_size;
 }

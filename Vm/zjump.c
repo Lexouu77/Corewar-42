@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 11:18:50 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/20 12:26:21 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 16:50:57 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,12 @@ static void	display_zjump_instruction(t_proc *process, t_vm_data *arena)
 void		zjump(t_vm_data *arena, t_proc *process)
 {
 	int			tmp;
-	int			size;
 
 	if ((arena->verbosity & 8) == 8)
 		display_zjump_instruction(process, arena);
 	if (!process->carry)
 		return ;
-	tmp = get_direct_arg_value(arena, process, &size);
+	tmp = get_param_value(arena, process->pc + 1, get_n_param_size(arena, 1));
 	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, " It jumped by %d bytes !\n", tmp);
 	process->pc = (process->pc + (tmp % IDX_MOD)) % arena->mem_size;

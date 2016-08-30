@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add.c                                              :+:      :+:    :+:   */
+/*   sub.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/13 12:19:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/22 19:49:37 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/08/30 17:07:25 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/08/30 17:07:43 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,25 @@ static void	display_sub_instruction(t_proc *process, t_vm_data *arena, int i)
 				" And it failed (Reason : invalid register number) !\n");
 }
 
-void		add(t_vm_data *arena, t_proc *process)
+void		sub(t_vm_data *arena, t_proc *process)
 {
-	const int	reg = get_param_value(arena, process->pc + 2, 1);
-	const int	reg_two = get_param_value(arena, process->pc + 3, 1);
-	const int	reg_three = get_param_value(arena, process->pc + 4, 1);
+	int		error;
+	int		reg;
+	int		reg_two;
+	int		reg_three;
 
-	if ((check_reg_number(reg - 1) & check_reg_number(reg_two - 1) &
-			check_reg_number(reg_three - 1)) == 0)
-	{
-		process->pc = (process->pc + 5) % arena->mem_size;
+	error = 0;
+	reg = get_n_reg_param_value(arena, process, 1, &error);
+	reg_two = get_n_reg_param_value(arena, process, 2, &error);
+	reg_three = get_n_reg_param_value(arena, process, 3, &error);
+	move_pc_from_format(arena, process);
+	if (error == 1)
 		return (display_sub_instruction(process, arena, 0));
-	}
 	display_sub_instruction(process, arena, 1);
 	if ((arena->verbosity & 8) != 8)
 		ft_printf_fd(arena->fd, "It stocked r%d (%d) - r%d (%d) in r%d!\n",
-				reg - 1, process->reg[reg - 1], reg_two,
-				process->reg[reg_two - 1], reg_three - 1);
+		reg - 1, process->reg[reg - 1], reg_two - 1, process->reg[reg_two - 1],
+		reg_three - 1);
 	process->reg[reg_three - 1] = process->reg[reg - 1] -
 		process->reg[reg_two - 1];
-	process->pc = (process->pc + 5) % arena->mem_size;
 }

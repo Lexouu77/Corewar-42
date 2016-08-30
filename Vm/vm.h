@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 11:40:12 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 17:10:41 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ void		do_fork(t_vm_data *arena, t_proc *process);
 void		do_or(t_vm_data *arena, t_proc *process);
 void		do_xor(t_vm_data *arena, t_proc *process);
 void		live(t_vm_data *arena, t_proc *process);
+void		load(t_vm_data *arena, t_proc *process);
+void		long_load(t_vm_data *arena, t_proc *process);
 void		load_index(t_vm_data *arena, t_proc *process);
 void		long_load_index(t_vm_data *arena, t_proc *process);
 void		long_fork(t_vm_data *arena, t_proc *process);
 void		store(t_vm_data *arena, t_proc *process);
+void		store_index(t_vm_data *arena, t_proc *process);
 void		sub(t_vm_data *arena, t_proc *process);
 void		zjump(t_vm_data *arena, t_proc *process);
 

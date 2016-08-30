@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 10:57:07 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/29 14:51:16 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 21:11:39 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 static void	display_st_instruction(t_proc *process, t_vm_data *arena, int i)
 {
+	process->carry = i;
 	if ((arena->verbosity & 8) != 8)
-	{
-		if (!i)
-			process->carry = 0;
 		return ;
-	}
 	ft_printf_fd(arena->fd, "Process number : %d",
 			process->number);
 	ft_printf_fd(arena->fd, " owned by player number : %d",
 			process->father->number_of_player);
-	ft_printf_fd(arena->fd, " is doing a st!");
+	ft_printf_fd(arena->fd, " is doing a sti!");
 	if (i)
 		ft_printf_fd(arena->fd, " And it worked !");
 	else
@@ -50,7 +47,7 @@ static void	display_st_instruction_end(t_vm_data *arena, t_proc *process,
 				tmp_reg , process->reg[tmp_reg - 1], value);
 }
 
-void		store(t_vm_data *arena, t_proc *process)
+void		store_index(t_vm_data *arena, t_proc *process)
 {
 	const int	tmp_reg = arena->field[(process->pc + 2) % arena->mem_size];
 	int			tmp;

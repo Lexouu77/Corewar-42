@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/30 11:40:11 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/30 17:11:00 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,8 @@ SRC = add.c\
 	  move_pc_from_format.c\
 	  move_pc_without_format.c\
 	  live.c\
+	  load.c\
+	  long_load.c\
 	  load_index.c\
 	  long_fork.c\
 	  long_load_index.c\
