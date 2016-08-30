@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 10:57:07 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 21:13:42 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 23:08:11 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	display_st_instruction(t_proc *process, t_vm_data *arena, int i)
 	if (i)
 		ft_printf_fd(arena->fd, " And it worked !");
 	else
-	{
+	{	
 		ft_printf_fd(arena->fd,
 				" And it failed (Reason : invalid register number) !\n");
 		process->carry = 0;
@@ -47,7 +47,7 @@ void		store(t_vm_data *arena, t_proc *process)
 		if (error)
 			return (display_st_instruction(process, arena, 0));
 		display_st_instruction(process, arena, 1);
-		if ((arena->verbosity & 8) != 8)
+		if ((arena->verbosity & 8) == 8)
 			ft_printf_fd(arena->fd, "It did stock r%d (%d) in r%d\n", reg,
 				process->reg[reg - 1], tmp);
 			process->reg[tmp - 1] = process->reg[reg - 1];
@@ -55,13 +55,20 @@ void		store(t_vm_data *arena, t_proc *process)
 	else
 	{
 		tmp = get_n_param_value(arena, process, 2, &error);
-		move_pc_from_format(arena, process);
-		if (error)
+/*		ft_printf("%d\n", get_param_type(arena, 2));
+		ft_printf("%d\n", tmp);
+		ft_printf("%d\n", (short)tmp);
+		ft_printf("%d\n", (char)tmp);
+*/		if (error)
+		{
+			move_pc_from_format(arena, process);
 			return (display_st_instruction(process, arena, 0));
+		}
 		display_st_instruction(process, arena, 1);
-		write_param_value(arena, process->pc + tmp, process->reg[reg - 1],
+		write_param_value(arena, process->pc + (tmp % IDX_MOD), process->reg[reg - 1],
 				process);
-		if ((arena->verbosity & 8) != 8)
+		move_pc_from_format(arena, process);
+		if ((arena->verbosity & 8) == 8)
 			ft_printf_fd(arena->fd, "It did stock r%d (%d) at %d bytes away\n",
 				reg , process->reg[reg - 1], tmp);
 	}

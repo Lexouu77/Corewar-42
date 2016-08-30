@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/30 17:11:00 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/08/30 21:57:13 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ OBJ = $(SRC:.c=.o)
 SRC = add.c\
 	  add_player.c\
 	  aff.c\
+	  and.c\
 	  assemble_asm_file.c\
 	  check_asm_file.c\
 	  check_file_header.c\
@@ -84,6 +85,7 @@ SRC = add.c\
 	  stock_players_and_number.c\
 	  stock_op_code.c\
 	  store.c\
+	  store_index.c\
 	  sub.c\
 	  xor.c\
 	  write_param_value.c\

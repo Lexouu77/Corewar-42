@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 00:56:32 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/16 18:11:53 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 21:45:03 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int					main(int argc, char **argv)
 	//	else
 		play(arena);
 //		display_field(arena);
-//		display_winner(arena); TODO : get last_player  or segfault.
+		display_winner(arena);// TODO : get last_player  or segfault.
 		free_arena(arena);
 		free(arena);
 	}

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 17:32:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/19 00:59:36 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 21:58:22 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void		refresh_field(t_vm_data *arena)
 void			play(t_vm_data *arena)
 {
 	set_players_in_game(arena);
+//	display_field(arena);
 	while (1) //set un moment ou stop ? if cycle_delta == 1 ?
 	{
 //		if (arena->graph)

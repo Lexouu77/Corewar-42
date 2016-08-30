@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 11:07:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 17:16:40 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 22:13:53 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void		load(t_vm_data *arena, t_proc *process)
 	int		tmp;
 
 	error = 0;
+	reg = 0;
 	tmp = get_n_param_value(arena, process, 1, &error);
 	reg = get_n_reg_param_value(arena, process, 2, &error);
 	move_pc_from_format(arena, process);
@@ -46,7 +47,7 @@ void		load(t_vm_data *arena, t_proc *process)
 		return (display_ld_instruction(process, arena, 0));
 	display_ld_instruction(process, arena, 1);
 	process->reg[reg - 1] = tmp;
-	if ((arena->verbosity & 8) != 8)
+	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, "It stocked %d in reg %d\n", tmp, reg);
 	process->carry = 1;
 }

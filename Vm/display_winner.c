@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 22:14:29 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 21:37:13 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 21:59:55 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void			display_winner(t_vm_data *arena)
 	const t_player	*player = get_winner(arena);
 
 	if (arena->log_file)
-		return ((void)ft_printf_fd(arena->fd, " %s (%s)!\n ", PN, PC));
+		ft_printf_fd(arena->fd, " %s (%s)!\n ", PN, PC);
 	ft_printf("The winner is : ");
 	if (player->number_of_player % 4 == 1)
 		ft_printf(" %[[FG_GRE,SP_RST]s", player->name);

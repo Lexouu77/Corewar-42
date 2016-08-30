@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 23:12:27 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/14 20:19:47 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 21:54:49 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,13 @@ void		introduce_players(t_vm_data *arena)
 	int			i;
 	t_player	*player;
 
-	player = arena->players;
 	arena->number_of_players = get_definite_number_of_players(arena);
 	i = -1;
-	while (++i < arena->number_of_players && player)
+	while (++i < arena->number_of_players)
 	{
+		player = arena->players;
+		while (player && i != player->number_of_player - 1)
+			player = player->next;
 		if (i == 0)
 			ft_printf("Our first player, weighing %d", PS);
 		else if (i == 1)
@@ -80,7 +82,7 @@ void		introduce_players(t_vm_data *arena)
 		else if (i == 3)
 			ft_printf("Our fourth player, weighing %d", PS);
 		else
-			ft_printf("Our player number %d, weighing %d", i + 1, PS);
+				ft_printf("Our player number %d, weighing %d", i + 1, PS);
 		ft_printf(" bytes ");
 		display_name(player);
 		display_comment(player);

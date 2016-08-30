@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/29 14:42:59 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/29 14:45:22 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 22:15:36 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void		load_index(t_vm_data *arena, t_proc *process)
 		return (display_ldi_instruction(process, arena, 0));
 	display_ldi_instruction(process, arena, 1);
 	process->reg[reg - 1] = tmp;
-	if ((arena->verbosity & 8) != 8)
+	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, "It stocked %d in reg %d\n", tmp, reg);
 }

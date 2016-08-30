@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 20:15:51 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/29 14:22:25 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 22:15:14 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		do_and(t_vm_data *arena, t_proc *process)
 	if (error == 1)
 		return (display_and_instruction(process, arena, 0));
 	display_and_instruction(process, arena, 1);
-	if ((arena->verbosity & 8) != 8)
+	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, "It stocked [%d] & [%d] in r%d!\n",
 				var, var_two, reg - 1);
 	process->reg[reg - 1] = var & var_two;

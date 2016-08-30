@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:26:43 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 19:55:31 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 21:44:22 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void		kill_player(t_vm_data *arena)
 				free(tmp);*/
 		if (player->filename)
 			free(player->filename);
-		if (player->comment)
-			free(player->comment);
+	//	if (player->comment)
+	//		free(player->comment);
 		player = player->next;
 	}
 }
