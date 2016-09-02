@@ -12,7 +12,7 @@
 
 #ifndef VM_H
 # define VM_H
-# include "./libftprintf/ft_printf.h"
+# include "ft_printf.h"
 # include "op.h"
 # include "vm_struct.h"
 
