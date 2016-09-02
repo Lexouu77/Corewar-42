@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:37:05 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/29 13:38:09 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 03:45:23 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void		execute_instruction(t_vm_data *arena)
 					process->cycles_waiting == process->cycles_to_wait)
 			{
 				arena->op_code = arena->field[process->pc];
+		//		ft_printf("op_code = %d\n", arena->op_code);
 				arena->format =
 					arena->field[(process->pc + 1) % arena->mem_size];
 				// check si op_code a un format byte. si oui et que format est bizarre exit .

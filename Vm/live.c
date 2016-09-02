@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 21:42:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 16:22:53 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 01:49:50 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void		live(t_vm_data *arena, t_proc *process)
 
 	display_live_instruction(process, arena);
 	tmp = get_param_value(arena, process->pc + 1, get_n_param_size(arena, 1));
+	tmp = -tmp;
 	move_pc_without_format(arena, process);
 	display_live(process, tmp, arena);
 	process->lives++;

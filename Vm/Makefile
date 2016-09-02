@@ -6,14 +6,14 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/30 21:57:13 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/09/02 03:05:04 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = corewar
 CC = clang
 RM = rm -f
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 OFLAGS = -O3 -march=native
 DEBUGFLAG = -g3 -fsanitize=address
 INCLUDES = ./

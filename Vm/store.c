@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 10:57:07 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 23:08:11 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 04:15:16 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,12 @@ void		store(t_vm_data *arena, t_proc *process)
 		if ((arena->verbosity & 8) == 8)
 			ft_printf_fd(arena->fd, "It did stock r%d (%d) in r%d\n", reg,
 				process->reg[reg - 1], tmp);
-			process->reg[tmp - 1] = process->reg[reg - 1];
+		process->reg[tmp - 1] = process->reg[reg - 1];
 	}
 	else
 	{
 		tmp = get_n_param_value(arena, process, 2, &error);
-/*		ft_printf("%d\n", get_param_type(arena, 2));
-		ft_printf("%d\n", tmp);
-		ft_printf("%d\n", (short)tmp);
-		ft_printf("%d\n", (char)tmp);
-*/		if (error)
+		if (error)
 		{
 			move_pc_from_format(arena, process);
 			return (display_st_instruction(process, arena, 0));

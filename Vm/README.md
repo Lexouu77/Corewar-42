@@ -1,16 +1,1 @@
-- [x] live OK
-- [x] ld OK
-- [x] st
-- [x] add OK
-- [x] sub OK
-- [x] and OK
-- [x] or OK
-- [x] xor OK
-- [x] zjmp OK
-- [x] ldi OK
-- [ ] sti
-- [x] fork OK
-- [x] lld OK
-- [x] lldi OK
-- [x] lfork OK
-- [x] aff OK
+TODO :  Changer les numeros en les inversant  +  check waiting time 

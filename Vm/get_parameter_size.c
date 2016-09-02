@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 20:51:14 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 23:08:03 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/01 21:22:15 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		get_parameter_size(int op_code, int var_code)
 {
 	if (var_code == REG_CODE)
-		return (REG_SIZE);
+		return (1);
 	if (var_code == IND_CODE)
 		return (IND_SIZE);
 	else if (var_code == DIR_CODE)

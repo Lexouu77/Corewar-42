@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fork.c                                             :+:      :+:    :+:   */
+/*   long_fork.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/14 11:51:14 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 17:25:23 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/09/01 23:48:48 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/09/01 23:54:53 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,19 @@ void		long_fork(t_vm_data *arena, t_proc *process)
 			!(process->father->last_process->next->reg =
 					(int *)ft_memalloc(sizeof(int) * REG_NUMBER)))
 			ft_malloc_error();
-	process->father->last_process = process->next;
-	process->next->number = arena->process_next_number++;
-	process->next->owner = process->owner;
-	process->next->father = process->father;
-	process->next->carry = process->carry;
+	process->father->last_process->next->prev = process->father->last_process;
+	process->father->last_process = process->father->last_process->next;
+	process->father->last_process->number = arena->process_next_number++;
+	process->father->last_process->owner = process->owner;
+	process->father->last_process->father = process->father;
+	process->father->last_process->carry = process->carry;
 	i = -1;
 	if ((arena->verbosity & 8) == 8)
 		display_lfork_instruction(process, arena);
 	while (++i < REG_NUMBER)
-		process->next->reg[i] = process->reg[i];
+		process->father->last_process->reg[i] = process->reg[i];
+	process->father->last_process->pc = (process->pc + tmp) % arena->mem_size;
 	move_pc_without_format(arena, process);
-	process->next->pc = (process->pc + tmp) % arena->mem_size;
+
+
 }

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 03:19:28 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/16 19:21:53 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 03:45:11 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	display_process_waiting(t_proc *process, t_vm_data *arena)
 {
+	if (process->is_waiting)
+		return ;
 	process->is_waiting = 1;
 	process->cycles_to_wait =
 	g_op_tab[arena->field[process->pc] - 1].cycles_to_process;
@@ -31,6 +33,7 @@ static void	display_process_waiting(t_proc *process, t_vm_data *arena)
 static void	display_error_process(t_proc *process, t_vm_data *arena)
 {
 	process->pc = (process->pc + 1) % arena->mem_size;
+	process->is_waiting = 0;
 	if ((arena->verbosity & 16) == 16)
 	{
 		ft_printf_fd(arena->fd, "Process number : %d", process->number);
@@ -52,14 +55,14 @@ void		check_instruction_from_proc(t_vm_data *arena)
 		process = player->process;
 		while (process)
 		{
-			if (!process->is_waiting)
-			{
+//			if (!process->is_waiting)
+//			{
 				if (arena->field[process->pc] > 0 &&
 						arena->field[process->pc] <= 16)
 					display_process_waiting(process, arena);
 				else
 					display_error_process(process, arena);
-			}
+//			}
 			process = process->next;
 		}
 		player = player->next;

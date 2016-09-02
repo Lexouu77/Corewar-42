@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 23:12:38 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 21:25:46 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 03:04:09 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,17 @@ static t_proc	*kill_process(t_proc *process, t_player *player, t_vm_data
 	display_kill_process(process, arena, player);
 	if (!process->next && !process->prev)
 	{
-		player->process = NULL;
-		player->last_process = NULL;
 		free(process->reg);
 		free(process);
+		player->process = NULL;
+		player->last_process = NULL;
 		return (NULL);
 	}
 	free(process->reg);
 	if (!process->next)
 	{
 		player->last_process = process->prev;
+		player->last_process->next = NULL;
 		free(process);
 		return (NULL);
 	}
