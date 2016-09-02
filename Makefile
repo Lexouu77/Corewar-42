@@ -6,13 +6,11 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/02 10:22:00 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/02 10:23:40 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-ifeq ($(CC),clang)
-	LDFLAGS :=
-else
+ifeq ($(CC),gcc)
 	LDFLAGS := -Wl,--gc-sections
 endif
 
