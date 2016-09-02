@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 22:09:58 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/01 22:04:24 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 08:07:58 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		store_index(t_vm_data *arena, t_proc *process)
 	display_sti_instruction(process, arena, 1);
 	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, "It did stock r%d (%d) at %d bytes away\n",
-			reg , process->reg[reg - 1], (tmp + tmp_two) % IDX_MOD);
+			reg, process->reg[reg - 1], (tmp + tmp_two) % IDX_MOD);
 	write_param_value(arena, process->pc + ((tmp + tmp_two) % IDX_MOD),
 			process->reg[reg - 1], process);
 	move_pc_from_format(arena, process);

@@ -1,1 +1,1 @@
-TODO :  Changer les numeros en les inversant  +  check waiting time 
+Check les IDX mods !!!

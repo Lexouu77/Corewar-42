@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 11:51:14 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 06:49:39 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 08:12:01 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ void		do_fork(t_vm_data *arena, t_proc *process)
 	int	tmp;
 	int	i;
 
-	tmp = (short)get_param_value(arena, process->pc + 1, get_n_param_size(arena, 1));
+	tmp = (short)get_param_value(arena, process->pc + 1,
+			get_n_param_size(arena, 1));
 	if (!(process->father->last_process->next =
 			(t_proc *)ft_memalloc(sizeof(t_proc))) ||
 			!(process->father->last_process->next->reg =
-					(int *)ft_memalloc(sizeof(int) * REG_NUMBER)))
-			ft_malloc_error();
+			(int *)ft_memalloc(sizeof(int) * REG_NUMBER)))
+		ft_malloc_error();
 	process->father->last_process->next->prev = process->father->last_process;
 	process->father->last_process = process->father->last_process->next;
 	process->father->last_process->number = arena->process_next_number++;
@@ -43,6 +44,7 @@ void		do_fork(t_vm_data *arena, t_proc *process)
 		display_fork_instruction(process, arena);
 	while (++i < REG_NUMBER)
 		process->father->last_process->reg[i] = process->reg[i];
-	process->father->last_process->pc = (process->pc + (tmp % IDX_MOD)) % arena->mem_size;
+	process->father->last_process->pc = (process->pc + (tmp % IDX_MOD)) %
+		arena->mem_size;
 	move_pc_without_format(arena, process);
 }

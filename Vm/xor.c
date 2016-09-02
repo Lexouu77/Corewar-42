@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/29 14:23:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 06:09:16 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 08:06:46 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,4 @@ void		do_xor(t_vm_data *arena, t_proc *process)
 		process->carry = 0;
 	else
 		process->carry = 1;
-
 }

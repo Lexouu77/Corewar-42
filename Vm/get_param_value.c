@@ -6,13 +6,13 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 22:42:53 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 23:08:02 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 08:14:16 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-static long	get_shift_value(long shift)
+static long		get_shift_value(long shift)
 {
 	if (shift == 24)
 		return (0xFF000000);
@@ -29,7 +29,6 @@ long			get_param_value(t_vm_data *arena, int pc, int size)
 	long	shift;
 	long	i;
 
-//	pc = (pc + 1) % IDX_MOD;
 	i = 0;
 	value = 0;
 	shift = 8 * (size - 1);

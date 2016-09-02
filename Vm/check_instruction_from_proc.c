@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 03:19:28 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 07:03:42 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 08:05:38 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,11 @@ void		check_instruction_from_proc(t_vm_data *arena)
 		process = player->process;
 		while (process)
 		{
-//			if (!process->is_waiting)
-//			{
-				if (arena->field[process->pc] > 0 &&
-						arena->field[process->pc] <= 16)
-					display_process_waiting(process, arena);
-				else
-					display_error_process(process, arena);
-//			}
+			if (arena->field[process->pc] > 0 &&
+					arena->field[process->pc] <= 16)
+				display_process_waiting(process, arena);
+			else
+				display_error_process(process, arena);
 			process = process->next;
 		}
 		player = player->next;

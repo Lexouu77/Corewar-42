@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/09 23:12:27 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 01:44:26 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 08:35:01 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,10 @@ void		introduce_players(t_vm_data *arena)
 		else if (i == 3)
 			ft_printf("Our fourth player, weighing %d", PS);
 		else
-				ft_printf("Our player number %d, weighing %d", i + 1, PS);
+			ft_printf("Our player number %d, weighing %d", i + 1, PS);
 		ft_printf(" bytes ");
 		display_name(player);
 		display_comment(player);
-//		player->number_of_player *= -1;
 		player = player->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 23:48:48 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 06:49:57 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 08:34:38 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ void		long_fork(t_vm_data *arena, t_proc *process)
 	int	tmp;
 	int	i;
 
-	tmp = (short)get_param_value(arena, process->pc + 1, get_n_param_size(arena, 1));
+	tmp = (short)get_param_value(arena, process->pc + 1,
+			get_n_param_size(arena, 1));
 	if (!(process->father->last_process->next =
 			(t_proc *)ft_memalloc(sizeof(t_proc))) ||
 			!(process->father->last_process->next->reg =
 					(int *)ft_memalloc(sizeof(int) * REG_NUMBER)))
-			ft_malloc_error();
+		ft_malloc_error();
 	process->father->last_process->next->prev = process->father->last_process;
 	process->father->last_process = process->father->last_process->next;
 	process->father->last_process->number = arena->process_next_number++;

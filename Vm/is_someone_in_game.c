@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 23:12:38 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 03:04:09 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 08:11:20 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int		stock_players_live(t_vm_data *arena)
 	return (0);
 }
 
-static void	display_kill_process(t_proc *process, t_vm_data *arena,
+static void		display_kill_process(t_proc *process, t_vm_data *arena,
 		t_player *player)
 {
 	if ((arena->verbosity & 4) == 4)
@@ -38,8 +38,8 @@ static void	display_kill_process(t_proc *process, t_vm_data *arena,
 	}
 }
 
-static t_proc	*kill_process(t_proc *process, t_player *player, t_vm_data
-		*arena)
+static t_proc	*kill_process(t_proc *process, t_player *player,
+		t_vm_data *arena)
 {
 	t_proc	*tmp;
 
