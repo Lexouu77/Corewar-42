@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 20:07:52 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/01 21:26:11 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 06:45:04 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ long		get_n_param_value(t_vm_data *arena, t_proc *process, int nb,
 //		ft_printf(" TMP = %d\n", tmp);
 	}
 	if (get_param_type(arena, i) == REG_CODE)
-		return (process->reg[tmp - 1]);
-	return (tmp);
+		return (/*(short)*/process->reg[tmp - 1]);
+	return (/*(short)*/tmp);
 }

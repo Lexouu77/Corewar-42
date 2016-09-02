@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/07 11:20:33 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 01:47:17 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 06:26:08 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void		init_process(t_vm_data *arena)
 //		players->process->owner = players->number_of_player * - 1;
 		players->process->owner = players->number_of_player;
 		arena->process_field[players->process->pc] = players->number_of_player;
+		players->validity = 1;
+		players->process->carry = 1;
 		players->validity = 1;
 		players = players->next;
 	}

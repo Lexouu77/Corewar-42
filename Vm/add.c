@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 12:19:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 22:14:02 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 06:23:37 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,6 @@ void		add(t_vm_data *arena, t_proc *process)
 		reg_three - 1);
 	process->reg[reg_three - 1] = process->reg[reg - 1] +
 		process->reg[reg_two - 1];
+	if (process->reg[reg_three - 1] == 0)
+		process->carry = 0;
 }

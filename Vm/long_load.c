@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load.c                                             :+:      :+:    :+:   */
+/*   long_load.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/14 11:07:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 17:13:49 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/09/02 06:07:01 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/09/02 06:28:51 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,11 @@ void		long_load(t_vm_data *arena, t_proc *process)
 		return (display_lld_instruction(process, arena, 0));
 	display_lld_instruction(process, arena, 1);
 	process->reg[reg - 1] = tmp;
+	if (tmp == 0)
+		process->carry = 0;
+	else
+		process->carry = 1;
 	if ((arena->verbosity & 8) != 8)
 		ft_printf_fd(arena->fd, "It stocked %d in reg %d\n", tmp, reg);
-	process->carry = 1;
+//	process->carry = 1;
 }

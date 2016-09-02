@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 11:07:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/01 23:13:27 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/02 06:46:21 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,8 @@ void		load(t_vm_data *arena, t_proc *process)
 	process->reg[reg - 1] = tmp;
 	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, "It stocked %d in reg %d\n", tmp, reg);
-	process->carry = 1;
+	if (tmp == 0)
+		process->carry = 0;
+	else
+		process->carry = 1;
 }
