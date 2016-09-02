@@ -22,4 +22,4 @@ os:
   - osx
 
 script:
-  - cargo build --verbose
+  - make
