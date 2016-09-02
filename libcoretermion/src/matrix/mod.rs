@@ -48,13 +48,12 @@ impl Matrix {
   }
 }
 
-
 impl fmt::Display for Matrix {
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
     write!(f, "{}", izip!(&self.fields, &self.colors, &self.procs)
                         .map(|i| i).chunks_lazy(AXE)
                                    .into_iter().fold(Vec::with_capacity(MAX), |mut acc: Vec<String>, line| {
-                           acc.push(line.map(|(f, c, _): (&fields::Field, &colors::Color, &procs::Proc)| format!("{}{}", f, c))
+                           acc.push(line.map(|(f, c, _): (&fields::Field, &colors::Color, &procs::Proc)| format!("{}{}", c, f))
                               .collect::<Vec<String>>()
                               .concat());
                            acc

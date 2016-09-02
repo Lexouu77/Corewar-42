@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/02 10:23:40 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/02 10:59:21 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,10 +68,13 @@ SRCS += stock_op_code.c
 LSTC := $(patsubst %,$(DIRC)/%,$(SRCS))
 OBJO := $(LSTC:.c=.o)
 
-.PHONY: default all clean fclean re version
-.SILENT: clean fclean version
+.PHONY: default version all clean fclean re example
+.SILENT: clean fclean version example
 
 default: all
+
+version:
+	$(CC) --version
 
 all: $(NAME)
 
@@ -96,5 +99,5 @@ fclean:
 
 re: fclean all
 
-version:
-	$(CC) --version
+example:
+	./$(NAME) resources/bee_gees.cor || true

@@ -2,7 +2,6 @@ use super::{MAX, AXE};
 
 use ::termion;
 use ::nalgebra;
-use ::nalgebra::Transpose;
 use ::collect_slice::CollectSlice;
 use ::libc;
 use ::std::{fmt, io, mem, slice};
@@ -48,7 +47,5 @@ pub fn new (
           ).collect_slice_checked(&mut slice[..]);
 
   mem::forget(raw);
-  let matrix = nalgebra::DMatrix::from_row_vector(AXE, AXE, &slice)
-                                 .transpose();
-  Ok(matrix)
+  Ok(nalgebra::DMatrix::from_row_vector(AXE, AXE, &slice))
 }
