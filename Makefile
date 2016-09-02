@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/02 06:18:08 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/02 07:22:23 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,8 @@ SRCS += stock_op_code.c
 LSTC := $(patsubst %,$(DIRC)/%,$(SRCS))
 OBJO := $(LSTC:.c=.o)
 
-.PHONY: default all clean fclean re
-.SILENT: clean fclean
+.PHONY: default all clean fclean re version
+.SILENT: clean fclean version
 
 default: all
 
@@ -97,3 +97,6 @@ fclean:
 	/bin/rm -rfv $(NAME)
 
 re: fclean all
+
+version:
+	$(CC) --version
