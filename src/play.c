@@ -12,6 +12,16 @@
 
 #include "vm.h"
 
+
+extern int32_t core_start();
+extern int32_t core_end();
+
+extern int32_t core_idle (
+  int32_t *fields,
+  int32_t *colors,
+  int32_t *procs
+);
+
 static void		refresh_field(t_vm_data *arena)
 {
 	t_player	*player;
@@ -39,8 +49,10 @@ void			play(t_vm_data *arena)
 {
 	int		i;
 	set_players_in_game(arena);
+  core_start();
 	while (1)
 	{
+    core_idle(arena->field, arena->color_field, arena->process_field);
 		i = -1;
 		while (++i < arena->mem_size)
 			arena->fresh_field[i] = 0;
@@ -59,4 +71,5 @@ void			play(t_vm_data *arena)
 			if (!is_someone_in_game(arena))
 				break ;
 	}
+  core_end();
 }
