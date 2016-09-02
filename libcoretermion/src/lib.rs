@@ -16,11 +16,6 @@ use std::io::*;
 #[no_mangle]
 pub extern fn core_start (
 ) -> i32 {
-  let stdout = stdout();
-  let mut stdout = stdout.lock().into_raw_mode().unwrap();
-  let stdin = stdin();
-  let stdin = stdin.lock();
-
   libc::EXIT_SUCCESS
 }
 
@@ -41,7 +36,7 @@ pub extern fn core_idle (
   write!(stdout, "{}{}", termion::cursor::Goto(0, 5), termion::clear::All).unwrap();
  
   if display::new(p_fields, p_colors, p_procs).is_ok() {
-    stdout.flush().unwrap();
+//    stdout.flush().unwrap();
     libc::EXIT_SUCCESS
   }
   else {
