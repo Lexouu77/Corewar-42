@@ -1,17 +1,31 @@
 sudo: false
 language: rust
-compiler:
-  - clang
-  - gcc
+
+matrix:
+  include:
+    - os: linux
+      compiler: gcc
+      addons:
+      apt:
+        sources: ['ubuntu-toolchain-r-test']
+      packages: ['g++-4.9']
+      env: COMPILER=g++-4.9  
+    - os: linux
+      compiler: clang
+      addons:
+      apt:
+          sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-precise-3.7']
+          packages: ['clang-3.7']
+      env: COMPILER=clang++-3.7
+    - os: osx
+      compiler: clang
+      env: COMPILER=clang++
+
 rust: 
   - nightly
   - stable
   - beta
 
-# Only while clippy is failing
-matrix:
-  allow_failures:
-    - rust: nightly
 env:
   global:
     - PATH="$PATH:$TRAVIS_BUILD_DIR/target/debug"
@@ -25,6 +39,8 @@ os:
   - osx
 
 script:
+  - $(CC) --version
+  - rustc --version
   - make
 
 addons:
