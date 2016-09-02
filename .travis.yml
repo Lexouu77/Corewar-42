@@ -1,21 +1,35 @@
 sudo: false
-language: rust
+language: generic
+matrix:
+  include:
+    - os: linux
+      env:
+        global:
+          - COMPILER_NAME=gcc
+          - CXX=g++-5
+          - CC=gcc-5
+      rust: nightly
+      addons:
+        apt:
+          packages:
+            - g++-5
+          sources: &sources
+            - llvm-toolchain-precise-3.8
+            - ubuntu-toolchain-r-test
+    - os: linux
+      env:
+        global:
+          - COMPILER_NAME=clang
+          - CXX=clang++-3.8
+          - CC=clang-3.8
+          - PATH="$PATH:$TRAVIS_BUILD_DIR/target/debug"
+      rust: nightly
+      addons:
+        apt:
+          packages:
+            - clang-3.8
+          sources: *sources
 
-os:
-  - osx
- 
-compiler:
-  - clang
-  - gcc
-
-rust:
-  - nightly
-  - stable
-  - beta
-
-env:
-  global:
-    - PATH="$PATH:$TRAVIS_BUILD_DIR/target/debug"
 cache:
   directories:
     - $TRAVIS_BUILD_DIR/target
@@ -25,11 +39,3 @@ script:
   - rustc --version
   - make version
   - make
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-    - gcc-4.8
-    - clang
