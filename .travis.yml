@@ -6,6 +6,7 @@ os:
  
 compiler:
   - clang
+  - gcc
 
 rust:
   - nightly
