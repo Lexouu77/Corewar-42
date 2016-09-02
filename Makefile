@@ -6,14 +6,14 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/02 07:22:23 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/02 10:22:00 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-ifeq ($(shell uname),Darwin)
-	LDFLAGS := 
+ifeq ($(CC),clang)
+	LDFLAGS :=
 else
-	LDFLAGS := -Wl,--gc-sections 
+	LDFLAGS := -Wl,--gc-sections
 endif
 
 NAME = corewar
@@ -78,21 +78,21 @@ default: all
 all: $(NAME)
 
 $(NAME): $(OBJO)
-	make -C libftprintf
 	make -C libcoretermion
+	make -C libftprintf
 	$(CC) $(FLAG) $^ -o $@ $(SRCA)
 
 %.o: %.c
 	$(CC) $(FLAG) -c $< -o $@ $(INDS)
 
 clean:
-	make -C libftprintf clean
 	make -C libcoretermion clean
+	make -C libftprintf clean
 	/bin/rm -rfv $(OBJO)
 
 fclean:
-	make -C libftprintf fclean
 	make -C libcoretermion fclean
+	make -C libftprintf fclean
 	/bin/rm -rfv $(OBJO)
 	/bin/rm -rfv $(NAME)
 

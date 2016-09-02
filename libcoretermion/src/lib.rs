@@ -7,9 +7,10 @@ extern crate nalgebra;
 extern crate libc;
 
 mod matrix;
-mod display;
 
-use termion::raw::IntoRawMode;
+use matrix::Matrix;
+
+use std::ops::BitAnd;
 use std::io::Write;
 use std::io;
 
@@ -33,13 +34,19 @@ pub extern fn core_idle (
 ) -> i32 {
   let mut stdout: io::Stdout = io::stdout();
 
-  write!(stdout, "{}{}", termion::cursor::Goto(0, 5), termion::clear::All).unwrap();
- 
-  if display::new(p_fields, p_colors, p_procs).is_ok() {
-//    stdout.flush().unwrap();
-    libc::EXIT_SUCCESS
+  if let Some(matrix) = Matrix::from_ffi(p_fields, p_colors, p_procs).ok() {
+    if stdout.flush().is_ok().bitand(
+      write!(stdout, "{}{}{}",
+        termion::cursor::Goto(0, 5),
+        termion::clear::All,
+        matrix,
+      ).is_ok()) {
+      unsafe {
+        libc::sleep(1);
+      };
+      libc::EXIT_SUCCESS
+    }
+    else { libc::EXIT_FAILURE }
   }
-  else {
-    libc::EXIT_FAILURE
-  }
+  else { libc::EXIT_FAILURE }
 }
