@@ -36,14 +36,10 @@ impl Matrix {
     p_colors: *mut libc::c_int,
     p_procs: *mut libc::c_int,
   ) -> io::Result<Self> {
-    let field: nalgebra::DMatrix<fields::Field> = try!(fields::new(p_fields));
-    let color: nalgebra::DMatrix<colors::Color> = try!(colors::new(p_colors));
-    let procs: nalgebra::DMatrix<procs::Proc> = try!(procs::new(p_procs));
-
     Ok(Matrix::new(
-      field,
-      color,
-      procs
+      try!(fields::new(p_fields)),
+      try!(colors::new(p_colors)),
+      try!(procs::new(p_procs)),
     ))
   }
 }
@@ -53,13 +49,14 @@ impl fmt::Display for Matrix {
     write!(f, "{}", izip!(&self.fields, &self.colors, &self.procs)
                         .map(|i| i).chunks_lazy(AXE)
                                    .into_iter().fold(Vec::with_capacity(MAX), |mut acc: Vec<String>, line| {
-                           acc.push(line.map(|(f, c, _): (&fields::Field, &colors::Color, &procs::Proc)| format!("{}{}", c, f))
-                              .collect::<Vec<String>>()
-                              .concat());
-                           acc
-                        }).iter().map(|l| format!("{}\n", l))
-                                 .collect::<Vec<String>>()
-                                 .concat()
+                                      acc.push(line.map(|(f, c, _)|
+                                        format!("{}{}", c, f)
+                                      ).collect::<Vec<String>>()
+                                       .concat());
+                                      acc
+                                   }).iter().map(|l| format!("{}\n", l))
+                                     .collect::<Vec<String>>()
+                                     .concat()
     )
   }
 }
