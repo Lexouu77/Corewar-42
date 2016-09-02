@@ -16,6 +16,8 @@
 # include "op.h"
 # include "vm_struct.h"
 
+# include <sys/wait.h>
+
 extern t_op g_op_tab[];
 
 /*
