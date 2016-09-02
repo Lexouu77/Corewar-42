@@ -6,14 +6,14 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/08/15 23:21:32 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/02 06:18:08 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ifeq ($(shell uname),Darwin)
-	LDFLAGS := -Wl,-dead_strip
+	LDFLAGS := 
 else
-	LDFLAGS := -Wl,--gc-sections -lpthread
+	LDFLAGS := -Wl,--gc-sections 
 endif
 
 NAME = corewar
