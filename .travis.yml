@@ -39,7 +39,7 @@ os:
   - osx
 
 script:
-  - $(CC) --version
+  - CC --version
   - rustc --version
   - make
 
