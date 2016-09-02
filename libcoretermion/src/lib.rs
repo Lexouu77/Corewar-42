@@ -1,5 +1,4 @@
 #![crate_type = "staticlib"]
-#![feature(const_fn)]
 
 #[macro_use] extern crate itertools;
 extern crate collect_slice;
@@ -11,7 +10,8 @@ mod matrix;
 mod display;
 
 use termion::raw::IntoRawMode;
-use std::io::*;
+use std::io::Write;
+use std::io;
 
 #[no_mangle]
 pub extern fn core_start (
@@ -31,7 +31,7 @@ pub extern fn core_idle (
   p_colors: *mut libc::c_int,
   p_procs: *mut libc::c_int,
 ) -> i32 {
-  let mut stdout = stdout();
+  let mut stdout: io::Stdout = io::stdout();
 
   write!(stdout, "{}{}", termion::cursor::Goto(0, 5), termion::clear::All).unwrap();
  
