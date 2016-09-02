@@ -1,5 +1,8 @@
 sudo: false
 language: rust
+compiler:
+  - clang
+  - gcc
 rust: 
   - nightly
   - stable
@@ -23,3 +26,8 @@ os:
 
 script:
   - make
+
+addons:
+  apt:
+    packages:
+      - gcc-multilib
