@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "vm.h"
-       #include <sys/types.h>
-       #include <sys/wait.h>
 
 static void	delete_cor_file(char **stock_place)
 {

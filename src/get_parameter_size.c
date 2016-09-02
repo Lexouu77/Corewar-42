@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dump.c                                             :+:      :+:    :+:   */
+/*   get_parameter_size.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 22:21:51 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 08:04:50 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/08/22 20:51:14 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/09/01 21:22:15 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void	dump(t_vm_data *arena)
+int		get_parameter_size(int op_code, int var_code)
 {
-	display_field(arena);
-	exit(0);
+	if (var_code == REG_CODE)
+		return (1);
+	if (var_code == IND_CODE)
+		return (IND_SIZE);
+	else if (var_code == DIR_CODE)
+		return (!g_op_tab[op_code - 1].byte_dir ? DIR_SIZE : IND_SIZE);
+	return (REG_SIZE);
 }

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dump.c                                             :+:      :+:    :+:   */
+/*   check_reg_number.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 22:21:51 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 08:04:50 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/08/18 22:29:36 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/09/01 23:08:11 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void	dump(t_vm_data *arena)
+int		check_reg_number(int reg_number)
 {
-	display_field(arena);
-	exit(0);
+	if (reg_number < 0 || reg_number > REG_NUMBER - 1)
+		return (0);
+	return (1);
 }

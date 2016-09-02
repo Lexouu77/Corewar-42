@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dump.c                                             :+:      :+:    :+:   */
+/*   write_param_value.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 22:21:51 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 08:04:50 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/08/18 23:23:36 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/08/19 03:56:21 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void	dump(t_vm_data *arena)
+void	write_param_value(t_vm_data *arena, int pc, int value, t_proc *process)
 {
-	display_field(arena);
-	exit(0);
+	int	shift;
+	int	i;
+
+	i = 0;
+	shift = 24;
+	while (shift >= 0)
+	{
+		arena->fresh_field[(pc + i) % arena->mem_size] = process->owner;
+		arena->color_field[(pc + i) % arena->mem_size] = process->owner;
+		arena->field[(pc + i++) % arena->mem_size] = ((value >> shift) & 0xFF);
+		shift -= 8;
+	}
 }

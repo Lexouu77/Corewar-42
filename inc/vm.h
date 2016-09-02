@@ -6,13 +6,13 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/15 23:21:33 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/30 22:48:39 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VM_H
 # define VM_H
-# include "ft_printf.h"
+# include "./libftprintf/ft_printf.h"
 # include "op.h"
 # include "vm_struct.h"
 
@@ -31,7 +31,29 @@ void		execute_instruction(t_vm_data *arena);
 void		increment_waiting_time(t_vm_data *arena);
 int			is_someone_in_game(t_vm_data *arena);
 void		kill_player(t_vm_data *arena);
+void		move_pc_from_format(t_vm_data *arena, t_proc *process);
+void		move_pc_without_format(t_vm_data *arena, t_proc *process);
 void		play(t_vm_data *arena);
+/*
+** INSTRUCTIONS FUNCTIONS
+*/
+
+void		add(t_vm_data *arena, t_proc *process);
+void		aff(t_vm_data *arena, t_proc *process);
+void		do_and(t_vm_data *arena, t_proc *process);
+void		do_fork(t_vm_data *arena, t_proc *process);
+void		do_or(t_vm_data *arena, t_proc *process);
+void		do_xor(t_vm_data *arena, t_proc *process);
+void		live(t_vm_data *arena, t_proc *process);
+void		load(t_vm_data *arena, t_proc *process);
+void		long_load(t_vm_data *arena, t_proc *process);
+void		load_index(t_vm_data *arena, t_proc *process);
+void		long_load_index(t_vm_data *arena, t_proc *process);
+void		long_fork(t_vm_data *arena, t_proc *process);
+void		store(t_vm_data *arena, t_proc *process);
+void		store_index(t_vm_data *arena, t_proc *process);
+void		sub(t_vm_data *arena, t_proc *process);
+void		zjump(t_vm_data *arena, t_proc *process);
 
 /*
 ** DISPLAY FUNCTIONS
@@ -48,9 +70,18 @@ void		introduce_players(t_vm_data *arena);
 ** ACCESSOR FUNCTIONS
 */
 
+long		get_n_param_value(t_vm_data *arena, t_proc *proc, int nb, int *err);
+int			get_n_param_size(t_vm_data *arena, int n);
+int			get_n_reg_param_value(t_vm_data *arena, t_proc *process, int nb,
+			int *error);
 void		get_number_of_players(t_vm_data *arena);
+long		get_param_value(t_vm_data *arena, int pc, int size);
+int			get_param_type(t_vm_data *arena, int param_number);
+int			get_parameter_size(int op_code, int var_code);
 t_player	*get_winner(t_vm_data *arena);
 void		set_players_number(t_vm_data *arena);
+void		write_param_value(t_vm_data *arena, int pc, int value,
+			t_proc *process);
 
 /*
 ** STOCK FUNCTIONS
@@ -102,6 +133,7 @@ t_player	*create_new_player(int desired_number, char *file);
 void		check_asm_file(t_vm_data *arena);
 void		check_file_header(t_vm_data *arena);
 void		check_players_validity(t_vm_data *arena);
+int			check_reg_number(int reg_number);
 int			is_a_s_file(char *filename);
 int			is_file_valid(char *file);
 

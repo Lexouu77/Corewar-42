@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 21:57:10 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/15 22:23:35 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/08/19 04:35:53 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_vm_data	*init_data(void)
 	arena->process_field = ft_memalloc(arena->mem_size);
 	arena->fresh_field = ft_memalloc(arena->mem_size);
 	arena->color_field = ft_memalloc(arena->mem_size);
-  arena->mem_size = MEM_SIZE;
+	arena->mem_size = MEM_SIZE;
 	arena->next_cycle_check = CYCLE_TO_DIE;
 	arena->cycles_to_die = CYCLE_TO_DIE;
 	arena->cycle_delta = CYCLE_DELTA;

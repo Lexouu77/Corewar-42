@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dump.c                                             :+:      :+:    :+:   */
+/*   get_param_type.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/15 22:21:51 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 08:04:50 by ahamouda         ###   ########.fr       */
+/*   Created: 2016/08/19 04:07:37 by ahamouda          #+#    #+#             */
+/*   Updated: 2016/08/30 22:35:41 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void	dump(t_vm_data *arena)
+int			get_param_type(t_vm_data *arena, int param_number)
 {
-	display_field(arena);
-	exit(0);
+	return ((arena->format >> (6 - 2 * (param_number - 1))) & 3);
 }
