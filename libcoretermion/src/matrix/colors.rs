@@ -18,11 +18,11 @@ pub enum Color {
 impl fmt::Display for Color {
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
     match *self {
-      Color::None => write!(f, "{}", termion::color::Fg(termion::color::Black)),
-      Color::Player1 => write!(f, "{}", termion::color::Fg(termion::color::Red)),
-      Color::Player2 => write!(f, "{}", termion::color::Fg(termion::color::Green)),
-      Color::Player3 => write!(f, "{}", termion::color::Fg(termion::color::Blue)),
-      Color::Player4 => write!(f, "{}", termion::color::Fg(termion::color::Yellow)),
+      Color::None => write!(f, "{}", termion::color::Fg(::FOREG_EMPTY)),
+      Color::Player1 => write!(f, "{}", termion::color::Fg(::FOREG_PLAYER1)),
+      Color::Player2 => write!(f, "{}", termion::color::Fg(::FOREG_PLAYER2)),
+      Color::Player3 => write!(f, "{}", termion::color::Fg(::FOREG_PLAYER3)),
+      Color::Player4 => write!(f, "{}", termion::color::Fg(::FOREG_PLAYER4)),
     }
   }
 }

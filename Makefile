@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/02 12:05:22 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/02 14:45:49 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,4 +126,4 @@ fclean:
 re: fclean all
 
 example:
-	./$(NAME) ./corewar resources/bee_gees.cor resources/bigzork.cor resources/fluttershy.cor || true
+	./$(NAME) resources/bee_gees.cor resources/bigzork.cor resources/fluttershy.cor || true
