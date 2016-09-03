@@ -1,20 +1,29 @@
 use super::{MAX, AXE};
 
+use ::termion;
 use ::nalgebra;
-use ::nalgebra::Transpose;
 use ::collect_slice::CollectSlice;
 use ::libc;
 use ::std::{fmt, io, mem, slice};
 
 #[derive(Copy, Clone)]
 pub enum Proc {
-  Is,
+  Player1,
+  Player2,
+  Player3,
+  Player4,
   None,
 }
 
 impl fmt::Display for Proc {
-  fn fmt(&self, _: &mut fmt::Formatter) -> fmt::Result {
-    Ok(())
+  fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    match *self {
+      Proc::None => write!(f, "{}", termion::color::Fg(::BACKG_EMPTY)),
+      Proc::Player1 => write!(f, "{}", termion::color::Fg(::BACKG_PLAYER1)),
+      Proc::Player2 => write!(f, "{}", termion::color::Fg(::BACKG_PLAYER2)),
+      Proc::Player3 => write!(f, "{}", termion::color::Fg(::BACKG_PLAYER3)),
+      Proc::Player4 => write!(f, "{}", termion::color::Fg(::BACKG_PLAYER4)),
+    }
   }
 }
 
@@ -28,16 +37,15 @@ pub fn new (
 
   raw.iter().map(|i: &libc::c_int|
              match *i {
-               0 | 1 | 2 | 3 | 4 => Proc::None,
-               n => {
-                   println!("{}", n);
-                 unimplemented!();
-               },
+              0 => Proc::None,
+              1 => Proc::Player1,
+              2 => Proc::Player2,
+              3 => Proc::Player3,
+              4 => Proc::Player4,
+              _ => unimplemented!(),
              }
            ).collect_slice_checked(&mut slice[..]);
 
   mem::forget(raw);
-  let matrix = nalgebra::DMatrix::from_row_vector(AXE, AXE, &slice)
-                                 .transpose();
-  Ok(matrix)
+  Ok(nalgebra::DMatrix::from_row_vector(AXE, AXE, &slice))
 }

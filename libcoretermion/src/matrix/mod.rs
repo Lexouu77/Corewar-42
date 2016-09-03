@@ -49,8 +49,8 @@ impl fmt::Display for Matrix {
     write!(f, "{}", izip!(&self.fields, &self.colors, &self.procs)
                         .map(|i| i).chunks_lazy(AXE)
                                    .into_iter().fold(Vec::with_capacity(MAX), |mut acc: Vec<String>, line| {
-                                      acc.push(line.map(|(f, c, _)|
-                                        format!("{}{}", c, f)
+                                      acc.push(line.map(|(f, c, p)|
+                                        format!("{}{}{}", p, c, f)
                                       ).collect::<Vec<String>>()
                                        .concat());
                                       acc

@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/02 14:45:49 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/03 14:45:11 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,7 +123,12 @@ fclean:
 	/bin/rm -rfv $(OBJO)
 	/bin/rm -rfv $(NAME)
 
-re: fclean all
+re:
+	/bin/rm -rfv $(OBJO)
+	/bin/rm -rfv $(NAME)
+	make -C libcoretermion
+	make -C libftprintf
+	make -C .
 
 example:
 	./$(NAME) resources/bee_gees.cor resources/bigzork.cor resources/fluttershy.cor || true
