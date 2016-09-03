@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 17:32:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 09:07:17 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/03 16:32:57 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void		refresh_field(t_vm_data *arena)
 		while (process)
 		{
 			arena->process_field[process->pc % arena->mem_size] =
-				process->father->number_of_player;
+				process->owner;
 			process = process->next;
 		}
 		player = player->next;

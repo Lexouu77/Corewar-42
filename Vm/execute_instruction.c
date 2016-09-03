@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:37:05 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 08:33:48 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/03 15:12:15 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	check_format(t_vm_data *arena, t_proc *process)
 		if ((((arena->format >> shift) & 3) |
 				g_op_tab[arena->op_code - 1].args_type[i]) == 0)
 		{
-			ft_printf_fd(2, EM, arena->op_code, process->pc, arena->cycles);
+//			ft_printf_fd(2, EM, arena->op_code, process->pc, arena->cycles);
 			if (g_op_tab[arena->op_code - 1].byte_param)
 				move_pc_from_format(arena, process);
 			else
@@ -61,8 +61,8 @@ void		execute_instruction(t_vm_data *arena)
 		process = player->last_process;
 		while (process)
 		{
-			if (check_format(arena, process) && process->is_waiting &&
-					process->cycles_waiting == process->cycles_to_wait - 1)
+			if (process->is_waiting &&
+					process->cycles_waiting == process->cycles_to_wait - 1 && check_format(arena, process))
 			{
 				f[arena->field[process->pc] - 1](arena, process);
 				quick_reset_process(process);
