@@ -23,7 +23,14 @@ pub const FOREG_PLAYER4: termion::color::Rgb = termion::color::Rgb(178, 34, 34);
 #[no_mangle]
 pub extern fn core_start (
 ) -> i32 {
-  libc::EXIT_SUCCESS
+  let mut stdout: io::Stdout = io::stdout();
+
+  if write!(stdout, "{}", termion::clear::All).is_ok() {
+    libc::EXIT_SUCCESS
+  }
+  else {
+    libc::EXIT_FAILURE
+  }
 }
 
 #[no_mangle]
@@ -42,13 +49,12 @@ pub extern fn core_idle (
 
   if let Some(matrix) = Matrix::from_ffi(p_fields, p_colors, p_procs).ok() {
     if stdout.flush().is_ok().bitand(
-      write!(stdout, "{}{}{}",
+      write!(stdout, "{}{}",
         termion::cursor::Goto(0, 5),
-        termion::clear::All,
         matrix,
       ).is_ok()) {
       unsafe {
-        libc::usleep(500);
+        libc::usleep(250);
       };
       libc::EXIT_SUCCESS
     }
