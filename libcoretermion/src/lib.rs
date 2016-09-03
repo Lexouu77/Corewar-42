@@ -45,7 +45,8 @@ pub extern fn core_start (
   if write!(stdout, "{}",
     termion::clear::All,
   ).is_ok().bitand(
-    write!(stdout, "{}",
+    write!(stdout, "{}{}",
+      termion::cursor::Goto(1, 1),
       termion::color::Bg(BACKG_EMPTY)
     ).is_ok()) {
     libc::EXIT_SUCCESS
@@ -76,7 +77,7 @@ pub extern fn core_idle (
         matrix,
       ).is_ok()) {
       unsafe {
-        libc::usleep(250);
+        libc::usleep(10_000);
       };
       libc::EXIT_SUCCESS
     }
