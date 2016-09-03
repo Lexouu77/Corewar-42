@@ -28,7 +28,7 @@ impl fmt::Display for Color {
 }
 
 pub fn new (
-  p_colors: *mut libc::c_int,
+  p_colors: *const libc::c_int,
 ) -> Result<nalgebra::DMatrix<Color>, io::Error> {
   let raw: &[libc::c_int] = unsafe {
       slice::from_raw_parts(p_colors, MAX)

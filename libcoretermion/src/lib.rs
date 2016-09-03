@@ -4,6 +4,7 @@
 extern crate collect_slice;
 extern crate termion;
 extern crate nalgebra;
+extern crate va_list;
 extern crate libc;
 
 mod matrix;
@@ -40,14 +41,18 @@ pub extern fn core_end (
 }
 
 #[no_mangle]
-pub extern fn core_idle (
-  p_fields: *mut libc::c_int,
-  p_colors: *mut libc::c_int,
-  p_procs: *mut libc::c_int,
+pub extern "C" fn core_idle (
+  mut args: va_list::VaList,
 ) -> i32 {
   let mut stdout: io::Stdout = io::stdout();
 
-  if let Some(matrix) = Matrix::from_ffi(p_fields, p_colors, p_procs).ok() {
+  if let Some(matrix) = unsafe {
+    Matrix::from_ffi(
+      args.get::<*const libc::c_int>(),
+      args.get::<*const libc::c_int>(),
+      args.get::<*const libc::c_int>()
+    ).ok()
+  } {
     if stdout.flush().is_ok().bitand(
       write!(stdout, "{}{}",
         termion::cursor::Goto(0, 5),

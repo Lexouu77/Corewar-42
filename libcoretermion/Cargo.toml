@@ -21,3 +21,6 @@ version = "*"
 
 [dependencies.libc]
 version = "*"
+
+[dependencies.va_list]
+version = "0.0.3"

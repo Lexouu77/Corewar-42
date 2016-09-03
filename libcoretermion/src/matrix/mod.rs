@@ -32,9 +32,9 @@ impl Matrix {
   }
 
   pub fn from_ffi (
-    p_fields: *mut libc::c_int,
-    p_colors: *mut libc::c_int,
-    p_procs: *mut libc::c_int,
+    p_fields: *const libc::c_int,
+    p_colors: *const libc::c_int,
+    p_procs: *const libc::c_int,
   ) -> io::Result<Self> {
     Ok(Matrix::new(
       try!(fields::new(p_fields)),

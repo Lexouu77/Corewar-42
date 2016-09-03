@@ -8,7 +8,7 @@ use ::std::{char, io, mem, slice};
 pub type Field = char;
 
 pub fn new (
-  p_fields: *mut libc::c_int,
+  p_fields: *const libc::c_int,
 ) -> Result<nalgebra::DMatrix<Field>, io::Error> {
   let raw: &[libc::c_int] = unsafe {
       slice::from_raw_parts(p_fields, MAX)

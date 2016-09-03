@@ -19,7 +19,7 @@ impl fmt::Display for Proc {
 }
 
 pub fn new (
-  p_procs: *mut libc::c_int,
+  p_procs: *const libc::c_int,
 ) -> Result<nalgebra::DMatrix<Proc>, io::Error> {
   let raw: &[libc::c_int] = unsafe {
       slice::from_raw_parts(p_procs, MAX)
