@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fork.c                                             :+:      :+:    :+:   */
+/*   do_fork.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 11:51:14 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/03 16:10:07 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/03 17:16:15 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void		do_fork(t_vm_data *arena, t_proc *process)
 	process->father->last_process = process->father->last_process->next;
 	process->father->last_process->number = arena->process_next_number++;
 	process->father->last_process->owner = process->owner;
+	process->father->last_process->lives = process->lives;
 	process->father->last_process->father = process->father;
 	process->father->last_process->carry = process->carry;
 	i = -1;

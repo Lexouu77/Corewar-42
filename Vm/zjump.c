@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 11:18:50 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/03 16:27:34 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/03 16:45:07 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		zjump(t_vm_data *arena, t_proc *process)
 		display_zjump_instruction(process, arena);
 	if (process->carry)
 		return (move_pc_without_format(arena, process));
-	tmp = (unsigned short)get_param_value(arena, process->pc + 1,
+	tmp = (short)get_param_value(arena, process->pc + 1,
 			get_n_param_size(arena, 1));
 	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, " It jumped by %d bytes !\n", tmp);
