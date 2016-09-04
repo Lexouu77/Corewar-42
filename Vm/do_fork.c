@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 11:51:14 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/03 17:16:15 by justasze         ###   ########.fr       */
+/*   Updated: 2016/09/04 20:38:59 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void		do_fork(t_vm_data *arena, t_proc *process)
 			!(process->father->last_process->next->reg =
 			(int *)ft_memalloc(sizeof(int) * REG_NUMBER)))
 		ft_malloc_error();
+	process->father->number_of_process++;
 	process->father->last_process->next->prev = process->father->last_process;
 	process->father->last_process = process->father->last_process->next;
 	process->father->last_process->number = arena->process_next_number++;

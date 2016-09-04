@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 23:12:38 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 08:11:20 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/04 20:37:49 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static int		stock_players_live(t_vm_data *arena)
 static void		display_kill_process(t_proc *process, t_vm_data *arena,
 		t_player *player)
 {
+	player->number_of_process--;
 	if ((arena->verbosity & 4) == 4)
 	{
 		ft_printf_fd(arena->fd, "Process number : %d", process->number);

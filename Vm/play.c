@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 17:32:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/03 16:32:57 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 00:50:16 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ static void		refresh_field(t_vm_data *arena)
 	t_proc		*process;
 	int			i;
 
+	arena->number_of_process = 0 ;
 	i = -1;
 	while (++i < arena->mem_size)
 		arena->process_field[i] = 0;
 	player = arena->players;
 	while (player)
 	{
+		arena->number_of_process += player->number_of_process;
 		process = player->process;
 		while (process)
 		{
@@ -39,11 +41,18 @@ void			play(t_vm_data *arena)
 {
 	int		i;
 	set_players_in_game(arena);
+	if (arena->loop_dump)
+		dump_and_wait(arena);
 	while (1)
 	{
 		i = -1;
 		while (++i < arena->mem_size)
-			arena->fresh_field[i] = 0;
+		{
+			if (arena->fresh_field[i] == 0)
+				arena->fresh_field[i] = 0;
+			else
+				arena->fresh_field[i]--;
+		}
 		arena->cycles++;
 		increment_waiting_time(arena);
 		check_instruction_from_proc(arena);
