@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 20:51:14 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/01 21:22:15 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 21:16:41 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int		get_parameter_size(int op_code, int var_code)
 		return (IND_SIZE);
 	else if (var_code == DIR_CODE)
 		return (!g_op_tab[op_code - 1].byte_dir ? DIR_SIZE : IND_SIZE);
-	return (REG_SIZE);
+	return (0);
 }

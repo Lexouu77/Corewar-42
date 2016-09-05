@@ -6,14 +6,11 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 00:47:33 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 07:06:53 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 23:47:24 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
-
- // TODO :keyhooks avec les termcaps pour monter / diminuer le nb de cycles qu'on avance.
-// change printf with buffer and flush.
 
 static char	*get_color(t_vm_data *arena, int number)
 {
@@ -78,9 +75,10 @@ static void	display_minus(t_vm_data *arena, t_player *player, int total)
 
 	loop = player->period_live_number * 50 / total; // add more ? (check with screen size ?)
 	i = -1;
-	ft_printf("%s", get_color(arena, player->number_of_player));
+	ft_printf("%[[SP_BOL]s", get_color(arena, player->number_of_player));
 	while(++i < loop)
 		ft_printf("-");
+	ft_printf("%s", ANSI_RESET);
 }
 
 static void	display_breakdown(t_vm_data *arena)
@@ -195,11 +193,17 @@ static void	display_color(t_vm_data *arena, int owner, int index)
 	}
 	if ((index + 1) % (32 * 2) == 0 && index != 0)
 	{
-		ft_printf("%[[SP_RST]02x", arena->field[index]);
+		if (owner == 0)
+			ft_printf("%s%[[SP_RST]02x", "\x1b[2m", arena->field[index]);
+		else
+			ft_printf("%[[SP_RST]02x", arena->field[index]);
 		display_info(arena, index, 0);
 	}
+	else if (owner == 0)
+		ft_printf("%s%[[SP_RST]02x ", "\x1b[2m", arena->field[index]);
 	else
 		ft_printf("%[[SP_RST]02x ", arena->field[index]);
+
 }
 
 void		display_field(t_vm_data *arena)

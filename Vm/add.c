@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 12:19:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 06:23:37 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 23:14:54 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void		add(t_vm_data *arena, t_proc *process)
 	display_add_instruction(process, arena, 1);
 	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, "It stocked r%d (%d) + r%d (%d) in r%d!\n",
-		reg - 1, process->reg[reg - 1], reg_two - 1, process->reg[reg_two - 1],
-		reg_three - 1);
+		reg , process->reg[reg - 1], reg_two , process->reg[reg_two - 1],
+		reg_three);
 	process->reg[reg_three - 1] = process->reg[reg - 1] +
 		process->reg[reg_two - 1];
 	if (process->reg[reg_three - 1] == 0)

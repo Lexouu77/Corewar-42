@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 22:09:58 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/03 18:04:54 by justasze         ###   ########.fr       */
+/*   Updated: 2016/09/05 20:51:19 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		store_index(t_vm_data *arena, t_proc *process)
 
 	error = 0;
 	reg = get_n_reg_param_value(arena, process, 1, &error);
-	tmp = get_n_param_value(arena, process, 2, &error);
+	tmp = (short)get_n_param_value(arena, process, 2, &error);
 	tmp_two = get_n_param_value(arena, process, 3, &error);
 	if (error)
 		return (display_sti_instruction(process, arena, 0));

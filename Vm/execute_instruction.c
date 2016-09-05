@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:37:05 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/03 15:12:15 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/06 00:02:32 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,24 @@ static int	check_format(t_vm_data *arena, t_proc *process)
 	int	i;
 	int	shift;
 
+	arena->op_code = arena->field[process->pc];
+	if (!g_op_tab[arena->op_code - 1].byte_param)
+		return (1);
 	shift = 6;
 	i = -1;
-	arena->op_code = arena->field[process->pc];
-	arena->format = arena->field[(process->pc + 1) % arena->mem_size];
+	arena->format = arena->field[((process->pc + 1) % arena->mem_size)];
 	while (++i < g_op_tab[arena->op_code - 1].arg_number)
 	{
-		if ((((arena->format >> shift) & 3) |
+		if ((((arena->format >> shift) & 3) &
 				g_op_tab[arena->op_code - 1].args_type[i]) == 0)
 		{
 //			ft_printf_fd(2, EM, arena->op_code, process->pc, arena->cycles);
 			if (g_op_tab[arena->op_code - 1].byte_param)
+				//process->pc = ((process->pc + 2) % arena->mem_size);
 				move_pc_from_format(arena, process);
 			else
 				move_pc_without_format(arena, process);
+			quick_reset_process(process);
 			return (0);
 		}
 		shift -= 2;
