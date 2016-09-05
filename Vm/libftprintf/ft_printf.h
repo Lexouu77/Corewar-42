@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/27 03:19:22 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 05:59:25 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 07:15:14 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ typedef struct		s_info
 
 int					ft_printf(char *format, ...);
 int					ft_printf_fd(int fd, char *format, ...);
-char				*ft_printf_str(int *len, char *format, ...);
+char				*ft_printf_str(int *len, char *format, va_list vb);
 int					ft_printf_buffed(int flush, char *format, ...);
 
 int					display(char *str, va_list *va, t_info *list);

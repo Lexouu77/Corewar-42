@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 00:56:32 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 08:13:27 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 07:10:56 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,11 @@ int					main(int argc, char **argv)
 		free(arena);
 	}
 	return (0);
-}
+}/*
+
+int	main(void)
+{
+	ft_printf_buffed(0, "test, %s", " LOL ");
+//	ft_printf_buffed(0, "test %d\n", 35);
+	ft_printf("LEN DISPLAYED = %d\n", ft_printf_buffed(1, NULL));
+}*/

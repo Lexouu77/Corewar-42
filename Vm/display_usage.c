@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 22:02:56 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/16 19:21:55 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 07:14:59 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void			display_usage(void)
 	ft_printf("%[[FG_MAG,SP_RST]s (Color Display) | ", "-c");
 	ft_printf("%[[FG_RED,SP_RST]s [0-9] (Dump) | ", "-d");
 	ft_printf("%[[FG_YEL,SP_RST]s [0-9] (Set Player Number) | ", "-n");
-	ft_printf("%[[FG_BLU,SP_RST]s [0-9] (Loop Dump) | ", "-l");
+	ft_printf("%[[FG_BLU,SP_RST]s [0-9] (Graphic Mod [Shell-only]) | ", "-l");
 	ft_printf("%[[FG_GRE,SP_RST]s [1|2|4|8] (Verbosity Mod) | ", "-v");
 	ft_printf("%[[FG_CYA,SP_RST]s (Graphic Mod) | ", "-g");
 	ft_printf("%[[FG_CYA,SP_RST]s (Create a Log File)]", "-f");
@@ -28,7 +28,7 @@ void			display_usage(void)
 	ft_printf("\t\t - 2  : Show cycles.\n");
 	ft_printf("\t\t - 4  : Show deaths.\n");
 	ft_printf("\t\t - 8  : Show instruction execution.\n");
-	ft_printf("\t\t - 16 : Show instruction extra.\n");
+//	ft_printf("\t\t - 16 : Show instruction extra.\n");
 	ft_printf("-Playing with more than four valid players will only ");
 	ft_printf("use the four first valid ones as players.\n");
 	ft_printf("-Playing with no valid players won't trigger the arena.\n");

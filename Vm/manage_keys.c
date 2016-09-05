@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 05:26:16 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 05:49:57 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 07:15:00 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,25 @@ static void	change_loop_value(t_vm_data *arena, int value)
 	{
 		arena->cycles_to_loop_dump -= 10;
 		display_field(arena);
+		ft_printf("Press Enter to continue.\n");
 	}
 	if (value == 119 && arena->cycles_to_loop_dump - 1 > 0)
 	{
 		arena->cycles_to_loop_dump--;
 		display_field(arena);
+		ft_printf("Press Enter to continue.\n");
 	}
 	if (value == 101 && arena->cycles_to_loop_dump + 1 < 1001)
 	{
 		arena->cycles_to_loop_dump++;
 		display_field(arena);
+		ft_printf("Press Enter to continue.\n");
 	}
 	if (value == 114 && arena->cycles_to_loop_dump + 10 < 1001)
 	{
 		arena->cycles_to_loop_dump += 10;
 		display_field(arena);
+		ft_printf("Press Enter to continue.\n");
 	}
 }
 

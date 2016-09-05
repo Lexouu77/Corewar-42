@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 00:47:33 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 06:14:02 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 07:06:53 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,3 +226,5 @@ void		display_field(t_vm_data *arena)
 		}
 	}
 }
+//	ft_printf_buffed(1, NULL);
+//	ft_printf("LEN DISPLAYED = %d\n", ft_printf_buffed(1, NULL));
