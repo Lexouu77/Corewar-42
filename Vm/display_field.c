@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 00:47:33 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 23:47:24 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/06 00:09:08 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ static void	display_breakdown(t_vm_data *arena)
 	if (!total_lives)
 		return ((void)ft_printf("\t\t%s[--------------------------------------------------]", "\x1b[2m"));
 	player = arena->players;
-	ft_printf("\t\t%s[", "\x1b[2m");
+	ft_printf("\t\t%s[%s", "\x1b[2m", ANSI_RESET);
 	while (player)
 	{
 		if (player->period_live_number)
