@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:30 by ahamouda          #+#    #+#              #
-#    Updated: 2016/07/17 18:12:58 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/09/05 05:59:48 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ INCLUDES = ./
 OBJ = $(SRC:.c=.o)
 SRC = ft_printf.c\
 	  ft_printf_fd.c\
+	  ft_printf_str.c\
+	  ft_printf_buffed.c\
 	  apply_bg.c\
 	  apply_fg.c\
 	  apply_spe.c\

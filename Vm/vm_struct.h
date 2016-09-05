@@ -6,12 +6,15 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 08:28:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 04:16:00 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 05:34:23 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VM_STRUCT_H
 # define VM_STRUCT_H
+# include <termios.h>
+# include <curses.h>
+# include <term.h>
 
 typedef struct		s_instr
 {
@@ -61,6 +64,8 @@ typedef struct		s_player
 
 typedef struct		s_vm_data
 {
+	struct	termios	term;
+	char			*term_name;
 	int				process_next_number;
 	int				winner;
 	int				number_of_valid_player;

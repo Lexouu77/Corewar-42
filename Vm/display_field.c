@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 00:47:33 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 04:16:23 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 06:14:02 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ static void	display_minus(t_vm_data *arena, t_player *player, int total)
 	int	i;
 	int	loop;
 
-	loop = player->period_live_number * 50 / total;
+	loop = player->period_live_number * 50 / total; // add more ? (check with screen size ?)
 	i = -1;
 	ft_printf("%s", get_color(arena, player->number_of_player));
-	while(++i < (int)loop)
+	while(++i < loop)
 		ft_printf("-");
 }
 

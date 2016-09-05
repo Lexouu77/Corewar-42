@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/05 04:17:03 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/09/05 05:38:01 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ SRC = add.c\
 	  is_file_valid.c\
 	  is_someone_in_game.c\
 	  kill_player.c\
+	  manage_keys.c\
 	  move_pc_from_format.c\
 	  move_pc_without_format.c\
 	  live.c\
@@ -103,7 +104,7 @@ HEADER = op.h\
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEADER) $(LIB)
-	$(CC) -o $(NAME) $(SRC) $(CFLAGS) -I $(INCLUDES) -L ./libftprintf/ -lftprintf
+	$(CC) -o $(NAME) $(SRC) $(CFLAGS) -I $(INCLUDES) -L ./libftprintf/ -lftprintf -lcurses
 
 $(LIB) :
 	make -C libftprintf

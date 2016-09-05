@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 22:21:58 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 02:37:01 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 05:49:52 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 void	dump_and_wait(t_vm_data *arena)
 {
-	char	c[4096];
-
-//	if (arena->cycles == 0)
-//		return ;
 	display_field(arena);
-	ft_printf("Press a key to continue.\n");
-	read(1, &c, 4096);
+	ft_printf("Press Enter to continue.\n");
+	manage_keys(arena);
 }

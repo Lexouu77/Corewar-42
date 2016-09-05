@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 22:48:39 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 05:34:33 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void		execute_instruction(t_vm_data *arena);
 void		increment_waiting_time(t_vm_data *arena);
 int			is_someone_in_game(t_vm_data *arena);
 void		kill_player(t_vm_data *arena);
+void		manage_keys(t_vm_data *arena);
 void		move_pc_from_format(t_vm_data *arena, t_proc *process);
 void		move_pc_without_format(t_vm_data *arena, t_proc *process);
 void		play(t_vm_data *arena);
