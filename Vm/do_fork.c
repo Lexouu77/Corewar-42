@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 11:51:14 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/04 20:38:59 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/05 02:37:03 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 static void	display_fork_instruction(t_proc *process, t_vm_data *arena)
 {
-	ft_printf_fd(arena->fd, "Process number : %d",
+	if ((arena->verbosity & 8) == 8)
+	{
+		ft_printf_fd(arena->fd, "Process number : %d",
 			process->number);
-	ft_printf_fd(arena->fd, " owned by player number : %d",
+		ft_printf_fd(arena->fd, " owned by player number : %d",
 			process->father->number_of_player);
-	ft_printf_fd(arena->fd, " is doing a fork!");
+		ft_printf_fd(arena->fd, " is doing a fork!");
+	}
 }
 
 void		do_fork(t_vm_data *arena, t_proc *process)
@@ -42,8 +45,7 @@ void		do_fork(t_vm_data *arena, t_proc *process)
 	process->father->last_process->father = process->father;
 	process->father->last_process->carry = process->carry;
 	i = -1;
-	if ((arena->verbosity & 8) == 8)
-		display_fork_instruction(process, arena);
+	display_fork_instruction(process, arena);
 	while (++i < REG_NUMBER)
 		process->father->last_process->reg[i] = process->reg[i];
 	process->father->last_process->pc = (process->pc + (tmp % IDX_MOD)) %
