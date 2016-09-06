@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 08:28:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 05:34:23 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/06 16:22:19 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct		s_instr
 typedef struct		s_proc
 {
 	int				*reg;
+	int				op_code;
 	int				number;
 	char			owner;
 	int				pc;
