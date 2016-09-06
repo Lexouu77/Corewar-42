@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:37:05 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/06 16:32:37 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/06 16:36:45 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ void		execute_instruction(t_vm_data *arena)
 		process = player->last_process;
 		while (process)
 		{
-			if (process->op_code - 1 < 0 || process->op_code - 1 > 16)
-			{
-				ft_printf_fd(2, "FATAL ERROR INVALID OP CODE : %d num : %d pc : %d\n", arena->field[process->pc] - 1, process->number, process->pc);
-				//exit(0);
-			}
 			if (process->is_waiting &&
 					process->cycles_waiting == process->cycles_to_wait - 1 && check_format(arena, process))
 			{
+				if (process->op_code - 1 < 0 || process->op_code - 1 > 16)
+				{
+					ft_printf_fd(2, "FATAL ERROR INVALID OP CODE : %d num : %d pc : %d\n", arena->field[process->pc] - 1, process->number, process->pc);
+					//exit(0);
+				}
 				f[process->op_code - 1](arena, process);
 				quick_reset_process(process);
 			}
