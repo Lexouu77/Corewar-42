@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 22:09:58 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 20:51:19 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/06 14:20:49 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	display_sti_instruction(t_proc *process, t_vm_data *arena, int i)
 {
+	if (!i)
+		move_pc_from_format(arena, process);
 	if ((arena->verbosity & 8) != 8)
 		return ;
 	ft_printf_fd(arena->fd, "Process number : %d",

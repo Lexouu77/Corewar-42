@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/29 14:42:59 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 23:34:42 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/06 11:46:05 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static void	display_ldi_instruction(t_proc *process, t_vm_data *arena, int i)
 {
-	if (!i)
-		process->carry = 0;
 	if ((arena->verbosity & 8) != 8)
 		return ;
 	ft_printf_fd(arena->fd, "Process number : %d",

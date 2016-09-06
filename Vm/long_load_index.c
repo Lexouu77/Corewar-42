@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/29 14:44:06 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 20:37:53 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/06 11:34:09 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	display_lldi_instruction(t_proc *process, t_vm_data *arena, int i)
 {
-	process->carry = i;
 	if ((arena->verbosity & 8) != 8)
 		return ;
 	ft_printf_fd(arena->fd, "Process number : %d",
@@ -41,7 +40,7 @@ void		long_load_index(t_vm_data *arena, t_proc *process)
 	tmp_two = get_n_param_value(arena, process, 2, &error);
 	reg = get_n_reg_param_value(arena, process, 3, &error);
 	tmp += tmp_two;
-	tmp = get_param_value(arena, process->pc + tmp, REG_SIZE);
+	tmp = get_param_value(arena, process->pc + (short)tmp, REG_SIZE);
 	move_pc_from_format(arena, process);
 	if (error)
 		return (display_lldi_instruction(process, arena, 0));
