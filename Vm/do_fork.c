@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 11:51:14 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 15:16:55 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 23:35:15 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,9 @@ void		do_fork(t_vm_data *arena, t_proc *process)
 		arena->last_process->reg[i] = process->reg[i];
 	arena->last_process->pc = (process->pc + (tmp % IDX_MOD)) % arena->mem_size;
 	move_pc_without_format(arena, process);
+//	ft_printf("tmp = (%d)=%d\n", tmp, tmp % IDX_MOD);
+	if ((arena->verbosity & 8) == 8)
+	{
+		ft_printf_fd(arena->fd, "Process pc : %d, new one %d \n", process->pc, arena->last_process->pc);
+	}
 }

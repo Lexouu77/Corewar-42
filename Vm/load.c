@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 11:07:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/06 11:45:55 by justasze         ###   ########.fr       */
+/*   Updated: 2016/09/07 23:34:36 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	display_ld_instruction(t_proc *process, t_vm_data *arena, int i)
 	{
 		ft_printf_fd(arena->fd,
 				" And it failed (Reason : invalid register number) !\n");
-		process->carry = 0;
+//		process->carry = 0;
 	}
 }
 
@@ -37,6 +37,8 @@ void		load(t_vm_data *arena, t_proc *process)
 	int		reg;
 	int		tmp;
 
+//	if ((arena->verbosity & 8) == 8)
+//		ft_printf_fd(arena->fd, "carry =  %d\n", process->carry);
 	error = 0;
 	reg = 0;
 	tmp = get_n_param_value(arena, process, 1, &error);
@@ -52,4 +54,6 @@ void		load(t_vm_data *arena, t_proc *process)
 		process->carry = 0;
 	else
 		process->carry = 1;
+//	if ((arena->verbosity & 8) == 8)
+//		ft_printf_fd(arena->fd, "carry =  %d\n", process->carry);
 }

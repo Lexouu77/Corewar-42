@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:37:05 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 16:20:04 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 23:05:46 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@ static void	quick_reset_process(t_proc *process)
 	process->is_waiting = 0;
 	process->cycles_waiting = 0;
 	process->cycles_to_wait = 0;
+}
+
+static int	check_format_type(int format, int type)
+{
+	if (type & T_REG && format == REG_CODE)
+		return (1);
+	if (type & T_DIR && format == DIR_CODE)
+		return (1);
+	if (type & T_IND && format == IND_CODE)
+		return (1);
+	return (0);
 }
 
 static int	check_format(t_vm_data *arena, t_proc *process)
@@ -35,10 +46,11 @@ static int	check_format(t_vm_data *arena, t_proc *process)
 	arena->format = arena->field[((process->pc + 1) % arena->mem_size)];
 	while (++i < g_op_tab[arena->op_code - 1].arg_number)
 	{
-		if ((((arena->format >> shift) & 3) &
-				g_op_tab[arena->op_code - 1].args_type[i]) == 0)
+		if (!check_format_type(((arena->format >> shift) & 3),
+				g_op_tab[arena->op_code - 1].args_type[i]))
 		{
-//			ft_printf_fd(2, EM, arena->op_code, process->pc, arena->cycles);
+			if ((arena->verbosity & 8) == 8)
+				ft_printf_fd(arena->fd, "Process number : %d with format (%02x) fails instruction with op_code : %d\n", process->number, arena->field[(process->pc + 1) % arena->mem_size], process->op_code);
 			if (g_op_tab[arena->op_code - 1].byte_param)
 				//process->pc = ((process->pc + 2) % arena->mem_size);
 				move_pc_from_format(arena, process);

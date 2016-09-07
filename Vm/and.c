@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/22 20:15:51 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/06 11:45:30 by justasze         ###   ########.fr       */
+/*   Updated: 2016/09/07 23:28:47 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,6 @@ void		do_and(t_vm_data *arena, t_proc *process)
 	process->reg[reg - 1] = var & var_two;
 	if (process->reg[reg - 1] == 0)
 		process->carry = 0;
+	else
+		process->carry = 1;
 }

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 17:32:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 17:53:42 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 20:25:50 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ static void		loop_process(t_vm_data *arena)
 	t_proc *process;
 
 	process = arena->last_process;
+	if ((arena->verbosity & 2) == 2)
+		ft_printf_fd(arena->fd, "We're now in the cycle number : %d\n",
+				arena->cycles);
 	while (process)
 	{
 		increment_waiting_time(arena, process);

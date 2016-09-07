@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 01:04:20 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 16:17:50 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 18:06:02 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ static void	display_process_waiting_time(t_proc *process, t_vm_data *arena)
 
 void		increment_waiting_time(t_vm_data *arena, t_proc *process)
 {
-
-	if ((arena->verbosity & 2) == 2)
-		ft_printf_fd(arena->fd, "We're now in the cycle number : %d\n",
-				arena->cycles);
 	if (process->is_waiting)
 		display_process_waiting_time(process, arena);
 }
