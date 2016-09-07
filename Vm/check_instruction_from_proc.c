@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 03:19:28 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 23:01:51 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 23:51:57 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void		check_instruction_from_proc(t_vm_data *arena, t_proc *process)
 {
 	if (!process->is_waiting)
 	{
-		if (process->pc > arena->mem_size || process->pc < 0)
-			ft_printf_fd(arena->fd, "ERROR! pc : %d-%d\n", process->pc, process->number);
+	//	if (process->pc > arena->mem_size || process->pc < 0)
+	//		ft_printf_fd(arena->fd, "ERROR! pc : %d~%d\n", process->pc, process->number);
 		if (arena->field[process->pc] > 0 &&
 				arena->field[process->pc] <= 16)
 			display_process_waiting(process, arena);
