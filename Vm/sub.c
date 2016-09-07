@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 17:07:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/06 11:46:38 by justasze         ###   ########.fr       */
+/*   Updated: 2016/09/07 17:46:06 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void		sub(t_vm_data *arena, t_proc *process)
 	display_sub_instruction(process, arena, 1);
 	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, "It stocked r%d (%d) - r%d (%d) in r%d!\n",
-		reg - 1, process->reg[reg - 1], reg_two - 1, process->reg[reg_two - 1],
-		reg_three - 1);
+		reg, process->reg[reg - 1], reg_two, process->reg[reg_two - 1],
+		reg_three);
 	process->reg[reg_three - 1] = process->reg[reg - 1] -
 		process->reg[reg_two - 1];
 	if (process->reg[reg_three - 1] == 0)

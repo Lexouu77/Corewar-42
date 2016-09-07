@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 17:32:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 16:19:22 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 17:53:42 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ static void		loop_process(t_vm_data *arena)
 		process = process->prev;
 	}
 }
+
+// TODO : FREE LA PROCESS LIST
 
 void			play(t_vm_data *arena)
 {
