@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 07:15:03 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 16:18:34 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ extern t_op g_op_tab[];
 */
 
 void		assemble_asm_file(t_player *player);
-void		check_instruction_from_proc(t_vm_data *arena);
+void		check_instruction_from_proc(t_vm_data *arena, t_proc *process);
 void		check_period(t_vm_data *arena);
 void		dump(t_vm_data *arena);
 void		dump_and_wait(t_vm_data *arena);
-void		execute_instruction(t_vm_data *arena);
-void		increment_waiting_time(t_vm_data *arena);
+void		execute_instruction(t_vm_data *arena, t_proc *process);
+void		increment_waiting_time(t_vm_data *arena, t_proc *process);
 int			is_someone_in_game(t_vm_data *arena);
 void		kill_player(t_vm_data *arena);
 void		manage_keys(t_vm_data *arena);

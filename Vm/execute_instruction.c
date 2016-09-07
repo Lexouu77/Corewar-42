@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:37:05 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/06 16:36:45 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 16:20:04 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,33 +52,18 @@ static int	check_format(t_vm_data *arena, t_proc *process)
 	return (1);
 }
 
-void		execute_instruction(t_vm_data *arena)
+void		execute_instruction(t_vm_data *arena, t_proc *process)
 {
-	t_player		*player;
-	t_proc			*process;
 	static void		(*f[16])(t_vm_data *, t_proc *) = {live, load, store,
 		add, sub, do_and, do_or, do_xor, zjump, load_index, store_index,
 		do_fork, long_load, long_load_index, long_fork, aff};
 
-	player = arena->last_player;
-	while (player)
+	if (process->is_waiting && process->cycles_waiting ==
+			process->cycles_to_wait - 1 && check_format(arena, process))
 	{
-		process = player->last_process;
-		while (process)
-		{
-			if (process->is_waiting &&
-					process->cycles_waiting == process->cycles_to_wait - 1 && check_format(arena, process))
-			{
-				if (process->op_code - 1 < 0 || process->op_code - 1 > 16)
-				{
-					ft_printf_fd(2, "FATAL ERROR INVALID OP CODE : %d num : %d pc : %d\n", arena->field[process->pc] - 1, process->number, process->pc);
-					//exit(0);
-				}
-				f[process->op_code - 1](arena, process);
-				quick_reset_process(process);
-			}
-			process = process->prev;
-		}
-		player = player->prev;
+		if (process->op_code - 1 < 0 || process->op_code - 1 > 16)
+			ft_printf_fd(2, "FATAL ERROR INVALID OP CODE : %d num : %d pc : %d\n", arena->field[process->pc] - 1, process->number, process->pc);
+		f[process->op_code - 1](arena, process);
+		quick_reset_process(process);
 	}
 }

@@ -6,12 +6,12 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 23:12:38 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/04 20:37:49 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 15:17:25 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
-
+/*
 static int		stock_players_live(t_vm_data *arena)
 {
 	t_player	*player;
@@ -25,22 +25,20 @@ static int		stock_players_live(t_vm_data *arena)
 	}
 	return (0);
 }
-
-static void		display_kill_process(t_proc *process, t_vm_data *arena,
-		t_player *player)
+*/
+static void		display_kill_process(t_proc *process, t_vm_data *arena)
 {
-	player->number_of_process--;
+	arena->number_of_process--;
 	if ((arena->verbosity & 4) == 4)
 	{
 		ft_printf_fd(arena->fd, "Process number : %d", process->number);
 		ft_printf_fd(arena->fd, " owned by player number : %d",
-				player->number_of_player);
+				process->father->number_of_player);
 		ft_printf_fd(arena->fd, " just died !\n");
 	}
 }
 
-static t_proc	*kill_process(t_proc *process, t_player *player,
-		t_vm_data *arena)
+static t_proc	*kill_process(t_proc *process, t_vm_data *arena)
 {
 	t_proc	*tmp;
 
@@ -50,20 +48,20 @@ static t_proc	*kill_process(t_proc *process, t_player *player,
 		process->lives = 0;
 		return (process->next);
 	}
-	display_kill_process(process, arena, player);
+	display_kill_process(process, arena);
 	if (!process->next && !process->prev)
 	{
 		free(process->reg);
 		free(process);
-		player->process = NULL;
-		player->last_process = NULL;
+		arena->process = NULL;
+		arena->last_process = NULL;
 		return (NULL);
 	}
 	free(process->reg);
 	if (!process->next)
 	{
-		player->last_process = process->prev;
-		player->last_process->next = NULL;
+		arena->last_process = process->prev;
+		arena->last_process->next = NULL;
 		free(process);
 		return (NULL);
 	}
@@ -71,26 +69,20 @@ static t_proc	*kill_process(t_proc *process, t_player *player,
 	process->prev = tmp->prev;
 	if (tmp->prev)
 		tmp->prev->next = process;
-	if (tmp == player->process)
-		player->process = process;
+	if (tmp == arena->process)
+		arena->process = process;
 	free(tmp);
 	return (process);
 }
 
 int				is_someone_in_game(t_vm_data *arena)
 {
-	t_player	*player;
 	t_proc		*process;
 
-	player = arena->players;
-	while (player)
-	{
-		process = player->process;
-		while(process)
-			process = kill_process(process, player, arena);
-		player = player->next;
-	}
-	if (!stock_players_live(arena))
+	process = arena->process;
+	while(process)
+		process = kill_process(process, arena);
+	if (!arena->process)
 	{
 		kill_player(arena);
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 00:47:33 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/06 00:09:08 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 10:53:55 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,6 +212,7 @@ void		display_field(t_vm_data *arena)
 
 	i = -1;
 	ft_screenclr();
+	ft_printf("\n\n");
 	arena->modulo = 0;
 	while (++i < MEM_SIZE)
 	{

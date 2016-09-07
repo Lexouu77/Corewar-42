@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/14 08:28:41 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/06 16:22:19 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 14:30:19 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ typedef struct		s_vm_data
 	int				*tmp_args_value;
 	struct s_player *last_player;
 	struct s_player	*players;
+	struct s_proc	*last_process;
+	struct s_proc	*process;
 }					t_vm_data;
 
 /*
