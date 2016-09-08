@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 03:19:28 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/08 00:19:41 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/08 20:10:34 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static void	display_process_waiting(t_proc *process, t_vm_data *arena)
 	if (process->is_waiting)
 		return ;
 	process->op_code = arena->field[process->pc];
+	process->format = arena->field[(process->pc + 1) % arena->mem_size];
 	process->is_waiting = 1;
 	process->cycles_to_wait =
 	g_op_tab[arena->field[process->pc] - 1].cycles_to_process;

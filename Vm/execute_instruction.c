@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:37:05 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/08 18:40:02 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/08 20:21:13 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static int	check_format(t_vm_data *arena, t_proc *process)
 	shift = 6;
 	i = -1;
 	arena->format = arena->field[((process->pc + 1) % arena->mem_size)];
+//	arena->format = process->format;
 	while (++i < g_op_tab[arena->op_code - 1].arg_number)
 	{
 		if (!check_format_type(((arena->format >> shift) & 3),
@@ -51,6 +52,8 @@ static int	check_format(t_vm_data *arena, t_proc *process)
 		{
 			if ((arena->verbosity & 8) == 8)
 				ft_printf_fd(arena->fd, "Process number : %d with format (%02x) fails instruction with op_code : %d\n", process->number, arena->field[(process->pc + 1) % arena->mem_size], process->op_code);
+//			if (((arena->format >> shift) & 3) != 0)
+//				arena->format = process->format;
 			if (g_op_tab[arena->op_code - 1].byte_param)
 				//process->pc = ((process->pc + 2) % arena->mem_size);
 				move_pc_from_format(arena, process);
