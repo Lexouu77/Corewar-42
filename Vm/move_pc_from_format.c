@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/28 19:22:20 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/08 20:12:13 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/08 22:06:48 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	move_pc_from_format(t_vm_data *arena, t_proc *process)
 	i = 0;
 	size = 0;
 	while (++i <= n_arg)
-		size += get_parameter_size(arena->field[process->pc],
+		size += get_parameter_size(process->op_code,
 				get_param_type(arena, i));
 	process->pc = (process->pc + size +
 			g_op_tab[arena->op_code - 1].byte_param + 1) % arena->mem_size;

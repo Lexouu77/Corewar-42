@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 17:32:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 20:25:50 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/08 22:01:46 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ static void		loop_process(t_vm_data *arena)
 	{
 		increment_waiting_time(arena, process);
 		check_instruction_from_proc(arena, process);
+		arena->format = arena->field[((process->pc + 1) % arena->mem_size)];
 		execute_instruction(arena, process);
 		process = process->prev;
 	}

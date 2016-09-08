@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 17:07:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/08 16:56:50 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/08 22:12:48 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ void		sub(t_vm_data *arena, t_proc *process)
 		process->carry = 0;
 	else
 		process->carry = 1;
-	ft_printf("REG = %d\n", process->reg[reg_three - 1]);
-	ft_printf(" CARRY = %d\n ", process->carry);
+//	ft_printf("REG = %d\n", process->reg[reg_three - 1]);
+//	ft_printf(" CARRY = %d\n ", process->carry);
 }
