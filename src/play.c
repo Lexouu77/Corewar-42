@@ -6,20 +6,20 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 17:32:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/03 17:25:16 by adjivas          ###   ########.fr       */
+/*   Updated: 2016/09/08 23:49:50 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
 
-extern int32_t core_start();
+extern int32_t core_start(
+		int32_t
+		);
 extern int32_t core_end();
 
 extern int32_t core_idle (
-		int32_t *fields,
-		int32_t *colors,
-		int32_t *procs
+		int32_t *[3]
 		);
 
 static void		refresh_field(t_vm_data *arena)
@@ -49,10 +49,14 @@ void			play(t_vm_data *arena)
 {
 	int		i;
 	set_players_in_game(arena);
-	core_start();
+	core_start(arena->players->number_of_player);
 	while (1)
 	{
-		core_idle(arena->field, arena->color_field, arena->process_field);
+		core_idle((int32_t *[3]) {
+			arena->field,
+			arena->color_field,
+			arena->process_field
+		});
 		i = -1;
 		while (++i < arena->mem_size)
 		arena->fresh_field[i] = 0;

@@ -37,9 +37,9 @@ impl Matrix {
     p_procs: *const libc::c_int,
   ) -> io::Result<Self> {
     Ok(Matrix::new(
-      try!(fields::new(p_fields)),
-      try!(colors::new(p_colors)),
-      try!(procs::new(p_procs)),
+      try!(fields::Field::new(p_fields)),
+      try!(colors::Color::new(p_colors)),
+      try!(procs::Proc::new(p_procs)),
     ))
   }
 }
@@ -50,7 +50,7 @@ impl fmt::Display for Matrix {
                         .map(|i| i).chunks_lazy(AXE)
                                    .into_iter().fold(Vec::with_capacity(MAX), |mut acc: Vec<String>, line| {
                                       acc.push(line.map(|(f, c, p)|
-                                        format!("{}{}{}", p, c, f)
+                                        format!("{}{}{}", c, p, f)
                                       ).collect::<Vec<String>>()
                                        .concat());
                                       acc

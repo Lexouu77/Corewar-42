@@ -4,36 +4,45 @@ use ::nalgebra;
 use ::collect_slice::CollectSlice;
 use ::libc;
 
-use ::std::{io, mem, slice};
+use ::std::{io, mem, slice, char};
 use ::std::fmt;
 
 #[derive(Clone, Copy)]
-pub struct Field(libc::c_uint);
+pub struct Field(Option<char>);
 
-pub fn new (
-  p_fields: *const libc::c_int,
-) -> Result<nalgebra::DMatrix<Field>, io::Error> {
-  let raw: &[libc::c_int] = unsafe {
+impl Field {
+  pub fn new (
+    p_fields: *const libc::c_int,
+  ) -> Result<nalgebra::DMatrix<Field>, io::Error> {
+    let raw: &[libc::c_int] = unsafe {
       slice::from_raw_parts(p_fields, MAX)
-  };
-  let mut slice: [Field; MAX] = [Field::default(); MAX];
+    };
+    let mut slice: [Field; MAX] = [Field::default(); MAX];
 
-  raw.iter().map(|i: &libc::c_int| *i as libc::c_uint)
-            .map(|u: libc::c_uint|
-            Field(u)
+    raw.iter().map(|i: &libc::c_int| *i as libc::c_uint)
+              .map(|u: libc::c_uint|
+            match char::from_u32(u + 12352) {
+                Some('\u{3040}') => Field::default(),
+                Some(c) => Field(Some(c)),
+                None => unimplemented!(),
+            }
           ).collect_slice_checked(&mut slice[..]);
-  mem::forget(raw);
-  Ok(nalgebra::DMatrix::from_row_vector(AXE, AXE, &slice))
+    mem::forget(raw);
+    Ok(nalgebra::DMatrix::from_row_vector(AXE, AXE, &slice))
+  }
 }
 
 impl fmt::Display for Field {
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-    write!(f, "{:02X}", self.0)
+    match self.0 {
+      None => write!(f, "  "),
+      Some(c) => write!(f, "{}", c),
+    }
   }
 }
 
 impl Default for Field {
   fn default() -> Field {
-    Field(0)
+    Field(None)
   }
 }
