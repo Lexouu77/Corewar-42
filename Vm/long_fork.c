@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 23:48:48 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 23:52:19 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/08 00:19:15 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void		long_fork(t_vm_data *arena, t_proc *process)
 		arena->last_process->reg[i] = process->reg[i];
 	arena->last_process->pc = (process->pc + tmp) % arena->mem_size;
 	move_pc_without_format(arena, process);
-	if (arena->last_process->pc < 0)
-		ft_printf("LFORK tmp = %d cycles = %d\n", tmp, arena->cycles);
+//	if (arena->last_process->pc < 0)
+//		ft_printf("LFORK tmp = %d cycles = %d\n", tmp, arena->cycles);
 }

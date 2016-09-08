@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 05:37:05 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 23:05:46 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/08 18:40:02 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static int	check_format(t_vm_data *arena, t_proc *process)
 			else
 				move_pc_without_format(arena, process);
 			quick_reset_process(process);
+			if (((arena->format >> shift) & 3) != 0)
+				process->carry = 0;
 			return (0);
 		}
 		shift -= 2;
@@ -70,6 +72,8 @@ void		execute_instruction(t_vm_data *arena, t_proc *process)
 		add, sub, do_and, do_or, do_xor, zjump, load_index, store_index,
 		do_fork, long_load, long_load_index, long_fork, aff};
 
+//	if (process->number == 13)
+//		ft_printf("CARRY DU PROCESS 13 = %d\n", process->carry);
 	if (process->is_waiting && process->cycles_waiting ==
 			process->cycles_to_wait - 1 && check_format(arena, process))
 	{
