@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 22:15:37 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/03 14:36:48 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/08 22:44:58 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void			free_arena(t_vm_data *arena)
 {
 	t_player	*player;
 	t_player	*tmp;
+//	t_proc		*process;
+//	t_proc		*tmp_proc;
 
 	player = arena->players;
 	while (player)
@@ -26,6 +28,10 @@ void			free_arena(t_vm_data *arena)
 		player = player->next;
 		free(tmp);
 	}
+//	process = arena->process;
+//	while (process)
+//	{
+//	}
 	if (arena->log_file)
 		close(arena->fd);
 	free(arena->field);

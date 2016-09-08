@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 03:19:28 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/08 20:10:34 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/08 22:54:18 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static void	display_error_process(t_proc *process, t_vm_data *arena)
 
 void		check_instruction_from_proc(t_vm_data *arena, t_proc *process)
 {
+	process->pc = (process->pc + arena->mem_size) % arena->mem_size;
 	if (!process->is_waiting)
 	{
 		if (process->pc > arena->mem_size || process->pc < 0)

@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/07 14:29:49 by ahamouda         ###   ########.fr        #
+#    Updated: 2016/09/08 22:41:59 by ahamouda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,7 @@ HEADER = op.h\
 		 vm_struct.h
 
 
-#NORMINETTE_TEST := $(shell norminette $(SRC) $(HEADER) | grep -B 1 Error)
+NORMINETTE_TEST := $(shell norminette $(SRC) $(HEADER) | grep -B 1 Error)
 
 #.SILENT:
 
@@ -122,12 +122,12 @@ fclean: clean
 
 re: fclean all
 
-#norme:
-#ifeq ($(NORMINETTE_TEST), )
-#	@echo "Everything ok!"
-#else
-#	@norminette $(SRC) $(HEADER) | grep -B 1 Error
-#endif
+norme:
+ifeq ($(NORMINETTE_TEST), )
+	@echo "Everything ok!"
+else
+	@norminette $(SRC) $(HEADER) | grep -B 1 Error
+endif
 
 watch:
 	watch "make norme" "20"
