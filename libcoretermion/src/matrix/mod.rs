@@ -1,5 +1,6 @@
-pub const MAX: usize = 4096;
-pub const AXE: usize = 64;
+pub const MAX_U: usize = 4096;
+pub const AXE: u16 = 64;
+pub const AXE_U: usize = 64;
 
 pub mod fields;
 pub mod colors;
@@ -47,8 +48,8 @@ impl Matrix {
 impl fmt::Display for Matrix {
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
     write!(f, "{}", izip!(&self.fields, &self.colors, &self.procs)
-                        .map(|i| i).chunks_lazy(AXE)
-                                   .into_iter().fold(Vec::with_capacity(MAX), |mut acc: Vec<String>, line| {
+                        .map(|i| i).chunks_lazy(AXE_U)
+                                   .into_iter().fold(Vec::with_capacity(MAX_U), |mut acc: Vec<String>, line| {
                                       acc.push(line.map(|(f, c, p)|
                                         format!("{}{}{}", c, p, f)
                                       ).collect::<Vec<String>>()

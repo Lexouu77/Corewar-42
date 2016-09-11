@@ -24,3 +24,9 @@ version = "*"
 
 [dependencies.va_list]
 version = "0.0.3"
+
+[dependencies.vorbis]
+git = "https://github.com/tomaka/vorbis-rs"
+
+[dependencies.openal-rs]
+git = "https://github.com/jpernst/openal-rs.git"

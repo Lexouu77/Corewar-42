@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/03 14:45:11 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/11 22:59:20 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,7 +107,7 @@ all: $(NAME)
 $(NAME): $(OBJO)
 	make -C libcoretermion
 	make -C libftprintf
-	$(CC) $(FLAG) $^ -o $@ $(SRCA)
+	$(CC) $(FLAG) $^ -o $@ $(SRCA) -framework OpenAL
 
 %.o: %.c
 	$(CC) $(FLAG) -c $< -o $@ $(INDS)
@@ -129,6 +129,3 @@ re:
 	make -C libcoretermion
 	make -C libftprintf
 	make -C .
-
-example:
-	./$(NAME) resources/bee_gees.cor resources/bigzork.cor resources/fluttershy.cor || true

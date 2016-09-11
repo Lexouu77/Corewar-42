@@ -1,4 +1,4 @@
-use super::{MAX, AXE};
+use super::{MAX_U, AXE_U};
 
 use ::termion;
 use ::nalgebra;
@@ -20,9 +20,9 @@ impl Color {
     p_colors: *const libc::c_int,
   ) -> Result<nalgebra::DMatrix<Color>, io::Error> {
     let raw: &[libc::c_int] = unsafe {
-      slice::from_raw_parts(p_colors, MAX)
+      slice::from_raw_parts(p_colors, MAX_U)
     };
-    let mut slice: [Color; MAX] = [Color::None; MAX];
+    let mut slice: [Color; MAX_U] = [Color::None; MAX_U];
 
     raw.iter().map(|i: &libc::c_int|
               match *i {
@@ -31,12 +31,12 @@ impl Color {
                 2 => Color::Player2,
                 3 => Color::Player3,
                 4 => Color::Player4,
-                _ => unimplemented!(),
+                n => panic!("color: `{}`", n),
               }
             ).collect_slice_checked(&mut slice[..]);
 
     mem::forget(raw);
-    Ok(nalgebra::DMatrix::from_row_vector(AXE, AXE, &slice))
+    Ok(nalgebra::DMatrix::from_row_vector(AXE_U, AXE_U, &slice))
   }
 }
 
