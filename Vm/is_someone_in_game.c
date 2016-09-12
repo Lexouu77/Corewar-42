@@ -6,26 +6,12 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 23:12:38 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 15:17:25 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/12 17:12:31 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
-/*
-static int		stock_players_live(t_vm_data *arena)
-{
-	t_player	*player;
 
-	player = arena->players;
-	while (player)
-	{
-		if (player->process)
-			return (1);
-		player = player->next;
-	}
-	return (0);
-}
-*/
 static void		display_kill_process(t_proc *process, t_vm_data *arena)
 {
 	arena->number_of_process--;
@@ -80,7 +66,7 @@ int				is_someone_in_game(t_vm_data *arena)
 	t_proc		*process;
 
 	process = arena->process;
-	while(process)
+	while (process)
 		process = kill_process(process, arena);
 	if (!arena->process)
 	{

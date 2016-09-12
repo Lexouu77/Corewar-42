@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 05:26:16 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/05 07:15:00 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/12 17:04:48 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ void		manage_keys(t_vm_data *arena)
 	if ((getenv("TERM")) == NULL)
 		ft_error("Getenv returned NULL.\n");
 	init_terminal(arena);
-	int	x = 5;
-	while (x)
+	while (1)
 	{
 		read(0, c, 3);
 		if (c[0] == 10)
