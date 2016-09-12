@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/07 16:18:34 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/12 18:42:09 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void		zjump(t_vm_data *arena, t_proc *process);
 
 int			display_error(char *message, char *filename);
 void		display_field(t_vm_data *arena);
+void		display_info(t_vm_data *arena, int i, int d_value);
 void		display_usage(void);
 int			display_warning(char *message, char *filename);
 void		display_winner(t_vm_data *arena);
@@ -83,6 +84,10 @@ t_player	*get_winner(t_vm_data *arena);
 void		set_players_number(t_vm_data *arena);
 void		write_param_value(t_vm_data *arena, int pc, int value,
 			t_proc *process);
+int			get_period_live(t_vm_data *arena);
+int			get_last_live(t_vm_data *arena);
+char		*get_name(t_vm_data *arena);
+char		*get_color(t_vm_data *arena, int number);
 
 /*
 ** STOCK FUNCTIONS
