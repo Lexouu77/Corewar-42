@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/11 22:59:20 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/12 03:27:13 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCS += display_field.c
 SRCS += display_usage.c
 SRCS += display_warning.c
 SRCS += display_winner.c
+SRCS += display_core.c
 SRCS += do_fork.c
 SRCS += dump.c
 SRCS += dump_and_wait.c

@@ -1,6 +1,11 @@
 Vm/play.c#L20
 [![Build Status](https://travis-ci.com/Lexouu77/Corewar-42.svg?token=q2S96ySaNvqWCnFGoWGd&branch=master)](https://travis-ci.com/Lexouu77/Corewar-42)
 
+##### How to install
+```shell
+git clone -b graphic https://github.com/Lexouu77/Corewar-42.git core && cd core
+```
+
 ##### How to use
 ```shell
 ./corewar resources/bee_gees.cor resources/bigzork.cor resources/fluttershy.cor

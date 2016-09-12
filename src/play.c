@@ -6,21 +6,16 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 17:32:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/11 06:06:33 by adjivas          ###   ########.fr       */
+/*   Updated: 2016/09/12 05:01:06 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 #include <sys/ioctl.h>
 
-extern int32_t core_start(
-		int32_t
-		);
+extern int32_t core_start();
 extern int32_t core_end();
-
-extern int32_t core_idle (
-		int32_t *[3]
-		);
+extern int32_t core_idle(int32_t *[3]);
 
 static void		refresh_field(t_vm_data *arena)
 {
@@ -45,26 +40,16 @@ static void		refresh_field(t_vm_data *arena)
 	}
 }
 
-
-
-#include	<signal.h>
-#include	<sys/ioctl.h>
-
-void					ft_signal_handler(int sig)
-{
-	if (sig == SIGTSTP)
-		sleep(5);
-}
-
 void			play(t_vm_data *arena)
 {
 	int		i;
 
-	(void)signal(SIGTSTP, ft_signal_handler);
 	core_start(arena->players->number_of_player);
+	display_info_player(arena);
 	set_players_in_game(arena);
 	while (1)
 	{
+			display_info(arena);
 			core_idle((int32_t *[3]) {
 				arena->field,
 				arena->color_field,

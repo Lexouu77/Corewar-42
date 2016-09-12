@@ -27,7 +27,7 @@ pub const TITLE_TEXT: &'static str = "\
 \t ██║     ██║   ██║██████╔╝█████╗  ██║ █╗ ██║███████║██████╔╝ \n\
 \t ██║     ██║   ██║██╔══██╗██╔══╝  ██║███╗██║██╔══██║██╔══██╗ \n\
 \t ╚██████╗╚██████╔╝██║  ██║███████╗╚███╔███╔╝██║  ██║██║  ██║ \n\
-\t  ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝ \n\
+\t  ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝  By @ahamouda, @adjivas and @justasze. \n\
 ";
 
 pub const FOREG_TITLE1: termion::color::Rgb = termion::color::Rgb(255, 0, 0);
@@ -71,9 +71,7 @@ pub extern fn core_init() -> i32 {
 }
 
 #[no_mangle]
-pub extern fn core_start(
-  p_nbr: libc::c_int,
-) -> i32 {
+pub extern fn core_start() -> i32 {
   if write!(io::stdout(), "{}{}{}{}{}{}{}",
             termion::cursor::Goto(3, 3),
             termion::color::Fg(TITLE_COLOR),
@@ -96,13 +94,12 @@ pub extern fn core_start(
 }
 
 #[no_mangle]
-pub extern fn core_end (
-) -> i32 {
+pub extern fn core_end() -> i32 {
     libc::EXIT_SUCCESS
 }
 
 #[no_mangle]
-pub extern fn core_idle (
+pub extern fn core_idle(
   (p_fields, p_colors, p_procs): (*const libc::c_int, *const libc::c_int, *const libc::c_int),
 ) -> i32 {
   let mut stdout: io::Stdout = io::stdout();

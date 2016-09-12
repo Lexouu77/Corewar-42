@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/08/30 22:48:39 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/12 05:00:28 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void		display_field(t_vm_data *arena);
 void		display_usage(void);
 int			display_warning(char *message, char *filename);
 void		display_winner(t_vm_data *arena);
+void		display_info_player(t_vm_data *arena);
+void		display_info(t_vm_data *arena);
 void		introduce_players(t_vm_data *arena);
 
 /*
