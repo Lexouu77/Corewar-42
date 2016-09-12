@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 21:42:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 08:10:34 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/12 05:44:08 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void		live(t_vm_data *arena, t_proc *process)
 	{
 		if (player->number_of_player == tmp)
 		{
-			player->alive++; // if alive == 1 make sound
+			player->alive++;
 			player->period_live_number++;
 			player->cycle_of_last_live = arena->cycles;
 		}

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/10 03:19:28 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/03 16:12:37 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/12 05:45:08 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	display_process_waiting(t_proc *process, t_vm_data *arena)
 
 static void	display_error_process(t_proc *process, t_vm_data *arena)
 {
-//	process->pc++;
 	process->pc = (process->pc + 1) % arena->mem_size;
 	process->is_waiting = 0;
 	if ((arena->verbosity & 16) == 16)
@@ -57,7 +56,8 @@ void		check_instruction_from_proc(t_vm_data *arena)
 		while (process)
 		{
 			if (process->pc > arena->mem_size || process->pc < 0)
-				ft_printf_fd(arena->fd, "ERROR! pc : %d-%d\n", process->pc, arena->mem_size);
+				ft_printf_fd(arena->fd, "ERROR! pc : %d-%d\n", process->pc,
+					arena->mem_size);
 			if (arena->field[process->pc] > 0 &&
 					arena->field[process->pc] <= 16)
 				display_process_waiting(process, arena);

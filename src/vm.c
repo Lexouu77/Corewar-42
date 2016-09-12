@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 00:56:32 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/12 04:37:33 by adjivas          ###   ########.fr       */
+/*   Updated: 2016/09/12 05:40:28 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 
 #include "vm.h"
 
-extern int32_t core_init(void);
-
-void                    ft_signal_handler(int sig)
+void				ft_signal_handler(int sig)
 {
-	    if (sig == SIGTSTP)
-			        sleep(5);
+	if (sig == SIGTSTP)
+		sleep(5);
 }
 
 int					main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 22:30:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/12 05:00:28 by adjivas          ###   ########.fr       */
+/*   Updated: 2016/09/12 05:39:46 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "ft_printf.h"
 # include "op.h"
 # include "vm_struct.h"
-
 # include <sys/wait.h>
 
 extern t_op g_op_tab[];
@@ -147,5 +146,11 @@ int			is_file_valid(char *file);
 
 void		delete_invalid_players(t_vm_data *arena);
 void		free_arena(t_vm_data *arena);
+
+/*
+** EXTERN
+*/
+
+extern int32_t	core_init(void);
 
 #endif
