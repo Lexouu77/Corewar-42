@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/05 00:56:32 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/12 05:40:28 by adjivas          ###   ########.fr       */
+/*   Updated: 2016/09/13 17:41:23 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int					main(int argc, char **argv)
 			open("Corewar.log", O_WRONLY | O_CREAT | O_TRUNC, 0644)) == -1)
 			ft_error("Couldn't create the log file.\n");
 		signal(SIGTSTP, ft_signal_handler);
-		core_init();
+		if (arena->graph == 1)
+			core_init();
 		play(arena);
 		display_winner(arena);
 		free_arena(arena);

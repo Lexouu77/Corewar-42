@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/13 16:51:23 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/13 17:28:10 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ ifeq ($(CC),gcc)
 endif
 
 NAME = corewar
-NJAP = $(NAME)
+NJAP = "$(NAME)_jap"
 DIRC := src
 FLAG := $(LDFLAGS) -Wall -Wextra -Werror -O3
 SRCA := ./libftprintf/libftprintf.a
@@ -100,7 +100,7 @@ LSTC := $(patsubst %,$(DIRC)/%,$(SRCS))
 OBJO := $(LSTC:.c=.o)
 
 .PHONY: default version all clean fclean re example
-.SILENT: clean fclean version example
+.SILENT: clean fclean version example all all_jap
 
 default: all
 
@@ -108,6 +108,7 @@ version:
 	$(CC) --version
 
 all: $(NAME)
+	echo compiled without jap feature
 
 $(NAME): $(OBJO)
 	make -C libcoretermion build
@@ -115,6 +116,7 @@ $(NAME): $(OBJO)
 	$(CC) $(FLAG) $^ -o $@ $(SRCA) -lcurses -framework OpenAL
 
 all_jap: $(NJAP)
+	echo compiled with jap feature
 
 $(NJAP): $(OBJO)
 	make -C libcoretermion build_jap
@@ -133,17 +135,16 @@ clean:
 fclean:
 	make -C libcoretermion fclean
 	make -C libftprintf fclean
-	/bin/rm -rfv $(OBJO)
-	/bin/rm -rfv $(NAME)
+	/bin/rm -rfv $(OBJO) || true
+	/bin/rm -rfv $(NAME) || true
+	/bin/rm -rfv $(NJAP) || true
 
 re:
-	/bin/rm -rfv $(OBJO)
-	/bin/rm -rfv $(NAME)
-	make -C libftprintf
+	/bin/rm -rfv $(OBJO) || true
+	/bin/rm -rfv $(NAME) || true
 	make -C . all
 
 re_jap:
-	/bin/rm -rfv $(OBJO)
-	/bin/rm -rfv $(NAME)
-	make -C libftprintf
+	/bin/rm -rfv $(OBJO) || true
+	/bin/rm -rfv $(NJAP) || true
 	make -C . all_jap
