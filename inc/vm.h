@@ -6,13 +6,13 @@
 /*   By: adjivas <adjivas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/13 16:11:26 by adjivas           #+#    #+#             */
-/*   Updated: 2016/09/13 16:13:17 by adjivas          ###   ########.fr       */
+/*   Updated: 2016/09/13 18:11:21 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VM_H
 # define VM_H
-# include "./libftprintf/ft_printf.h"
+# include "ft_printf.h"
 # include "op.h"
 # include "vm_extern.h"
 # include "vm_struct.h"
