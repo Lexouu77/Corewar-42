@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 17:32:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/12 18:59:18 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/13 16:21:38 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,14 @@ static void		init_list(t_vm_data *arena)
 
 static void		loop_process(t_vm_data *arena)
 {
-	t_proc *process;
+	int		i;
+	t_proc	*process;
 
+	i = -1;
+	while (++i < arena->mem_size)
+		arena->fresh_field[i] =
+			arena->fresh_field[i] == 0 ? 0 : arena->fresh_field[i] - 1;
+	arena->cycles++;
 	process = arena->last_process;
 	if ((arena->verbosity & 2) == 2)
 		ft_printf_fd(arena->fd, "We're now in the cycle number : %d\n",
@@ -84,19 +90,12 @@ static void		loop_process(t_vm_data *arena)
 
 void			play(t_vm_data *arena)
 {
-	int		i;
-
 	set_players_in_game(arena);
 	init_list(arena);
 	if (arena->loop_dump)
 		dump_and_wait(arena);
 	while (1)
 	{
-		i = -1;
-		while (++i < arena->mem_size)
-			arena->fresh_field[i] =
-				arena->fresh_field[i] == 0 ? 0 : arena->fresh_field[i] - 1;
-		arena->cycles++;
 		loop_process(arena);
 		refresh_field(arena);
 		if (arena->dump && arena->cycles % arena->cycles_to_dump == 0)
