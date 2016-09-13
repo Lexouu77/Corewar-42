@@ -6,7 +6,7 @@
 /*   By: adjivas <adjivas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 03:22:18 by adjivas           #+#    #+#             */
-/*   Updated: 2016/09/13 16:15:49 by adjivas          ###   ########.fr       */
+/*   Updated: 2016/09/13 16:24:23 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ int32_t	core_display_info(t_vm_data *arena)
 	ft_printf("%s[Next Check : %d]", "\x1B[5;75H", arena->next_cycle_check);
 	ft_printf(" [CYCLE %C : %d]", 916, arena->cycle_delta);
 	ft_printf("%s[MAX_CHECKS : %d]", "\x1B[6;75H", MAX_CHECKS);
-	ft_printf("\x1B[0;0H");
 	return (0);
 }

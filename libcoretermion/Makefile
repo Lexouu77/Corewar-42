@@ -7,6 +7,9 @@ default: build
 build:
 	cargo build --verbose && ln -svf ./target/debug/$(NAME) $(NAME) ;
 
+build_jap:
+	cargo build --features jap --verbose && ln -svf ./target/debug/$(NAME) $(NAME) ;
+
 clean:
 	cargo clean ;
 

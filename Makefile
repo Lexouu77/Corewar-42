@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/13 15:25:19 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/13 16:51:23 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ ifeq ($(CC),gcc)
 endif
 
 NAME = corewar
+NJAP = $(NAME)
 DIRC := src
 FLAG := $(LDFLAGS) -Wall -Wextra -Werror -O3
 SRCA := ./libftprintf/libftprintf.a
@@ -109,9 +110,17 @@ version:
 all: $(NAME)
 
 $(NAME): $(OBJO)
-	make -C libcoretermion
+	make -C libcoretermion build
 	make -C libftprintf
 	$(CC) $(FLAG) $^ -o $@ $(SRCA) -lcurses -framework OpenAL
+
+all_jap: $(NJAP)
+
+$(NJAP): $(OBJO)
+	make -C libcoretermion build_jap
+	make -C libftprintf
+	$(CC) $(FLAG) $^ -o $@ $(SRCA) -lcurses -framework OpenAL
+
 
 %.o: %.c
 	$(CC) $(FLAG) -c $< -o $@ $(INDS)
@@ -130,6 +139,11 @@ fclean:
 re:
 	/bin/rm -rfv $(OBJO)
 	/bin/rm -rfv $(NAME)
-	make -C libcoretermion
 	make -C libftprintf
-	make -C .
+	make -C . all
+
+re_jap:
+	/bin/rm -rfv $(OBJO)
+	/bin/rm -rfv $(NAME)
+	make -C libftprintf
+	make -C . all_jap
