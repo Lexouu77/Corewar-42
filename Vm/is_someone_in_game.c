@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 23:12:38 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/12 18:50:11 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/13 16:43:55 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static	t_proc	*kill_last_process(t_proc *process, t_vm_data *arena)
 	return (NULL);
 }
 
-static t_proc *reset_and_go_to_next_process(t_proc *process)
+static t_proc	*reset_and_go_to_next_process(t_proc *process)
 {
 	process->lives = 0;
 	return (process->next);
