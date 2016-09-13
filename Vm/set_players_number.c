@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/07 09:26:39 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/12 19:51:31 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/13 15:01:03 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void		set_players_number(t_vm_data *arena)
 	players = arena->players;
 	while (players)
 	{
-		players->validity = 1;
 		if (players->desired_number != -1 &&
 				is_number_available(players->desired_number, arena))
 			players->number_of_player = players->desired_number;

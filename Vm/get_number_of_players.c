@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/07 06:28:34 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/12 19:51:37 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/13 15:11:23 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void		get_number_of_players(t_vm_data *arena)
 	players = arena->players;
 	while (players)
 	{
+		players->validity = 1;
 		arena->number_of_valid_player++;
 		players = players->next;
 	}
