@@ -24,7 +24,6 @@ cache:
 
 os:
   - linux
-  - osx
 
 script:
   - cargo build --verbose
