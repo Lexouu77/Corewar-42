@@ -6,7 +6,6 @@ compiler:
   - clang
 
 os:
-  - linux
   - osx
 
 env:
