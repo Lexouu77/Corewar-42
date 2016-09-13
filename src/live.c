@@ -6,13 +6,14 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/11 21:42:08 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/12 05:44:08 by adjivas          ###   ########.fr       */
+/*   Updated: 2016/09/12 17:05:14 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-static void	display_live(t_proc *process, int number, t_vm_data *arena)
+static void	display_live(t_proc *process, int number, t_vm_data *arena,
+		char *name)
 {
 	if ((arena->verbosity & 8) == 8)
 	{
@@ -21,7 +22,7 @@ static void	display_live(t_proc *process, int number, t_vm_data *arena)
 		ft_printf_fd(arena->fd, " owned by player number : %d",
 				process->father->number_of_player);
 		ft_printf_fd(arena->fd, " says that the player number : %d", number);
-		ft_printf_fd(arena->fd, " is alive!\n");
+		ft_printf_fd(arena->fd, " (%s) is alive!\n", name);
 	}
 }
 
@@ -46,7 +47,6 @@ void		live(t_vm_data *arena, t_proc *process)
 	tmp = get_param_value(arena, process->pc + 1, get_n_param_size(arena, 1));
 	tmp = -tmp;
 	move_pc_without_format(arena, process);
-	display_live(process, tmp, arena);
 	process->lives++;
 	if (tmp > MAX_PLAYERS || tmp < 1)
 		return ;
@@ -58,6 +58,7 @@ void		live(t_vm_data *arena, t_proc *process)
 			player->alive++;
 			player->period_live_number++;
 			player->cycle_of_last_live = arena->cycles;
+			display_live(process, tmp, arena, player->name);
 		}
 		player = player->next;
 	}

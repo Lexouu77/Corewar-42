@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 22:09:58 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 08:07:58 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/08 16:16:36 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static void	display_sti_instruction(t_proc *process, t_vm_data *arena, int i)
 {
-	process->carry = i;
+	if (!i)
+		move_pc_from_format(arena, process);
 	if ((arena->verbosity & 8) != 8)
 		return ;
 	ft_printf_fd(arena->fd, "Process number : %d",
@@ -28,7 +29,6 @@ static void	display_sti_instruction(t_proc *process, t_vm_data *arena, int i)
 	{
 		ft_printf_fd(arena->fd,
 				" And it failed (Reason : invalid register number) !\n");
-		process->carry = 0;
 	}
 }
 
@@ -41,7 +41,7 @@ void		store_index(t_vm_data *arena, t_proc *process)
 
 	error = 0;
 	reg = get_n_reg_param_value(arena, process, 1, &error);
-	tmp = get_n_param_value(arena, process, 2, &error);
+	tmp = (short)get_n_param_value(arena, process, 2, &error);
 	tmp_two = get_n_param_value(arena, process, 3, &error);
 	if (error)
 		return (display_sti_instruction(process, arena, 0));

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 06:07:01 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 08:15:30 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/06 11:36:04 by justasze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	display_lld_instruction(t_proc *process, t_vm_data *arena, int i)
 {
-	process->carry = i;
 	if ((arena->verbosity & 8) != 8)
 		return ;
 	ft_printf_fd(arena->fd, "Process number : %d",
@@ -50,6 +49,6 @@ void		long_load(t_vm_data *arena, t_proc *process)
 		process->carry = 0;
 	else
 		process->carry = 1;
-	if ((arena->verbosity & 8) != 8)
+	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, "It stocked %d in reg %d\n", tmp, reg);
 }

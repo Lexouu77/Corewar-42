@@ -100,7 +100,9 @@ pub extern fn core_end() -> i32 {
 
 #[no_mangle]
 pub extern fn core_idle(
-  (p_fields, p_colors, p_procs): (*const libc::c_int, *const libc::c_int, *const libc::c_int),
+  p_fields: *const libc::c_int,
+  p_colors: *const libc::c_int,
+  p_procs: *const libc::c_int,
 ) -> i32 {
   let mut stdout: io::Stdout = io::stdout();
 

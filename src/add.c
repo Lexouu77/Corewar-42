@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 12:19:40 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 06:23:37 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/12 16:51:45 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	display_add_instruction(t_proc *process, t_vm_data *arena, int i)
 {
-	process->carry = i;
 	if ((arena->verbosity & 8) != 8)
 		return ;
 	ft_printf_fd(arena->fd, "Process number : %d",
@@ -46,10 +45,12 @@ void		add(t_vm_data *arena, t_proc *process)
 	display_add_instruction(process, arena, 1);
 	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, "It stocked r%d (%d) + r%d (%d) in r%d!\n",
-		reg - 1, process->reg[reg - 1], reg_two - 1, process->reg[reg_two - 1],
-		reg_three - 1);
+		reg, process->reg[reg - 1], reg_two, process->reg[reg_two - 1],
+		reg_three);
 	process->reg[reg_three - 1] = process->reg[reg - 1] +
 		process->reg[reg_two - 1];
 	if (process->reg[reg_three - 1] == 0)
 		process->carry = 0;
+	else
+		process->carry = 1;
 }

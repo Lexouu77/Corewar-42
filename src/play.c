@@ -6,33 +6,79 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 17:32:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/12 06:14:33 by adjivas          ###   ########.fr       */
+/*   Updated: 2016/09/13 16:10:36 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
-#include <sys/ioctl.h>
 
 static void		refresh_field(t_vm_data *arena)
 {
-	t_player	*player;
 	t_proc		*process;
 	int			i;
 
 	i = -1;
 	while (++i < arena->mem_size)
 		arena->process_field[i] = 0;
+	process = arena->last_process;
+	while (process)
+	{
+		arena->process_field[process->pc % arena->mem_size] =
+			process->owner;
+		process = process->prev;
+	}
+}
+
+static void		add_process_to_list(t_vm_data *arena, t_proc *to_add)
+{
+	t_proc	*process;
+
+	if (!arena->process)
+	{
+		arena->process = to_add;
+		arena->process->prev = NULL;
+		arena->process->next = NULL;
+		arena->last_process = to_add;
+		return ;
+	}
+	process = arena->process;
+	while (process && process->next)
+		process = process->next;
+	process->next = to_add;
+	to_add->prev = process;
+	to_add->next = NULL;
+	arena->last_process = to_add;
+}
+
+static void		init_list(t_vm_data *arena)
+{
+	t_player	*player;
+
+	arena->number_of_process = 0;
 	player = arena->players;
 	while (player)
 	{
-		process = player->process;
-		while (process)
-		{
-			arena->process_field[process->pc % arena->mem_size] =
-				process->owner;
-			process = process->next;
-		}
+		add_process_to_list(arena, player->process);
+		arena->number_of_process++;
 		player = player->next;
+	}
+}
+
+static void		loop_process(t_vm_data *arena)
+{
+	t_proc *process;
+
+	process = arena->last_process;
+	if ((arena->verbosity & 2) == 2)
+		ft_printf_fd(arena->fd, "We're now in the cycle number : %d\n",
+				arena->cycles);
+	while (process)
+	{
+		increment_waiting_time(arena, process);
+		check_instruction_from_proc(arena, process);
+		arena->format = arena->field[((process->pc + 1) % arena->mem_size)];
+		execute_instruction(arena, process);
+		process = process->prev;
 	}
 }
 
@@ -40,24 +86,20 @@ void			play(t_vm_data *arena)
 {
 	int		i;
 
-	core_start(arena->players->number_of_player);
-	display_info_player(arena);
 	set_players_in_game(arena);
-	while (1)
+	init_list(arena);
+	if (!core_start(arena->players->number_of_player) && arena->loop_dump)
+		dump_and_wait(arena);
+	core_display_info_player(arena);
+	while (!core_idle(arena->field, arena->color_field, arena->process_field))
 	{
-		display_info(arena);
-		core_idle((int32_t *[3]) {
-			arena->field,
-			arena->color_field,
-			arena->process_field
-		});
+		core_display_info(arena);
 		i = -1;
 		while (++i < arena->mem_size)
-			arena->fresh_field[i] = 0;
+			arena->fresh_field[i] =
+				arena->fresh_field[i] == 0 ? 0 : arena->fresh_field[i] - 1;
 		arena->cycles++;
-		increment_waiting_time(arena);
-		check_instruction_from_proc(arena);
-		execute_instruction(arena);
+		loop_process(arena);
 		refresh_field(arena);
 		if (arena->dump && arena->cycles % arena->cycles_to_dump == 0)
 			dump(arena);

@@ -6,7 +6,7 @@
 /*   By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/29 14:26:25 by ahamouda          #+#    #+#             */
-/*   Updated: 2016/09/02 06:08:26 by ahamouda         ###   ########.fr       */
+/*   Updated: 2016/09/07 17:46:22 by ahamouda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	display_or_instruction(t_proc *process, t_vm_data *arena, int i)
 {
-	process->carry = i;
 	if ((arena->verbosity & 8) != 8)
 		return ;
 	ft_printf_fd(arena->fd, "Process number : %d",
@@ -46,7 +45,7 @@ void		do_or(t_vm_data *arena, t_proc *process)
 	display_or_instruction(process, arena, 1);
 	if ((arena->verbosity & 8) == 8)
 		ft_printf_fd(arena->fd, "It stocked [%d] | [%d] in r%d!\n",
-				var, var_two, reg - 1);
+				var, var_two, reg);
 	process->reg[reg - 1] = var | var_two;
 	if (process->reg[reg - 1] == 0)
 		process->carry = 0;

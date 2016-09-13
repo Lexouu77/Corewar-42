@@ -6,13 +6,13 @@
 /*   By: adjivas <adjivas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 03:22:18 by adjivas           #+#    #+#             */
-/*   Updated: 2016/09/12 05:08:22 by adjivas          ###   ########.fr       */
+/*   Updated: 2016/09/13 16:15:49 by adjivas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void	display_info_player(t_vm_data *arena)
+int32_t	core_display_info_player(t_vm_data *arena)
 {
 	t_player *player;
 
@@ -25,16 +25,18 @@ void	display_info_player(t_vm_data *arena)
 			ft_printf(" · ");
 	}
 	ft_printf(".");
+	return (0);
 }
 
-void	display_info(t_vm_data *arena)
+int32_t	core_display_info(t_vm_data *arena)
 {
 	ft_printf("%s[Cycles : %d]", "\x1B[3;75H", arena->cycles);
-	ft_printf(" [Cycle speed : %d/9166]", arena->cycles_to_loop_dump);
+	ft_printf(" [NBR_LIVE : %d]", NBR_LIVE);
 	ft_printf("%s[Nbr Players : %d]", "\x1B[4;75H", arena->number_of_players);
 	ft_printf(" [Period number : %d]", arena->number_of_checks);
 	ft_printf("%s[Next Check : %d]", "\x1B[5;75H", arena->next_cycle_check);
 	ft_printf(" [CYCLE %C : %d]", 916, arena->cycle_delta);
 	ft_printf("%s[MAX_CHECKS : %d]", "\x1B[6;75H", MAX_CHECKS);
-	ft_printf(" [NBR_LIVE : %d]", NBR_LIVE);
+	ft_printf("\x1B[0;0H");
+	return (0);
 }

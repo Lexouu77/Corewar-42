@@ -6,7 +6,7 @@
 #    By: ahamouda <ahamouda@student.42.fr>          +#+  +:+       +#+         #
 #        adjivas <adjivas@student.42.fr>          +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/27 01:48:43 by ahamouda          #+#    #+#              #
-#    Updated: 2016/09/12 03:27:13 by adjivas          ###   ########.fr        #
+#    Updated: 2016/09/13 15:25:19 by adjivas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,18 +33,20 @@ SRCS += check_players_validity.c
 SRCS += check_reg_number.c
 SRCS += create_new_player.c
 SRCS += delete_invalid_players.c
+SRCS += display_core.c
 SRCS += display_error.c
 SRCS += display_field.c
+SRCS += display_info.c
 SRCS += display_usage.c
 SRCS += display_warning.c
 SRCS += display_winner.c
-SRCS += display_core.c
 SRCS += do_fork.c
 SRCS += dump.c
 SRCS += dump_and_wait.c
 SRCS += execute_instruction.c
 SRCS += fill_field.c
 SRCS += free_arena.c
+SRCS += get_display_info.c
 SRCS += get_instruction_parameter_size.c
 SRCS += get_n_param_size.c
 SRCS += get_n_param_value.c
@@ -69,6 +71,7 @@ SRCS += load_index.c
 SRCS += long_fork.c
 SRCS += long_load.c
 SRCS += long_load_index.c
+SRCS += manage_keys.c
 SRCS += move_pc_from_format.c
 SRCS += move_pc_without_format.c
 SRCS += op.c
@@ -108,7 +111,7 @@ all: $(NAME)
 $(NAME): $(OBJO)
 	make -C libcoretermion
 	make -C libftprintf
-	$(CC) $(FLAG) $^ -o $@ $(SRCA) -framework OpenAL
+	$(CC) $(FLAG) $^ -o $@ $(SRCA) -lcurses -framework OpenAL
 
 %.o: %.c
 	$(CC) $(FLAG) -c $< -o $@ $(INDS)
